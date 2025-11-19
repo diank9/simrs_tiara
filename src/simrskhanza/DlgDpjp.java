@@ -58,7 +58,7 @@ public class DlgDpjp extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
 
-        Object[] row={"P","Tgl.Rawat","No.Rawat","No.R.M.","Nama Pasien","Kode Dokter","Nama Dokter","Status DPJP"};
+        Object[] row={"P","Tgl.Rawat","No.Rawat","No.R.M.","Nama Pasien","Kode Dokter","Nama Dokter"};
         TabModePasien=new DefaultTableModel(null,row){
             @Override public boolean isCellEditable(int rowIndex, int colIndex){
                 boolean a = false;
@@ -82,7 +82,7 @@ public class DlgDpjp extends javax.swing.JDialog {
         tbPasien.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbPasien.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 8; i++) {
+        for (i = 0; i < 7; i++) {
             TableColumn column = tbPasien.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(20);
@@ -98,8 +98,6 @@ public class DlgDpjp extends javax.swing.JDialog {
                 column.setPreferredWidth(90);
             }else if(i==6){
                 column.setPreferredWidth(200);
-            }else if(i==7){
-                column.setPreferredWidth(25);
             }
         }
         tbPasien.setDefaultRenderer(Object.class, new WarnaTable());
@@ -706,11 +704,11 @@ public class DlgDpjp extends javax.swing.JDialog {
         }else{    
             for(i=0;i<tbDiagnosa.getRowCount();i++){ 
                 if(tbDiagnosa.getValueAt(i,0).toString().equals("true")){
-                    if(Sequel.menyimpantf("dpjp_ranap","?,?,?","Dokter",3,new String[]{
+                    if(Sequel.menyimpantf("dpjp_ranap","?,?","Dokter",2,new String[]{
                             TNoRw.getText(),tbDiagnosa.getValueAt(i,1).toString()
                         })==true){
                         TabModePasien.addRow(new Object[]{
-                            false,Tanggal.getText(),TNoRw.getText(),TNoRM.getText(),TPasien.getText(),tbDiagnosa.getValueAt(i,1).toString(),CMbSttsDPJP.getSelectedItem().toString()
+                            false,Tanggal.getText(),TNoRw.getText(),TNoRM.getText(),TPasien.getText(),tbDiagnosa.getValueAt(i,1).toString(),tbDiagnosa.getValueAt(i,2).toString()
                         });
                         tbDiagnosa.setValueAt(false,i,0);
                     }
@@ -1048,7 +1046,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         Valid.tabelKosong(TabModePasien);
         try{            
             ps2=koneksi.prepareStatement("select reg_periksa.tgl_registrasi,dpjp_ranap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                    "dpjp_ranap.kd_dokter,dpjp_ranap.statusdpjp,dokter.nm_dokter from dpjp_ranap inner join reg_periksa inner join pasien inner join dokter "+
+                    "dpjp_ranap.kd_dokter,dokter.nm_dokter from dpjp_ranap inner join reg_periksa inner join pasien inner join dokter "+
                     "on dpjp_ranap.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "and dpjp_ranap.kd_dokter=dokter.kd_dokter "+
                     "where reg_periksa.tgl_registrasi between ? and ? and reg_periksa.no_rkm_medis like ? and reg_periksa.tgl_registrasi like ? or "+

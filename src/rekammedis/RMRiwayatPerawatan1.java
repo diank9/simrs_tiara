@@ -3288,7 +3288,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 tampilPerawatan();
                 File g = new File("file.css");
                 BufferedWriter bg = new BufferedWriter(new FileWriter(g));
-                bg.write(".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}.isi a{text-decoration:none;color:#8b9b95;padding:0 0 0 0px;font-family: Tahoma;font-size: 8.5px;border: white;}");
+                bg.write(".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}.isi a{text-decoration:none;color:#8b9b95;padding:0 0 0 0px;font-family: Tahoma;font-size: 8.5px;border: white;}.isi_sep td{border-right: 0px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 0px solid #e2e7dd;background: #ffffff;color:#323232;}");
                 bg.close();
 
                 PdfWriter pdf = new PdfWriter("RPP" + NoRawat.getText().trim().replaceAll("/", "") + ".pdf");
@@ -3382,7 +3382,11 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 Desktop.getDesktop().browse(f.toURI());
             } catch (Exception e) {
                 System.out.println("Notifikasi : " + e);
+<<<<<<< HEAD
             }
+=======
+            }  
+>>>>>>> 342040c1 (Tambahan QR Code SEP)
         }
     }//GEN-LAST:event_MnGeneratePDFActionPerformed
 
@@ -31466,6 +31470,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                         "<td valign='top' width='79%'>").append(
                                         "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
                                 );
+<<<<<<< HEAD
                         do {
                             String cetakan = Sequel.cariIsi(
                                     "SELECT CONCAT('Cetakan Ke 1 :(',DATE_FORMAT(tgl_registrasi,'%d-%m-%Y'),' ',jam_reg,')') "
@@ -31562,6 +31567,134 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<tr><td width='0px'>Cetakan Ke 1 " + Sequel.cariIsi("SELECT CONCAT(DATE_FORMAT(tgl_registrasi,'%d-%m-%Y'),' ',jam_reg) FROM reg_periksa WHERE no_rawat=?", norawat) + "</td></tr>").append(
                                     "</tr>").append(
                                             "</table>").append(
+=======
+
+                        do {
+                            // Generate QR Code
+                            get = new GetMethod("http://" + koneksiDB.HOSTHYBRIDWEB() + ":" + koneksiDB.PORTWEB() + "/" + koneksiDB.HYBRIDWEB() + "/penggajian/generateqrcodesep.php?no_kartu=" + rs2.getString("no_kartu").replace(" ", "_"));
+                            http.executeMethod(get);
+
+                            htmlContent.append(
+                                    "<tr border='0' class='isi_sep'>").append(
+                                            "<td valign='top' border='0'>").append(
+                                            // Header dengan logo dan judul
+                                            "<table width='100%' align='center' cellpadding='3px' cellspacing='0px' border='0' class='tbl_form'>").append(
+                                            "<tr>"
+                                            + "<td width='15%' align='left' border='0'><img src='logobpjs.png' width='80'></td>"
+                                            + "<td align='center' border='0'>"
+                                            + "<div style='font-size:14pt; font-weight:bold;' border='0'>SURAT ELEGIBILITAS PESERTA</div>"
+                                            + "<div style='font-size:12pt;' border='0'>RS TIARA BEKASI</div>"
+                                            + "</td>"
+                                            + "</tr>").append(
+                                            "</table>").append(
+                                            // Tabel data SEP dengan layout 2 kolom
+                                            "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
+                                            // Baris 1: No. SEP (full width)
+                                            "<tr>"
+                                            + "<td width='20%' border='0'>No. SEP</td>"
+                                            + "<td width='1%' border='0'>:</td>"
+                                            + "<td width='79%' border='0' colspan='5'>").append(rs2.getString("no_sep")).append("</td>"
+                                    + "</tr>").append(
+                                            // Baris 2: Tgl. SEP | Peserta
+                                            "<tr>"
+                                            + "<td width='20%' border='0'>Tgl. SEP</td>"
+                                            + "<td width='1%' border='0'>:</td>"
+                                            + "<td width='29%' border='0'>").append(rs2.getString("tglsep")).append("</td>"
+                                    + "<td width='20%' border='0'>Peserta</td>"
+                                    + "<td width='1%' border='0'>:</td>"
+                                    + "<td width='29%' border='0'>").append(rs2.getString("peserta")).append("</td>"
+                                    + "</tr>").append(
+                                            // Baris 3: No. Kartu | Jns. Rawat
+                                            "<tr>"
+                                            + "<td width='20%' border='0'>No. Kartu</td>"
+                                            + "<td width='1%' border='0'>:</td>"
+                                            + "<td width='29%' border='0'>").append(rs2.getString("no_kartu")).append("</td>"
+                                    + "<td width='20%' border='0'>Jns. Rawat</td>"
+                                    + "<td width='1%' border='0'>:</td>"
+                                    + "<td width='29%' border='0'>").append(rs2.getString("jnspelayanan")).append("</td>"
+                                    + "</tr>").append(
+                                            // Baris 4: Nama Peserta | Jns. Kunjungan
+                                            "<tr>"
+                                            + "<td width='20%' border='0'>Nama Peserta</td>"
+                                            + "<td width='1%' border='0'>:</td>"
+                                            + "<td width='29%' border='0'>").append(rs2.getString("nama_pasien")).append("</td>"
+                                    + "<td width='20%' border='0'>Jns. Kunjungan</td>"
+                                    + "<td width='1%' border='0'>:</td>"
+                                    + "<td width='29%' border='0'>").append(rs2.getString("tujuankunjungan")).append("</td>"
+                                    + "</tr>").append(
+                                            // Baris 5: Tgl. Lahir | Kls. Hak
+                                            "<tr>"
+                                            + "<td width='20%' border='0'>Tgl. Lahir</td>"
+                                            + "<td width='1%' border='0'>:</td>"
+                                            + "<td width='29%' border='0'>").append(rs2.getString("tanggal_lahir")).append("</td>"
+                                    + "<td width='20%' border='0'>Kls. Hak</td>"
+                                    + "<td width='1%' border='0'>:</td>"
+                                    + "<td width='29%' border='0'>").append(rs2.getString("klsrawat")).append("</td>"
+                                    + "</tr>").append(
+                                            // Baris 6: No. Telepon | Poli Perujuk
+                                            "<tr>"
+                                            + "<td width='20%' border='0'>No. Telepon</td>"
+                                            + "<td width='1%' border='0'>:</td>"
+                                            + "<td width='29%' border='0'>").append(rs2.getString("notelep")).append("</td>"
+                                    + "<td width='20%' border='0'>Poli Perujuk</td>"
+                                    + "<td width='1%' border='0'>:</td>"
+                                    + "<td width='29%' border='0'>-</td>"
+                                    + "</tr>").append(
+                                            // Baris 7: Sub/Spesialis | Kls. Rawat
+                                            "<tr>"
+                                            + "<td width='20%' border='0'>Sub/Spesialis</td>"
+                                            + "<td width='1%' border='0'>:</td>"
+                                            + "<td width='29%' border='0'>").append(rs2.getString("nmpolitujuan")).append("</td>"
+                                    + "<td width='20%' border='0'>Kls. Rawat</td>"
+                                    + "<td width='1%' border='0'>:</td>"
+                                    + "<td width='29%' border='0'>").append(rs2.getString("klsrawat")).append("</td>"
+                                    + "</tr>").append(
+                                            // Baris 8: Dokter | Penjamin
+                                            "<tr>"
+                                            + "<td width='20%' border='0'>Dokter</td>"
+                                            + "<td width='1%' border='0'>:</td>"
+                                            + "<td width='29%' border='0'>").append(rs2.getString("nmdpjplayanan")).append("</td>"
+                                    + "<td width='20%' border='0'>Penjamin</td>"
+                                    + "<td width='1%' border='0'>:</td>"
+                                    + "<td width='29%' border='0'>").append(rs2.getString("pembiayaan")).append("</td>"
+                                    + "</tr>").append(
+                                            // Baris 9: Faskes Perujuk (full width kanan untuk QR)
+                                            "<tr>"
+                                            + "<td width='20%' border='0'>Faskes Perujuk</td>"
+                                            + "<td width='1%' border='0'>:</td>"
+                                            + "<td width='29%' border='0'>").append(rs2.getString("nmppkrujukan")).append("</td>"
+                                    + "</tr>").append(
+                                            // Baris 10: Diagnosa Awal
+                                            "<tr>"
+                                            + "<td width='20%' border='0'>Diagnosa Awal</td>"
+                                            + "<td width='1%' border='0'>:</td>"
+                                            + "<td width='29%' border='0'>").append(rs2.getString("diagnosa")).append("</td>"
+                                    + "<td width='50%' border='0' rowspan='6' colspan='3' valign='top' align='center'>Pasien/Keluarga Pasien<br>"
+//                                    + "<td width='29%' border='0' rowspan='6' align='center' valign='top'>"
+                                    + "<img width='90' height='90' src='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/penggajian/temp/").append(rs2.getString("no_kartu")).append(".png'/><br>").append(rs2.getString("nama_pasien")).append("<br></td>"
+                                    + "</tr>").append(
+                                            // Baris 11: Catatan
+                                            "<tr>"
+                                            + "<td width='20%' border='0'>Catatan</td>"
+                                            + "<td width='1%' border='0'>:</td>"
+                                            + "<td width='29%' border='0'>").append(rs2.getString("catatan")).append("</td>"
+                                    + "</tr>").append(
+                                            "</table>").append(
+                                            // Footer dengan disclaimer
+                                            "<table width='100%' align='center' cellpadding='3px' cellspacing='0px' border='0'>").append(
+                                            "<tr><td style='font-size:8pt;' border='0'>*Saya menyetujui BPJS Kesehatan menggunakan informasi Medis Pasien jika diperlukan :</td></tr>").append(
+                                            "<tr><td style='font-size:8pt;' border='0'>a.membuka dan atau menggunakan informasi medis pasien untuk keperluan administrasi, pembayaran asuransi atau</td></tr>").append(
+                                            "<tr><td style='font-size:8pt;' border='0'>  jaminan pembiayaan kesehatan</td></tr>").append(
+                                            "<tr><td style='font-size:8pt;' border='0'>b.memberikan akses informasi medis atau riwayat pelayanan kepada dokter/tenaga medis pada RS TIARA untuk</td></tr>").append(
+                                            "<tr><td style='font-size:8pt;' border='0'>  kepentingan pemeliharaan kesehatan, pengobatan, dan perawatan pasien</td></tr>").append(
+                                            "<tr><td style='font-size:8pt;' border='0'>*Saya mengetahui dan memahami :</td></tr>").append(
+                                            "<tr><td style='font-size:8pt;' border='0'>a.Rumah Sakit dapat melakukan koordinasi dengan PT. Jasa Raharja/PT. ASABRI/BPJS Ketenagakerjaan atau</td></tr>").append(
+                                            "<tr><td style='font-size:8pt;' border='0'>  Penjaminan lainnya, jika Peserta merupakan pasien yang mengalami kecelakaan lalu lintas dan/kecelakaan kerja</td></tr>").append(
+                                            "<tr><td style='font-size:8pt;' border='0'>b.SEP bukan sebagai bukti penjaminan peserta</td></tr>").append(
+                                            "<tr><td style='font-size:8pt;' border='0'>*SEP bukan sebagai bukti penjaminan peserta</td></tr>").append(
+                                            "<tr><td style='font-size:8pt;' border='0'>Cetakan Ke 1 " + Sequel.cariIsi("SELECT CONCAT(DATE_FORMAT(tgl_registrasi,'%d-%m-%Y'),' ',jam_reg) FROM reg_periksa WHERE no_rawat=?", norawat) + "</td></tr>").append(
+                                    "</table>").append(
+>>>>>>> 342040c1 (Tambahan QR Code SEP)
                                             "</td>").append(
                                             "</tr>"
                                     );
