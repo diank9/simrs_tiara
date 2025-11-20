@@ -2,3 +2,4 @@ mbproject/
 setting/
 dist/
 *.jar
+.gitignore

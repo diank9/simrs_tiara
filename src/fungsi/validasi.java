@@ -1602,4 +1602,72 @@ public final class validasi {
             System.out.println("Database error: " + e);
         }
     }
+
+    // Method khusus untuk generate PDF Triase dengan temporary table query
+    public void MyReportPDFUploadTriase(String reportName, String reportDirName,
+            String query, Map parameters, String FileName) {
+        Properties systemProp = System.getProperties();
+        String currentDir = systemProp.getProperty("user.dir");
+        File dir = new File(currentDir);
+        File fileRpt;
+        String fullPath = "";
+
+        // Cari lokasi file jasper report di struktur folder
+        if (dir.isDirectory()) {
+            String[] isiDir = dir.list();
+            for (String iDir : isiDir) {
+                fileRpt = new File(currentDir + File.separatorChar + iDir + File.separatorChar
+                        + reportDirName + File.separatorChar + reportName);
+                if (fileRpt.isFile()) {
+                    fullPath = fileRpt.toString();
+                    System.out.println("Found Triage Report File at : " + fullPath);
+                    break;
+                }
+            }
+        }
+
+        try {
+            try ( Statement stm = connect.createStatement()) {
+                try {
+                    // Pastikan folder tmpPDF ada, jika tidak buat baru
+                    File tmpPDFDir = new File(currentDir + File.separatorChar + "tmpPDF");
+                    if (!tmpPDFDir.exists()) {
+                        tmpPDFDir.mkdir();
+                        System.out.println("Folder tmpPDF created");
+                    }
+
+                    // Path lengkap untuk output PDF dan input jasper
+                    String outputPdfPath = tmpPDFDir + File.separator + FileName + ".pdf";
+                    String inputJasperPath = "./" + reportDirName + "/" + reportName;
+
+                    // Execute query ke temporary table
+                    ResultSet rs = stm.executeQuery(query);
+
+                    // Wrap ResultSet ke JRResultSetDataSource
+                    // Ini dibutuhkan karena JasperReports perlu data source dari temporary table
+                    net.sf.jasperreports.engine.JRResultSetDataSource jrRS
+                            = new net.sf.jasperreports.engine.JRResultSetDataSource(rs);
+
+                    // Fill report dengan data source dari ResultSet dan parameters
+                    JasperPrint jasperPrint = JasperFillManager.fillReport(inputJasperPath,
+                            parameters, jrRS);
+
+                    // Export ke file PDF
+                    JasperExportManager.exportReportToPdfFile(jasperPrint, outputPdfPath);
+
+                    System.out.println("Triage PDF created successfully: " + outputPdfPath);
+
+                    // Tutup ResultSet
+                    rs.close();
+                } catch (Exception rptexcpt) {
+                    System.out.println("Triage Report Can't create because : " + rptexcpt);
+                    rptexcpt.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Database error on Triage PDF: " + e);
+            e.printStackTrace();
+        }
+    }
+
 }

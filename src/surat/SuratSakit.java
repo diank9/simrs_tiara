@@ -717,6 +717,7 @@ public final class SuratSakit extends javax.swing.JDialog {
 }//GEN-LAST:event_TPasienKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
+        // Validasi input
         if (NoSurat.getText().trim().equals("")) {
             Valid.textKosong(NoSurat, "No.Surat Sakit");
         } else if (LamaSakit.getText().trim().equals("")) {
@@ -724,13 +725,49 @@ public final class SuratSakit extends javax.swing.JDialog {
         } else if (TNoRw.getText().trim().equals("") || TPasien.getText().trim().equals("")) {
             Valid.textKosong(TNoRw, "pasien");
         } else {
+            // Simpan data surat sakit ke database
             if (Sequel.menyimpantf("suratsakit", "?,?,?,?,?", "No.Surat Sakit", 5, new String[]{
-                NoSurat.getText(), TNoRw.getText(), Valid.SetTgl(TanggalAwal.getSelectedItem() + ""), Valid.SetTgl(TanggalAkhir.getSelectedItem() + ""), LamaSakit.getText()
+                NoSurat.getText(),
+                TNoRw.getText(),
+                Valid.SetTgl(TanggalAwal.getSelectedItem() + ""),
+                Valid.SetTgl(TanggalAkhir.getSelectedItem() + ""),
+                LamaSakit.getText()
             }) == true) {
+                // Tambahkan row ke tabel
                 tabMode.addRow(new Object[]{
-                    NoSurat.getText(), TNoRw.getText(), TNoRM.getText(), TPasien.getText(), Valid.SetTgl(TanggalAwal.getSelectedItem() + ""), Valid.SetTgl(TanggalAkhir.getSelectedItem() + ""), LamaSakit.getText()
+                    NoSurat.getText(),
+                    TNoRw.getText(),
+                    TNoRM.getText(),
+                    TPasien.getText(),
+                    Valid.SetTgl(TanggalAwal.getSelectedItem() + ""),
+                    Valid.SetTgl(TanggalAkhir.getSelectedItem() + ""),
+                    LamaSakit.getText()
                 });
                 LCount.setText("" + tabMode.getRowCount());
+
+                // TAMBAHAN: Auto generate dan upload JPG ke berkas digital
+                try {
+                    // Generate timestamp
+                    String timestamp = new java.text.SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
+
+                    // Generate nama file: SuratSakit_NoRawat_timestamp
+                    FileName = "SuratSakit_" + TNoRw.getText().replaceAll("/", "") + "_" + timestamp;
+
+                    // Proses: 1.Create PDF, 2.Convert ke JPG, 3.Upload JPG, 4.Hapus temporary
+                    CreatePDFSuratSakit(FileName);
+                    ConvertPDFtoJPG(FileName);
+                    UploadJPGSuratSakitSilent(FileName, "berkasrawat/pages/upload/");
+                    HapusPDF();
+
+                    System.out.println("Surat sakit berhasil disimpan dan diupload ke berkas digital: " + FileName);
+
+                } catch (Exception e) {
+                    System.out.println("Warning: Gagal upload ke berkas digital: " + e.getMessage());
+                    // Tidak perlu tampilkan error ke user, karena data sudah tersimpan
+                    e.printStackTrace();
+                }
+
+                // Kosongkan form setelah simpan
                 emptTeks();
             }
         }
@@ -1130,55 +1167,55 @@ public final class SuratSakit extends javax.swing.JDialog {
 
     private void MnSuratSakitPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSuratSakitPDFActionPerformed
         // Validasi apakah pasien sudah dipilih
-    if (TPasien.getText().trim().equals("")) {
-        JOptionPane.showMessageDialog(null, "Maaf, Silahkan anda pilih dulu pasien...!!!");
-        return;
-    }
-    
-    // Validasi apakah data surat sakit sudah lengkap
-    if (NoSurat.getText().trim().equals("") || LamaSakit.getText().trim().equals("")) {
-        JOptionPane.showMessageDialog(null, "Maaf, Data surat sakit belum lengkap...!!!");
-        return;
-    }
-    
-    // Generate timestamp saat tombol diklik (format: HH.mm.ss)
-    String timestamp = new java.text.SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
-    
-    // Generate nama file: SuratSakit_NoRawat_timestamp
-    // Contoh: SuratSakit_20251120000001_143025.pdf (jam 14:30:25)
-    FileName = "SuratSakit_" + TNoRw.getText().replaceAll("/", "") + "_" + timestamp;
-    
-    // Proses: 1.Create PDF, 2.Upload ke server, 3.Hapus temporary
-    CreatePDFSuratSakit(FileName);
-    UploadPDFSuratSakit(FileName, "berkasrawat/pages/upload/");
-    HapusPDF();
+        if (TPasien.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Maaf, Silahkan anda pilih dulu pasien...!!!");
+            return;
+        }
+
+        // Validasi apakah data surat sakit sudah lengkap
+        if (NoSurat.getText().trim().equals("") || LamaSakit.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Maaf, Data surat sakit belum lengkap...!!!");
+            return;
+        }
+
+        // Generate timestamp saat tombol diklik (format: HH.mm.ss)
+        String timestamp = new java.text.SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
+
+        // Generate nama file: SuratSakit_NoRawat_timestamp
+        // Contoh: SuratSakit_20251120000001_143025.pdf (jam 14:30:25)
+        FileName = "SuratSakit_" + TNoRw.getText().replaceAll("/", "") + "_at_" + timestamp;
+
+        // Proses: 1.Create PDF, 2.Upload ke server, 3.Hapus temporary
+        CreatePDFSuratSakit(FileName);
+        UploadPDFSuratSakit(FileName, "berkasrawat/pages/upload/");
+        HapusPDF();
     }//GEN-LAST:event_MnSuratSakitPDFActionPerformed
 
     private void MnSuratSakitJPGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSuratSakitJPGActionPerformed
         // Validasi apakah pasien sudah dipilih
-    if (TPasien.getText().trim().equals("")) {
-        JOptionPane.showMessageDialog(null, "Maaf, Silahkan anda pilih dulu pasien...!!!");
-        return;
-    }
-    
-    // Validasi apakah data surat sakit sudah lengkap
-    if (NoSurat.getText().trim().equals("") || LamaSakit.getText().trim().equals("")) {
-        JOptionPane.showMessageDialog(null, "Maaf, Data surat sakit belum lengkap...!!!");
-        return;
-    }
-    
-    // Generate timestamp saat tombol diklik (format: HH.mm.ss)
-    String timestamp = new java.text.SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
-    
-    // Generate nama file: SuratSakit_NoRawat_timestamp
-    // Contoh: SuratSakit_20251120000001_143025.jpg (jam 14:30:25)
-    FileName = "SuratSakit_" + TNoRw.getText().replaceAll("/", "") + "_" + timestamp;
-    
-    // Proses: 1.Create PDF, 2.Convert ke JPG, 3.Upload JPG, 4.Hapus temporary
-    CreatePDFSuratSakit(FileName);
-    ConvertPDFtoJPG(FileName);
-    UploadJPGSuratSakit(FileName, "berkasrawat/pages/upload/");
-    HapusPDF();
+        if (TPasien.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Maaf, Silahkan anda pilih dulu pasien...!!!");
+            return;
+        }
+
+        // Validasi apakah data surat sakit sudah lengkap
+        if (NoSurat.getText().trim().equals("") || LamaSakit.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Maaf, Data surat sakit belum lengkap...!!!");
+            return;
+        }
+
+        // Generate timestamp saat tombol diklik (format: HH.mm.ss)
+        String timestamp = new java.text.SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
+
+        // Generate nama file: SuratSakit_NoRawat_timestamp
+        // Contoh: SuratSakit_20251120000001_143025.jpg (jam 14:30:25)
+        FileName = "SuratSakit_" + TNoRw.getText().replaceAll("/", "") + "_" + timestamp;
+
+        // Proses: 1.Create PDF, 2.Convert ke JPG, 3.Upload JPG, 4.Hapus temporary
+        CreatePDFSuratSakit(FileName);
+        ConvertPDFtoJPG(FileName);
+        UploadJPGSuratSakit(FileName, "berkasrawat/pages/upload/");
+        HapusPDF();
     }
 
     // Method untuk convert PDF ke JPG
@@ -1443,6 +1480,75 @@ public final class SuratSakit extends javax.swing.JDialog {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Terjadi kesalahan saat upload JPG: " + e.getMessage(),
                     "Kesalahan", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    // Method upload JPG tanpa notifikasi popup (silent mode untuk auto upload)
+    private void UploadJPGSuratSakitSilent(String FileName, String docpath) {
+        try {
+            File file = new File("tmpPDF/" + FileName + ".jpg");
+
+            // Validasi file JPG exists
+            if (!file.exists()) {
+                System.out.println("Warning: File JPG tidak ditemukan di folder tmpPDF!");
+                return;
+            }
+
+            // Baca file sebagai byte array
+            byte[] data = FileUtils.readFileToByteArray(file);
+
+            // Setup HTTP Client
+            HttpClient httpClient = new DefaultHttpClient();
+            HttpPost postRequest = new HttpPost("http://" + koneksiDB.HOSTHYBRIDWEB() + ":"
+                    + koneksiDB.PORTWEB() + "/" + koneksiDB.HYBRIDWEB()
+                    + "/upload.php?doc=" + docpath);
+
+            // Setup multipart entity dengan nama file .jpg
+            ByteArrayBody fileData = new ByteArrayBody(data, FileName + ".jpg");
+            MultipartEntity reqEntity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
+            reqEntity.addPart("file", fileData);
+            postRequest.setEntity(reqEntity);
+
+            // Execute upload
+            httpClient.execute(postRequest);
+
+            // Simpan info ke database
+            boolean uploadSuccess = false;
+
+            // Ambil kode berkas untuk Surat Sakit
+            kodeberkas = Sequel.cariIsi("SELECT kode FROM master_berkas_digital WHERE nama LIKE '%Surat Sakit%'");
+
+            // Cek apakah data sudah ada di database
+            if (Sequel.cariInteger("SELECT COUNT(no_rawat) AS jumlah FROM berkas_digital_perawatan "
+                    + "WHERE lokasi_file='pages/upload/" + FileName + ".jpg'") > 0) {
+                // Update data yang sudah ada
+                uploadSuccess = Sequel.mengedittf("berkas_digital_perawatan", "lokasi_file=?",
+                        "no_rawat=?,kode=?,lokasi_file=?", 4, new String[]{
+                            TNoRw.getText().trim(),
+                            kodeberkas,
+                            "pages/upload/" + FileName + ".jpg",
+                            "pages/upload/" + FileName + ".jpg"
+                        });
+            } else {
+                // Insert data baru
+                uploadSuccess = Sequel.menyimpantf("berkas_digital_perawatan", "?,?,?", "No.Rawat", 3, new String[]{
+                    TNoRw.getText().trim(),
+                    kodeberkas,
+                    "pages/upload/" + FileName + ".jpg"
+                });
+            }
+
+            // Log hasil tanpa popup (silent mode)
+            if (uploadSuccess) {
+                System.out.println("Upload berkas digital berhasil: " + FileName + ".jpg");
+            } else {
+                System.out.println("Warning: Upload berkas digital gagal disimpan ke database.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Upload JPG error: " + e);
+            e.printStackTrace();
+            // Tidak throw exception agar tidak mengganggu proses simpan data
         }
     }
 

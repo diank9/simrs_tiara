@@ -6276,7 +6276,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                 // Generate nama file: SEP_NoSEP_NoRawat_timestamp
                 // Contoh: SEP_0301R0011024V000001_20241103000001_143025.jpg
                 FileName = "SEP_" + tbDataSEP.getValueAt(tbDataSEP.getSelectedRow(), 0).toString().trim()
-                        + "_" + timestamp;
+                        + "_at_" + timestamp;
 
                 // Proses: 1.Create PDF, 2.Convert ke JPG, 3.Upload JPG, 4.Hapus temporary
                 CreatePDFSEP(FileName);
