@@ -1,0 +1,180 @@
+2025-11-20 03:29:46 - Request received
+Array
+(
+    [file] => Array
+        (
+            [name] => 2025111813420320251117074349Surat Undangan Sharing Session radiologi.pdf
+            [full_path] => 2025111813420320251117074349Surat Undangan Sharing Session radiologi.pdf
+            [type] => application/pdf
+            [tmp_name] => /opt/lampp/temp/phpgYb8ZW
+            [error] => 0
+            [size] => 242910
+        )
+
+)
+Array
+(
+    [doc] => berkasrawat/pages/upload/
+)
+File: 2025111813420320251117074349Surat Undangan Sharing Session radiologi.pdf, Size: 242910, Location: berkasrawat/pages/upload/
+File berhasil diupload ke: berkasrawat/pages/upload/2025111813420320251117074349Surat Undangan Sharing Session radiologi.pdf
+2025-11-20 04:18:42 - Request received
+Array
+(
+    [file] => Array
+        (
+            [name] => SuratSakit_20251120000001_SKS20251120001.pdf
+            [full_path] => SuratSakit_20251120000001_SKS20251120001.pdf
+            [type] => application/octet-stream
+            [tmp_name] => /opt/lampp/temp/phpMHSYQm
+            [error] => 0
+            [size] => 67413
+        )
+
+)
+Array
+(
+    [doc] => berkasrawat/pages/upload/
+)
+File: SuratSakit_20251120000001_SKS20251120001.pdf, Size: 67413, Location: berkasrawat/pages/upload/
+File berhasil diupload ke: berkasrawat/pages/upload/SuratSakit_20251120000001_SKS20251120001.pdf
+2025-11-20 04:27:15 - Request received
+Array
+(
+    [file] => Array
+        (
+            [name] => SuratSakit_20251120000001_SKS20251120001.jpg
+            [full_path] => SuratSakit_20251120000001_SKS20251120001.jpg
+            [type] => application/octet-stream
+            [tmp_name] => /opt/lampp/temp/php1M8A2p
+            [error] => 0
+            [size] => 384787
+        )
+
+)
+Array
+(
+    [doc] => berkasrawat/pages/upload/
+)
+File: SuratSakit_20251120000001_SKS20251120001.jpg, Size: 384787, Location: berkasrawat/pages/upload/
+File berhasil diupload ke: berkasrawat/pages/upload/SuratSakit_20251120000001_SKS20251120001.jpg
+2025-11-20 04:34:57 - Request received
+Array
+(
+    [file] => Array
+        (
+            [name] => SuratSakit_20251120000001_SKS20251120001.pdf
+            [full_path] => SuratSakit_20251120000001_SKS20251120001.pdf
+            [type] => application/octet-stream
+            [tmp_name] => /opt/lampp/temp/phpJnDTC9
+            [error] => 0
+            [size] => 67413
+        )
+
+)
+Array
+(
+    [doc] => berkasrawat/pages/upload/
+)
+File: SuratSakit_20251120000001_SKS20251120001.pdf, Size: 67413, Location: berkasrawat/pages/upload/
+File berhasil diupload ke: berkasrawat/pages/upload/SuratSakit_20251120000001_SKS20251120001.pdf
+2025-11-20 04:36:17 - Request received
+Array
+(
+    [file] => Array
+        (
+            [name] => SuratSakit_20251120000001_SKS20251120001.pdf
+            [full_path] => SuratSakit_20251120000001_SKS20251120001.pdf
+            [type] => application/octet-stream
+            [tmp_name] => /opt/lampp/temp/php2cJ1Ks
+            [error] => 0
+            [size] => 67413
+        )
+
+)
+Array
+(
+    [doc] => berkasrawat/pages/upload/
+)
+File: SuratSakit_20251120000001_SKS20251120001.pdf, Size: 67413, Location: berkasrawat/pages/upload/
+File berhasil diupload ke: berkasrawat/pages/upload/SuratSakit_20251120000001_SKS20251120001.pdf
+2025-11-20 04:44:56 - Request received
+Array
+(
+    [file] => Array
+        (
+            [name] => SuratSakit_20251120000001_10.44.54.pdf
+            [full_path] => SuratSakit_20251120000001_10.44.54.pdf
+            [type] => application/octet-stream
+            [tmp_name] => /opt/lampp/temp/php1aJ1gR
+            [error] => 0
+            [size] => 67413
+        )
+
+)
+Array
+(
+    [doc] => berkasrawat/pages/upload/
+)
+File: SuratSakit_20251120000001_10.44.54.pdf, Size: 67413, Location: berkasrawat/pages/upload/
+File berhasil diupload ke: berkasrawat/pages/upload/SuratSakit_20251120000001_10.44.54.pdf
+2025-11-20 04:45:16 - Request received
+Array
+(
+    [file] => Array
+        (
+            [name] => SuratSakit_20251120000001_10.45.15.jpg
+            [full_path] => SuratSakit_20251120000001_10.45.15.jpg
+            [type] => application/octet-stream
+            [tmp_name] => /opt/lampp/temp/phpcidn31
+            [error] => 0
+            [size] => 384787
+        )
+
+)
+Array
+(
+    [doc] => berkasrawat/pages/upload/
+)
+File: SuratSakit_20251120000001_10.45.15.jpg, Size: 384787, Location: berkasrawat/pages/upload/
+File berhasil diupload ke: berkasrawat/pages/upload/SuratSakit_20251120000001_10.45.15.jpg
+2025-11-20 04:45:26 - Request received
+Array
+(
+    [file] => Array
+        (
+            [name] => SuratSakit_20251120000001_10.45.25.pdf
+            [full_path] => SuratSakit_20251120000001_10.45.25.pdf
+            [type] => application/octet-stream
+            [tmp_name] => /opt/lampp/temp/phpyWeLlf
+            [error] => 0
+            [size] => 67413
+        )
+
+)
+Array
+(
+    [doc] => berkasrawat/pages/upload/
+)
+File: SuratSakit_20251120000001_10.45.25.pdf, Size: 67413, Location: berkasrawat/pages/upload/
+File berhasil diupload ke: berkasrawat/pages/upload/SuratSakit_20251120000001_10.45.25.pdf
+2025-11-20 05:17:05 - Request received
+Array
+(
+    [file] => Array
+        (
+            [name] => SEP_20251120000001_20251120000001_111702.jpg
+            [full_path] => SEP_20251120000001_20251120000001_111702.jpg
+            [type] => application/octet-stream
+            [tmp_name] => /opt/lampp/temp/phpXKZo9B
+            [error] => 0
+            [size] => 261170
+        )
+
+)
+Array
+(
+    [doc] => berkasrawat/pages/upload/
+)
+File: SEP_20251120000001_20251120000001_111702.jpg, Size: 261170, Location: berkasrawat/pages/upload/
+File berhasil diupload ke: berkasrawat/pages/upload/SEP_20251120000001_20251120000001_111702.jpg

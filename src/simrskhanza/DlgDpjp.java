@@ -48,7 +48,7 @@ public class DlgDpjp extends javax.swing.JDialog {
     private PreparedStatement ps,ps2;
     private ResultSet rs;
     private int jml=0,i=0,index=0;
-    private String[] kode,nama;
+    private String[] kode,nama,status;
     private boolean[] pilih; 
 
     /** Creates new form DlgPemberianObat
@@ -58,7 +58,7 @@ public class DlgDpjp extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
 
-        Object[] row={"P","Tgl.Rawat","No.Rawat","No.R.M.","Nama Pasien","Kode Dokter","Nama Dokter"};
+        Object[] row={"P","Tgl.Rawat","No.Rawat","No.R.M.","Nama Pasien","Kode Dokter","Nama Dokter","Status DPJP"};
         TabModePasien=new DefaultTableModel(null,row){
             @Override public boolean isCellEditable(int rowIndex, int colIndex){
                 boolean a = false;
@@ -69,7 +69,7 @@ public class DlgDpjp extends javax.swing.JDialog {
              }
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, 
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
              @Override
              public Class getColumnClass(int columnIndex) {
@@ -82,7 +82,7 @@ public class DlgDpjp extends javax.swing.JDialog {
         tbPasien.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbPasien.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 7; i++) {
+        for (i = 0; i < 8; i++) {
             TableColumn column = tbPasien.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(20);
@@ -98,11 +98,13 @@ public class DlgDpjp extends javax.swing.JDialog {
                 column.setPreferredWidth(90);
             }else if(i==6){
                 column.setPreferredWidth(200);
+            }else if(i==7){
+                column.setPreferredWidth(200);
             }
         }
         tbPasien.setDefaultRenderer(Object.class, new WarnaTable());
         
-        Object[] row2={"P","Kode Dokter","Nama Dokter"};
+        Object[] row2={"P","Kode Dokter","Nama Dokter","Status DPJP"};
         tabModeDiagnosa=new DefaultTableModel(null,row2){
             @Override public boolean isCellEditable(int rowIndex, int colIndex){
                 boolean a = false;
@@ -112,7 +114,7 @@ public class DlgDpjp extends javax.swing.JDialog {
                 return a;
              }
              Class[] types = new Class[] {
-                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
              };
              @Override
              public Class getColumnClass(int columnIndex) {
@@ -132,7 +134,7 @@ public class DlgDpjp extends javax.swing.JDialog {
             }else if(i==2){
                 column.setPreferredWidth(300);
             }else if(i==3){
-                column.setPreferredWidth(100);
+                column.setPreferredWidth(200);
             }
         }
         tbDiagnosa.setDefaultRenderer(Object.class, new WarnaTable());
@@ -147,19 +149,19 @@ public class DlgDpjp extends javax.swing.JDialog {
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>3){
+                    if(TCari.getText().length()>2){
                         tampil();
                     }
                 }
                 @Override
                 public void removeUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>3){
+                    if(TCari.getText().length()>2){
                         tampil();
                     }
                 }
                 @Override
                 public void changedUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>3){
+                    if(TCari.getText().length()>2){
                         tampil();
                     }
                 }
@@ -169,19 +171,19 @@ public class DlgDpjp extends javax.swing.JDialog {
             Dokter.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
-                    if(Dokter.getText().length()>3){
+                    if(Dokter.getText().length()>2){
                         tampildiagnosa();
                     }
                 }
                 @Override
                 public void removeUpdate(DocumentEvent e) {
-                    if(Dokter.getText().length()>3){
+                    if(Dokter.getText().length()>2){
                         tampildiagnosa();
                     }
                 }
                 @Override
                 public void changedUpdate(DocumentEvent e) {
-                    if(Dokter.getText().length()>3){
+                    if(Dokter.getText().length()>2){
                         tampildiagnosa();
                     }
                 }
@@ -244,7 +246,7 @@ public class DlgDpjp extends javax.swing.JDialog {
         btnTarif = new widget.Button();
         jLabel4 = new widget.Label();
         jLabel5 = new widget.Label();
-        CMbSttsDPJP = new widget.ComboBox();
+        statusdpjp = new javax.swing.JComboBox<>();
         ChkInput = new widget.CekBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -419,7 +421,7 @@ public class DlgDpjp extends javax.swing.JDialog {
         panelGlass9.add(jLabel14);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-10-2025" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-11-2025" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -432,7 +434,7 @@ public class DlgDpjp extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-10-2025" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-11-2025" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -624,15 +626,11 @@ public class DlgDpjp extends javax.swing.JDialog {
         FormInput.add(jLabel5);
         jLabel5.setBounds(-2, 72, 80, 23);
 
-        CMbSttsDPJP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Utama", "Rubber", "Alih Rawat", "Konsulan" }));
-        CMbSttsDPJP.setName("CMbSttsDPJP"); // NOI18N
-        CMbSttsDPJP.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                CMbSttsDPJPKeyPressed(evt);
-            }
-        });
-        FormInput.add(CMbSttsDPJP);
-        CMbSttsDPJP.setBounds(230, 100, 150, 30);
+        statusdpjp.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        statusdpjp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Utama", "Rubber", "Alih Rawat", "Konsulan" }));
+        statusdpjp.setName("statusdpjp"); // NOI18N
+        FormInput.add(statusdpjp);
+        statusdpjp.setBounds(230, 100, 210, 20);
 
         PanelInput.add(FormInput, java.awt.BorderLayout.CENTER);
 
@@ -704,11 +702,11 @@ public class DlgDpjp extends javax.swing.JDialog {
         }else{    
             for(i=0;i<tbDiagnosa.getRowCount();i++){ 
                 if(tbDiagnosa.getValueAt(i,0).toString().equals("true")){
-                    if(Sequel.menyimpantf("dpjp_ranap","?,?","Dokter",2,new String[]{
-                            TNoRw.getText(),tbDiagnosa.getValueAt(i,1).toString()
+                    if(Sequel.menyimpantf("dpjp_ranap","?,?,?","Dokter",3,new String[]{
+                            TNoRw.getText(),tbDiagnosa.getValueAt(i,1).toString(),statusdpjp.getSelectedItem().toString()
                         })==true){
                         TabModePasien.addRow(new Object[]{
-                            false,Tanggal.getText(),TNoRw.getText(),TNoRM.getText(),TPasien.getText(),tbDiagnosa.getValueAt(i,1).toString(),tbDiagnosa.getValueAt(i,2).toString()
+                            false,Tanggal.getText(),TNoRw.getText(),TNoRM.getText(),TPasien.getText(),tbDiagnosa.getValueAt(i,1).toString(),tbDiagnosa.getValueAt(i,2).toString(),statusdpjp.getSelectedItem().toString()
                         });
                         tbDiagnosa.setValueAt(false,i,0);
                     }
@@ -976,10 +974,6 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         tampildiagnosa();
     }//GEN-LAST:event_formWindowOpened
 
-    private void CMbSttsDPJPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CMbSttsDPJPKeyPressed
-        //Valid.pindah(evt,CmbJk,TTmp);
-    }//GEN-LAST:event_CMbSttsDPJPKeyPressed
-
     /**
     * @param args the command line arguments
     */
@@ -1006,7 +1000,6 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Button BtnPrint;
     private widget.Button BtnSeek4;
     private widget.Button BtnSimpan;
-    private widget.ComboBox CMbSttsDPJP;
     private widget.CekBox ChkInput;
     private widget.Tanggal DTPCari1;
     private widget.Tanggal DTPCari2;
@@ -1038,6 +1031,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JSeparator jSeparator5;
     private widget.panelisi panelGlass8;
     private widget.panelisi panelGlass9;
+    private javax.swing.JComboBox<String> statusdpjp;
     private widget.Table tbDiagnosa;
     private widget.Table tbPasien;
     // End of variables declaration//GEN-END:variables
@@ -1046,7 +1040,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         Valid.tabelKosong(TabModePasien);
         try{            
             ps2=koneksi.prepareStatement("select reg_periksa.tgl_registrasi,dpjp_ranap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                    "dpjp_ranap.kd_dokter,dokter.nm_dokter from dpjp_ranap inner join reg_periksa inner join pasien inner join dokter "+
+                    "dpjp_ranap.kd_dokter,dokter.nm_dokter,dpjp_ranap.statusdpjp from dpjp_ranap inner join reg_periksa inner join pasien inner join dokter "+
                     "on dpjp_ranap.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                     "and dpjp_ranap.kd_dokter=dokter.kd_dokter "+
                     "where reg_periksa.tgl_registrasi between ? and ? and reg_periksa.no_rkm_medis like ? and reg_periksa.tgl_registrasi like ? or "+
@@ -1080,7 +1074,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 ps2.setString(21,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps2.setString(22,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
                 ps2.setString(23,"%"+TCariPasien.getText().trim()+"%");          
-                ps2.setString(24,"%"+TCari.getText().trim()+"%");  
+                ps2.setString(24,"%"+TCari.getText().trim()+"%");    
                 rs=ps2.executeQuery();
                 while(rs.next()){
                     TabModePasien.addRow(new Object[]{false,rs.getString(1),
@@ -1088,7 +1082,8 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                                    rs.getString(3),
                                    rs.getString(4),
                                    rs.getString(5),
-                                   rs.getString(6)});
+                                   rs.getString(6),
+                                   rs.getString(7)});
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);
@@ -1180,6 +1175,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     pilih[index]=true;
                     kode[index]=tbDiagnosa.getValueAt(i,1).toString();
                     nama[index]=tbDiagnosa.getValueAt(i,2).toString();
+                    status[index]=tbDiagnosa.getValueAt(i,3).toString();
                     index++;
                 }
             }

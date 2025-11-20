@@ -3382,11 +3382,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 Desktop.getDesktop().browse(f.toURI());
             } catch (Exception e) {
                 System.out.println("Notifikasi : " + e);
-<<<<<<< HEAD
             }
-=======
-            }  
->>>>>>> 342040c1 (Tambahan QR Code SEP)
         }
     }//GEN-LAST:event_MnGeneratePDFActionPerformed
 
@@ -7929,7 +7925,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         }
     }
 
-    private void menampilkanAsuhanKeperawatanRalan(String norawat) {
+        private void menampilkanAsuhanKeperawatanRalan(String norawat) {
         try {
             if (chkAsuhanKeperawatanRalan.isSelected() == true) {
                 try {
@@ -17620,7 +17616,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                 htmlContent.append(
                                         "<tr>").append(
                                                 "<td valign='top' align='center'>").append(w).append("</td>").append(
-                                        "<td valign='top' align='center'>").append(rs2.getString("nama")).append("<br><a href='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/berkasrawat/").append(rs2.getString("lokasi_file")).append("'><img alt='Berkas Digital' src='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/berkasrawat/").append(rs2.getString("lokasi_file")).append("' width='450' height='450'/></a></td>").append(
+                                        "<td valign='top' align='center'>").append(rs2.getString("nama")).append("<br><a href='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/berkasrawat/").append(rs2.getString("lokasi_file")).append("'><img alt='Berkas Digital' src='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/berkasrawat/").append(rs2.getString("lokasi_file")).append("' width='720'/></a></td>").append(
                                         "</tr>");
                             } else {
                                 htmlContent.append(
@@ -31470,104 +31466,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                         "<td valign='top' width='79%'>").append(
                                         "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
                                 );
-<<<<<<< HEAD
-                        do {
-                            String cetakan = Sequel.cariIsi(
-                                    "SELECT CONCAT('Cetakan Ke 1 :(',DATE_FORMAT(tgl_registrasi,'%d-%m-%Y'),' ',jam_reg,')') "
-                                    + "FROM reg_periksa WHERE no_rawat=?",
-                                    norawat
-                            );
-                            htmlContent.append(
-                                    "<tr>").append(
-                                            "<td valign='top'>").append(
-                                            //"INFORMASI SEP").append(  
-
-                                            "<table width='100%' align='center' cellpadding='3px'cellspacing='0px'>").append(
-                                            "<tr>"
-                                            //+"<td align='left' width='20%'><img alt='logobpjs' src='").append((getClass().getResource("/picture/logobpjs.png"))).append("' width='100%' height='400'/></td>").append("</td>"
-                                            //"<td align='left' width='20%'><img src='logobpjs.png' width='40'></td>"
-                                            //+"<td align='center'>SURAT ELIGIBILITAS PESERTA</td>").append("</td>"
-                                            + "<td width='15%' align='left'><img src='logobpjs.png' width='80'></td>"
-                                            + "<td align='center'>"
-                                            + "<div style='font-size:14pt; font-weight:bold;'>SURAT ELEGIBILITAS PESERTA</div>"
-                                            + "<div style='font-size:12pt;'>RS TIARA BEKASI</div>"
-                                            + "</tr>").append(
-                                            "</table>").append(
-                                            //"<table width='100%' align='center' cellpadding='3px'cellspacing='0px' class='tbl_form'>").append(
-                                            //"<tr>"
-                                            //    +"<td align='center'>RS TIARA BEKASI</td>").append("</td>"
-                                            //+"</tr>").append(        
-                                            //"</table>").append(
-                                            "<tr>").append(
-                                            "<td valign='top'>").append(
-                                            "<table width='100%' align='center' cellpadding='3px'cellspacing='0px'>").append(
-                                            "<tr>"
-                                            + "<td width='50px'>No. SEP</td><td width='0px'>:</td>").append(rs2.getString("no_sep")).append("</td>"
-                                    + "</tr>").append(
-                                            "<tr>"
-                                            + "<td width='50px'>Tgl. SEP</td><td width='0px'>: </td>").append(rs2.getString("tglsep")).append("</td>"
-                                    + "<td width='50px'>Peserta</td><td width='0px'>: </td>").append(rs2.getString("peserta")).append("</td>"
-                                    + "</tr>").append(
-                                            "<tr>"
-                                            + "<td width='50px'>No. Kartu</td><td width='0px'>: </td>").append(rs2.getString("no_kartu")).append("</td>"
-                                    + "<td width='50px'>Jns. Rawat</td><td width='0px'>: </td>").append(rs2.getString("jnspelayanan")).append("</td>"
-                                    + "</tr>").append(
-                                            "<tr>"
-                                            + "<td width='50px'>Nama Peserta</td><td width='0px'>: </td>").append(rs2.getString("nama_pasien")).append("</td>"
-                                    + "<td width='50px'>Jns. Kunjungan</td><td width='0px'>: </td>").append(rs2.getString("tujuankunjungan")).append("</td>"
-                                    + "</tr>").append(
-                                            "<tr>"
-                                            + "<td width='50px'>Tgl. Lahir</td><td width='0px'>: </td>").append(rs2.getString("tanggal_lahir")).append("</td>"
-                                    + "</tr>").append(
-                                            "<tr>"
-                                            + "<td width='50px'>No. Telepon</td><td width='0px'>: </td>").append(rs2.getString("notelep")).append("</td>"
-                                    + "<td width='50px'>Poli Perujuk</td><td width='0px'>: </td><td>-</td>"
-                                    + "</tr>").append(
-                                            "<tr>"
-                                            + "<td width='50px'>Sub/Spesialis</td><td width='0px'>: </td>").append(rs2.getString("nmpolitujuan")).append("</td>"
-                                    + "<td width='50px'>Kls. Hak</td><td width='0px'>: </td>").append(rs2.getString("klsrawat")).append("</td>"
-                                    + "</tr>").append(
-                                            "<tr>"
-                                            + "<td width='50px'>Dokter</td><td width='0px'>: </td>").append(rs2.getString("nmdpjplayanan")).append("</td>"
-                                    + "<td width='50px'>Kls. Rawat</td><td width='0px'>: </td>").append(rs2.getString("klsrawat")).append("</td>"
-                                    + "</tr>").append(
-                                            "<tr>"
-                                            + "<td width='50px'>Faskes Perujuk</td><td width='0px'>: </td>").append(rs2.getString("nmppkrujukan")).append("</td>"
-                                    + "<td width='50px'>Penjamin</td><td width='0px'>: </td>").append(rs2.getString("pembiayaan")).append("</td>"
-                                    + "</tr>").append(
-                                            "<tr>"
-                                            + "<td width='50px'>Diagnosa Awal</td>"
-                                            + "<td width='0px'>: </td>"
-                                            + "<td>").append(rs2.getString("diagnosa")).append("</td>"
-                                    + "<td width='50px'></td>"
-                                    + "<td width='0px'></td>"
-                                    + "<td align='center'>Pasien/Keluarga Pasien<br>"
-//                                    + "<td width='79%'>"
-                                    + "<img width='90' height='90' src='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/penggajian/temp/").append(rs2.getString("no_kartu")).append(".png'/>"
-                                    + "</td>"
-                                    + "</tr>"
-                                    + "<tr>"
-                                    + "<td width='50px'>Catatan</td><td width='0px'>: </td>").append(rs2.getString("catatan")).append("</td>"
-                                    + "<td width='50px'></td><td width='0px'></td><td align='center'>").append(rs2.getString("nama_pasien")).append("</td>"
-                                    + "</tr>").append(
-                                            "</table>").append(
-                                            "<tr>").append(
-                                            "<td valign='top'>").append(
-                                            "<table width='100%' align='center' cellpadding='3px' cellspacing='0px'>").append(
-                                            "<tr>").append(
-                                            "<tr font size='9'>*Saya menyetujui BPJS Kesehatan menggunakan informasi Medis Pasien jika diperlukan :</tr>").append(
-                                            "<tr><td width='0px'>a.membuka dan atau menggunakan informasi medis pasien untuk keperluan administrasi, pembayaran asuransi atau</td></tr>").append(
-                                            "<tr><td width='0px'>  jaminan pembiayaan kesehatan</td></tr>").append(
-                                            "<tr><td width='0px'>b.memberikan akses informasi medis atau riwayat pelayanan kepada dokter/tenaga medis pada RS TIARA untuk</td></tr>").append(
-                                            "<tr><td width='0px'>  kepentingan pemeliharaan kesehatan, pengobatan, dan perawatan pasien</td></tr>").append(
-                                            "<tr><td width='0px'>*Saya mengetahui dan memahami :</td></tr>").append(
-                                            "<tr><td width='0px'>a.Rumah Sakit dapat melakukan koordinasi dengan PT. Jasa Raharja/PT. ASABRI/BPJS Ketenagakerjaan atau</td></tr>").append(
-                                            "<tr><td width='0px'>  Penjaminan lainnya, jika Peserta merupakan pasien yang mengalami kecelakaan lalu lintas dan/kecelakaan kerja</td></tr>").append(
-                                            "<tr><td width='0px'>b.SEP bukan sebagai bukti penjaminan peserta</td></tr>").append(
-                                            "<tr><td width='0px'>Cetakan Ke 1 " + Sequel.cariIsi("SELECT CONCAT(DATE_FORMAT(tgl_registrasi,'%d-%m-%Y'),' ',jam_reg) FROM reg_periksa WHERE no_rawat=?", norawat) + "</td></tr>").append(
-                                    "</tr>").append(
-                                            "</table>").append(
-=======
 
                         do {
                             // Generate QR Code
@@ -31694,7 +31592,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<tr><td style='font-size:8pt;' border='0'>*SEP bukan sebagai bukti penjaminan peserta</td></tr>").append(
                                             "<tr><td style='font-size:8pt;' border='0'>Cetakan Ke 1 " + Sequel.cariIsi("SELECT CONCAT(DATE_FORMAT(tgl_registrasi,'%d-%m-%Y'),' ',jam_reg) FROM reg_periksa WHERE no_rawat=?", norawat) + "</td></tr>").append(
                                     "</table>").append(
->>>>>>> 342040c1 (Tambahan QR Code SEP)
                                             "</td>").append(
                                             "</tr>"
                                     );
