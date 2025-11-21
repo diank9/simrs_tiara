@@ -6417,19 +6417,14 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
     }
 
     private void HapusPDFTriase() {
-        try {
-            File folderPDF = new File("tmpPDF/");
-            if (folderPDF.exists()) {
-                File[] files = folderPDF.listFiles();
-                for (File file : files) {
-                    if (file.getName().startsWith("Triase_")) {
-                        file.delete();
-                    }
-                }
-//                System.out.println("File temporary Triase berhasil dihapus");
+        File file = new File("tmpPDF");
+        String[] myFiles;
+        if (file.isDirectory()) {
+            myFiles = file.list();
+            for (int i = 0; i < myFiles.length; i++) {
+                File myFile = new File(file, myFiles[i]);
+                myFile.delete();
             }
-        } catch (Exception e) {
-            System.out.println("Error hapus file Triase: " + e);
         }
     }
 
