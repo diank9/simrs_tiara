@@ -17616,7 +17616,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                 htmlContent.append(
                                         "<tr>").append(
                                                 "<td valign='top' align='center'>").append(w).append("</td>").append(
-                                        "<td valign='top' align='center'>").append(rs2.getString("nama")).append("<br><a href='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/berkasrawat/").append(rs2.getString("lokasi_file")).append("'><img alt='Berkas Digital' src='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/berkasrawat/").append(rs2.getString("lokasi_file")).append("' width='720'/></a></td>").append(
+                                        "<td valign='top' align='center'>").append(rs2.getString("nama")).append("<br><a href='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/berkasrawat/").append(rs2.getString("lokasi_file")).append("'><img alt='Berkas Digital' src='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/berkasrawat/").append(rs2.getString("lokasi_file")).append("' width='450'/></a></td>").append(
                                         "</tr>");
                             } else {
                                 htmlContent.append(

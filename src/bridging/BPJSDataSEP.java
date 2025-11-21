@@ -7600,7 +7600,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                 Valid.MyReportPDFUploadSEP("rptBridgingSEP2.jasper", "report", "::[ Cetak SEP ]::", FileName, param);
             }
 
-            System.out.println("PDF SEP berhasil dibuat: " + FileName);
+//            System.out.println("PDF SEP berhasil dibuat: " + FileName);
 
         } catch (Exception e) {
             System.out.println("Error CreatePDFSEP: " + e);
@@ -7643,7 +7643,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                 Valid.MyReportPDFUploadSEP("rptBridgingSEPInternal2.jasper", "report", "::[ Cetak SEP Internal ]::", FileName, param);
             }
 
-            System.out.println("PDF SEP Internal berhasil dibuat: " + FileName);
+//            System.out.println("PDF SEP Internal berhasil dibuat: " + FileName);
 
         } catch (Exception e) {
             System.out.println("Error CreatePDFSEPInternal: " + e);
@@ -7764,7 +7764,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
             // Tutup document
             document.close();
 
-            System.out.println("PDF berhasil diconvert ke JPG: " + outputFile.getAbsolutePath());
+//            System.out.println("PDF berhasil diconvert ke JPG: " + outputFile.getAbsolutePath());
 
         } catch (Exception e) {
             System.out.println("Error ConvertPDFtoJPG: " + e);
