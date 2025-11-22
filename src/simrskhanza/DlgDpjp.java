@@ -245,8 +245,9 @@ public class DlgDpjp extends javax.swing.JDialog {
         BtnCari1 = new widget.Button();
         btnTarif = new widget.Button();
         jLabel4 = new widget.Label();
-        jLabel5 = new widget.Label();
         statusdpjp = new javax.swing.JComboBox<>();
+        jLabel5 = new widget.Label();
+        jLabel7 = new widget.Label();
         ChkInput = new widget.CekBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -616,21 +617,26 @@ public class DlgDpjp extends javax.swing.JDialog {
         FormInput.add(btnTarif);
         btnTarif.setBounds(808, 12, 28, 23);
 
-        jLabel4.setText("Nomer RM :");
+        jLabel4.setText("Status DPJP :");
         jLabel4.setName("jLabel4"); // NOI18N
         FormInput.add(jLabel4);
-        jLabel4.setBounds(-2, 42, 80, 23);
+        jLabel4.setBounds(247, 102, 80, 23);
+
+        statusdpjp.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        statusdpjp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alih Rawat", "Utama", "Rubber", "Alih Rawat", "Konsulan" }));
+        statusdpjp.setName("statusdpjp"); // NOI18N
+        FormInput.add(statusdpjp);
+        statusdpjp.setBounds(330, 102, 110, 23);
 
         jLabel5.setText("Pasien :");
         jLabel5.setName("jLabel5"); // NOI18N
         FormInput.add(jLabel5);
         jLabel5.setBounds(-2, 72, 80, 23);
 
-        statusdpjp.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        statusdpjp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Utama", "Rubber", "Alih Rawat", "Konsulan" }));
-        statusdpjp.setName("statusdpjp"); // NOI18N
-        FormInput.add(statusdpjp);
-        statusdpjp.setBounds(230, 100, 210, 20);
+        jLabel7.setText("Nomer RM :");
+        jLabel7.setName("jLabel7"); // NOI18N
+        FormInput.add(jLabel7);
+        jLabel7.setBounds(-2, 42, 80, 23);
 
         PanelInput.add(FormInput, java.awt.BorderLayout.CENTER);
 
@@ -1027,6 +1033,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private widget.Label jLabel4;
     private widget.Label jLabel5;
     private widget.Label jLabel6;
+    private widget.Label jLabel7;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator5;
     private widget.panelisi panelGlass8;

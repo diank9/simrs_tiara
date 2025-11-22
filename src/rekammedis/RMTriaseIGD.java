@@ -4591,7 +4591,7 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
                                     // Hapus file temporary
                                     HapusPDFTriase();
 
-                                    System.out.println("success : proses simpan dan upload selesai");
+                                    System.out.println("Prosess successfully : proses simpan dan upload selesai");
 
                                 } else {
                                     System.out.println("Warning: Konversi PDF ke JPG gagal");
@@ -6082,7 +6082,7 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
                                 // Hapus temporary files
                                 HapusPDFTriase();
 
-                                System.out.println("success : proses ganti dan upload selesai");
+                                System.out.println("Prosess successfully : proses ganti dan upload selesai");
 
 //                                javax.swing.SwingUtilities.invokeLater(() -> {
 //                                    JOptionPane.showMessageDialog(null,
