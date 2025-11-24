@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.0.0  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="557" leftMargin="19" rightMargin="19" topMargin="19" bottomMargin="19" uuid="34c13d5a-cd6b-451e-8001-9fd298d2274a">
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="557" leftMargin="19" rightMargin="19" topMargin="19" bottomMargin="19" uuid="34c13d5a-cd6b-451e-8001-9fd298d2274a">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -37,7 +37,7 @@ penilaian_medis_igd.suhu,penilaian_medis_igd.spo,penilaian_medis_igd.bb,penilaia
 penilaian_medis_igd.kepala,penilaian_medis_igd.mata,penilaian_medis_igd.gigi,penilaian_medis_igd.leher,
 penilaian_medis_igd.thoraks,penilaian_medis_igd.abdomen,penilaian_medis_igd.ekstremitas,penilaian_medis_igd.genital,penilaian_medis_igd.ket_fisik,
 penilaian_medis_igd.ket_lokalis,penilaian_medis_igd.ekg,penilaian_medis_igd.rad,penilaian_medis_igd.lab,penilaian_medis_igd.diagnosis,
-penilaian_medis_igd.tata,dokter.nm_dokter from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis 
+penilaian_medis_igd.tata,penilaian_medis_igd.dp,penilaian_medis_igd.poc,dokter.nm_dokter from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis 
 inner join penilaian_medis_igd on reg_periksa.no_rawat=penilaian_medis_igd.no_rawat 
 inner join dokter on penilaian_medis_igd.kd_dokter=dokter.kd_dokter]]>
 	</queryString>
@@ -261,6 +261,18 @@ inner join dokter on penilaian_medis_igd.kd_dokter=dokter.kd_dokter]]>
 	<field name="tata" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="tata"/>
 		<property name="com.jaspersoft.studio.field.label" value="tata"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_medis_igd"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dp"/>
+		<property name="com.jaspersoft.studio.field.label" value="dp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_medis_igd"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="poc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="poc"/>
+		<property name="com.jaspersoft.studio.field.label" value="poc"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="penilaian_medis_igd"/>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -1117,7 +1129,7 @@ inner join dokter on penilaian_medis_igd.kd_dokter=dokter.kd_dokter]]>
 				</graphicElement>
 			</line>
 		</band>
-		<band height="44">
+		<band height="77">
 			<staticText>
 				<reportElement positionType="Float" x="3" y="3" width="247" height="11" uuid="e12a27a8-55f5-4eed-b573-7d564c4bd20a">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -1130,7 +1142,7 @@ inner join dokter on penilaian_medis_igd.kd_dokter=dokter.kd_dokter]]>
 				<text><![CDATA[IV. PEMERIKSAAN PENUNJANG]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="3" y="15" width="176" height="27" uuid="fe93c53b-4bd6-48ac-9e87-9b0c9fe0adbb">
+				<reportElement positionType="Float" x="3" y="15" width="176" height="60" uuid="fe93c53b-4bd6-48ac-9e87-9b0c9fe0adbb">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Top">
@@ -1140,13 +1152,13 @@ inner join dokter on penilaian_medis_igd.kd_dokter=dokter.kd_dokter]]>
 				<textFieldExpression><![CDATA["EKG : "+$F{ekg}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement positionType="Float" x="0" y="43" width="557" height="1" uuid="f3e8dfea-4dce-45ca-8efc-4c55d242240f"/>
+				<reportElement positionType="Float" x="0" y="76" width="557" height="1" uuid="f3e8dfea-4dce-45ca-8efc-4c55d242240f"/>
 				<graphicElement>
 					<pen lineWidth="0.75" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="190" y="15" width="176" height="27" uuid="38114c11-e7e4-4009-99d5-113843e787ed">
+				<reportElement positionType="Float" x="190" y="15" width="176" height="60" uuid="38114c11-e7e4-4009-99d5-113843e787ed">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Top">
@@ -1156,7 +1168,7 @@ inner join dokter on penilaian_medis_igd.kd_dokter=dokter.kd_dokter]]>
 				<textFieldExpression><![CDATA["Radiologi : "+$F{rad}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="376" y="15" width="176" height="27" uuid="3da3189e-e20d-41f9-a08f-dda5e600ee40">
+				<reportElement positionType="Float" x="376" y="15" width="176" height="60" uuid="3da3189e-e20d-41f9-a08f-dda5e600ee40">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Top">
@@ -1172,7 +1184,7 @@ inner join dokter on penilaian_medis_igd.kd_dokter=dokter.kd_dokter]]>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="184" y="15" width="1" height="28" uuid="46abe4c4-8662-4f1e-a977-c4f5f3a5a575">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="184" y="15" width="1" height="61" uuid="46abe4c4-8662-4f1e-a977-c4f5f3a5a575">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<graphicElement>
@@ -1180,7 +1192,7 @@ inner join dokter on penilaian_medis_igd.kd_dokter=dokter.kd_dokter]]>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="370" y="15" width="1" height="28" uuid="bad87da6-90f1-4130-ba8a-a940fcee0a43">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="370" y="15" width="1" height="61" uuid="bad87da6-90f1-4130-ba8a-a940fcee0a43">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<graphicElement>
@@ -1188,7 +1200,7 @@ inner join dokter on penilaian_medis_igd.kd_dokter=dokter.kd_dokter]]>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="1" height="43" uuid="c0bbe805-9368-4425-9f5c-b624a4dda49e">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="1" height="76" uuid="c0bbe805-9368-4425-9f5c-b624a4dda49e">
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				</reportElement>
 				<graphicElement>
@@ -1196,7 +1208,7 @@ inner join dokter on penilaian_medis_igd.kd_dokter=dokter.kd_dokter]]>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="556" y="0" width="1" height="43" uuid="e7493038-3639-44b0-882f-e09449d543a3">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="556" y="0" width="1" height="76" uuid="e7493038-3639-44b0-882f-e09449d543a3">
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				</reportElement>
 				<graphicElement>
@@ -1294,7 +1306,97 @@ inner join dokter on penilaian_medis_igd.kd_dokter=dokter.kd_dokter]]>
 				</graphicElement>
 			</line>
 		</band>
-		<band height="60">
+		<band height="145">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="3" y="17" width="550" height="124" uuid="7e0c1748-2595-4b44-a4b3-78127cc9258b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="Tahoma" size="8" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="3" y="3" width="247" height="11" uuid="7b2ff751-390b-4cb8-b2f0-faa8eee023a8">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[VII. PERENCANAAN PULANG (DISCHARGE PLANNING)]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="0" y="144" width="557" height="1" uuid="90d95f16-7d9a-4ad1-a1b0-1f2b3c624872"/>
+				<graphicElement>
+					<pen lineWidth="0.75" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="556" y="0" width="1" height="144" uuid="cc9989b4-5f90-4a3e-aff0-8828c4aff41c">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="1" height="144" uuid="adeb8bf2-1968-44a2-968b-b9a20b4a8f9f">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+		<band height="145">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="3" y="17" width="550" height="124" uuid="38dda8d5-d89b-4256-9fb2-2d015299c894">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="Tahoma" size="8" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{poc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="3" y="3" width="247" height="11" uuid="d4700274-b795-40c3-be91-6e8ed739bb0e">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[VIII. HASIL YANG DIHARAPKAN (PLAN OF CARE)]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="0" y="144" width="557" height="1" uuid="a800894c-ceb0-4837-8c2c-99a613b784d9"/>
+				<graphicElement>
+					<pen lineWidth="0.75" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="556" y="0" width="1" height="144" uuid="8a7cffd8-974f-471b-922f-d6edb59bad77">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="1" height="144" uuid="837833e6-6537-4440-933c-9c51c08afdc5">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+		<band height="63">
 			<line>
 				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="255" y="-1" width="1" height="59" uuid="9401d158-12aa-4fd8-a873-8c986116a35f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -1342,7 +1444,7 @@ inner join dokter on penilaian_medis_igd.kd_dokter=dokter.kd_dokter]]>
 				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement positionType="Float" x="259" y="17" width="87" height="40" isRemoveLineWhenBlank="true" uuid="a7b3a105-9a9a-4bbe-adb2-f94c46e4251c">
+				<reportElement positionType="Float" x="259" y="17" width="86" height="39" isRemoveLineWhenBlank="true" uuid="a7b3a105-9a9a-4bbe-adb2-f94c46e4251c">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
