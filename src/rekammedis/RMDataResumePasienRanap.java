@@ -383,7 +383,6 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         panelGlass8 = new widget.panelisi();
         BtnSimpan = new widget.Button();
-        BtnSimpanUpload = new widget.Button();
         BtnBatal = new widget.Button();
         BtnHapus = new widget.Button();
         BtnEdit = new widget.Button();
@@ -809,24 +808,6 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
             }
         });
         panelGlass8.add(BtnSimpan);
-
-        BtnSimpanUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/save-16x16.png"))); // NOI18N
-        BtnSimpanUpload.setMnemonic('S');
-        BtnSimpanUpload.setText("SimpanUpload");
-        BtnSimpanUpload.setToolTipText("Alt+S");
-        BtnSimpanUpload.setName("BtnSimpanUpload"); // NOI18N
-        BtnSimpanUpload.setPreferredSize(new java.awt.Dimension(100, 30));
-        BtnSimpanUpload.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSimpanUploadActionPerformed(evt);
-            }
-        });
-        BtnSimpanUpload.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                BtnSimpanUploadKeyPressed(evt);
-            }
-        });
-        panelGlass8.add(BtnSimpanUpload);
 
         BtnBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Cancel-2-16x16.png"))); // NOI18N
         BtnBatal.setMnemonic('B');
@@ -1996,53 +1977,6 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
     private void TPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TPasienKeyPressed
         Valid.pindah(evt, TCari, BtnSimpan);
 }//GEN-LAST:event_TPasienKeyPressed
-
-    private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if (TNoRw.getText().equals("") || TNoRM.getText().equals("") || TPasien.getText().equals("")) {
-            Valid.textKosong(TNoRw, "Pasien");
-        } else if (KodeDokter.getText().equals("") || NamaDokter.getText().equals("")) {
-            Valid.textKosong(BtnDokter, "Dokter Penanggung Jawab");
-        } else if (KeluhanUtama.getText().equals("")) {
-            Valid.textKosong(KeluhanUtama, "Keluhan utama riwayat penyakit yang postif");
-        } else if (JalannyaPenyakit.getText().equals("")) {
-            Valid.textKosong(JalannyaPenyakit, "Jalannya penyakit selama perawatan");
-        } else if (DiagnosaUtama.getText().equals("")) {
-            Valid.textKosong(DiagnosaUtama, "Diagnosa Utama");
-        } else {
-            if (Sequel.menyimpantf("resume_pasien_ranap", "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?", "No.Rawat", 41, new String[]{
-                TNoRw.getText(), KodeDokter.getText(), DiagnosaAwal.getText(), Alasan.getText(), KeluhanUtama.getText(), PemeriksaanFisik.getText(), JalannyaPenyakit.getText(),
-                PemeriksaanRad.getText(), HasilLaborat.getText(), TindakanSelamaDiRS.getText(), ObatSelamaDiRS.getText(), DiagnosaUtama.getText(), KodeDiagnosaUtama.getText(),
-                DiagnosaSekunder1.getText(), KodeDiagnosaSekunder1.getText(), DiagnosaSekunder2.getText(), KodeDiagnosaSekunder2.getText(), DiagnosaSekunder3.getText(),
-                KodeDiagnosaSekunder3.getText(), DiagnosaSekunder4.getText(), KodeDiagnosaSekunder4.getText(), ProsedurUtama.getText(), KodeProsedurUtama.getText(),
-                ProsedurSekunder1.getText(), KodeProsedurSekunder1.getText(), ProsedurSekunder2.getText(), KodeProsedurSekunder2.getText(), ProsedurSekunder3.getText(),
-                KodeProsedurSekunder3.getText(), Alergi.getText(), Diet.getText(), LabBelum.getText(), Edukasi.getText(), CaraKeluar.getSelectedItem().toString(), KetKeluar.getText(),
-                Keadaan.getSelectedItem().toString(), KetKeadaanPulang.getText(), DIlanjutkan.getSelectedItem().toString(), KetDilanjutkan.getText(),
-                Valid.SetTgl(Kontrol.getSelectedItem() + "") + " " + Kontrol.getSelectedItem().toString().substring(11, 19), ObatPulang.getText()
-            }) == true) {
-                tabMode.addRow(new Object[]{
-                    TNoRw.getText(), TNoRM.getText(), TPasien.getText(), KodeDokter.getText(), NamaDokter.getText(), KodeDokterPengirim.getText(), NamaDokterPengirim.getText(),
-                    KdRuang.getText(), NmRuang.getText(), Masuk.getText(), JamMasuk.getText(), Keluar.getText(), JamKeluar.getText(), DiagnosaAwal.getText(), Alasan.getText(),
-                    KeluhanUtama.getText(), PemeriksaanFisik.getText(), JalannyaPenyakit.getText(), PemeriksaanRad.getText(), HasilLaborat.getText(), TindakanSelamaDiRS.getText(),
-                    ObatSelamaDiRS.getText(), DiagnosaUtama.getText(), KodeDiagnosaUtama.getText(), DiagnosaSekunder1.getText(), KodeDiagnosaSekunder1.getText(), DiagnosaSekunder2.getText(),
-                    KodeDiagnosaSekunder2.getText(), DiagnosaSekunder3.getText(), KodeDiagnosaSekunder3.getText(), DiagnosaSekunder4.getText(), KodeDiagnosaSekunder4.getText(),
-                    ProsedurUtama.getText(), KodeProsedurUtama.getText(), ProsedurSekunder1.getText(), KodeProsedurSekunder1.getText(), ProsedurSekunder2.getText(), KodeProsedurSekunder2.getText(),
-                    ProsedurSekunder3.getText(), KodeProsedurSekunder3.getText(), Alergi.getText(), Diet.getText(), LabBelum.getText(), Edukasi.getText(), Keadaan.getSelectedItem().toString(),
-                    KetKeadaanPulang.getText(), CaraKeluar.getSelectedItem().toString(), KetKeluar.getText(), DIlanjutkan.getSelectedItem().toString(), KetDilanjutkan.getText(),
-                    Valid.SetTgl(Kontrol.getSelectedItem() + "") + " " + Kontrol.getSelectedItem().toString().substring(11, 19), ObatPulang.getText(), KdPj.getText(), CaraBayar.getText()
-                });
-                emptTeks();
-                LCount.setText("" + tabMode.getRowCount());
-            }
-        }
-}//GEN-LAST:event_BtnSimpanActionPerformed
-
-    private void BtnSimpanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpanKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
-            BtnSimpanActionPerformed(null);
-        } else {
-            Valid.pindah(evt, ObatPulang, BtnBatal);
-        }
-}//GEN-LAST:event_BtnSimpanKeyPressed
 
     private void BtnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBatalActionPerformed
         emptTeks();
@@ -3241,7 +3175,7 @@ if (TNoRw.getText().equals("") || TNoRM.getText().equals("") || TPasien.getText(
         // TODO add your handling code here:
     }//GEN-LAST:event_MnUploadResumeActionPerformed
 
-    private void BtnSimpanUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanUploadActionPerformed
+    private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
         if (TNoRw.getText().equals("") || TNoRM.getText().equals("") || TPasien.getText().equals("")) {
             Valid.textKosong(TNoRw, "Pasien");
         } else if (KodeDokter.getText().equals("") || NamaDokter.getText().equals("")) {
@@ -3389,11 +3323,11 @@ if (TNoRw.getText().equals("") || TNoRM.getText().equals("") || TPasien.getText(
                 LCount.setText("" + tabMode.getRowCount());
             }
         }
-    }//GEN-LAST:event_BtnSimpanUploadActionPerformed
+    }//GEN-LAST:event_BtnSimpanActionPerformed
 
-    private void BtnSimpanUploadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpanUploadKeyPressed
+    private void BtnSimpanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpanKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnSimpanUploadKeyPressed
+    }//GEN-LAST:event_BtnSimpanKeyPressed
 
     /**
      * @param args the command line arguments
@@ -3439,7 +3373,6 @@ if (TNoRw.getText().equals("") || TNoRM.getText().equals("") || TPasien.getText(
     private widget.Button BtnPrint;
     private widget.Button BtnSimpan;
     private widget.Button BtnSimpanTandaTangan;
-    private widget.Button BtnSimpanUpload;
     private widget.TextBox CaraBayar;
     private widget.ComboBox CaraKeluar;
     private widget.CekBox ChkInput;
