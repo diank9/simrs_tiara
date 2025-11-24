@@ -1569,7 +1569,7 @@ public final class validasi {
                 fileRpt = new File(currentDir + File.separatorChar + iDir + File.separatorChar + reportDirName + File.separatorChar + reportName);
                 if (fileRpt.isFile()) {
                     fullPath = fileRpt.toString();
-                    System.out.println("Found Report File at : " + fullPath);
+//                    System.out.println("Found Report File at : " + fullPath);
                 }
             }
         }
@@ -1591,7 +1591,7 @@ public final class validasi {
                     JasperPrint jasperPrint = JasperFillManager.fillReport(inputJasperPath, parameters, connect);
                     JasperExportManager.exportReportToPdfFile(jasperPrint, outputPdfPath);
 
-                    System.out.println("PDF created successfully: " + outputPdfPath);
+//                    System.out.println("PDF created successfully: " + outputPdfPath);
 
                 } catch (Exception rptexcpt) {
                     System.out.println("Report Can't create because : " + rptexcpt);
@@ -1620,7 +1620,7 @@ public final class validasi {
                         + reportDirName + File.separatorChar + reportName);
                 if (fileRpt.isFile()) {
                     fullPath = fileRpt.toString();
-                    System.out.println("Found Triage Report File at : " + fullPath);
+//                    System.out.println("Found Triage Report File at : " + fullPath);
                     break;
                 }
             }
@@ -1633,7 +1633,7 @@ public final class validasi {
                     File tmpPDFDir = new File(currentDir + File.separatorChar + "tmpPDF");
                     if (!tmpPDFDir.exists()) {
                         tmpPDFDir.mkdir();
-                        System.out.println("Folder tmpPDF created");
+//                        System.out.println("Folder tmpPDF created");
                     }
 
                     // Path lengkap untuk output PDF dan input jasper
@@ -1655,7 +1655,7 @@ public final class validasi {
                     // Export ke file PDF
                     JasperExportManager.exportReportToPdfFile(jasperPrint, outputPdfPath);
 
-                    System.out.println("Triage PDF created successfully: " + outputPdfPath);
+//                    System.out.println("Triage PDF created successfully: " + outputPdfPath);
 
                     // Tutup ResultSet
                     rs.close();
@@ -1669,5 +1669,17 @@ public final class validasi {
             e.printStackTrace();
         }
     }
+
+    public void MyReportPDFUploadResumeRanap(String report, String direktori, String judul, String fileName, Map parameters) {
+    try {
+        File fileReport = new File("./" + direktori + "/" + report);
+        Connection conn = koneksiDB.condb();
+        JasperPrint print = JasperFillManager.fillReport(fileReport.getPath(), parameters, conn);
+        JasperExportManager.exportReportToPdfFile(print, "tmpPDF/" + fileName + ".pdf");
+//        System.out.println("PDF exported: tmpPDF/" + fileName + ".pdf");
+    } catch (Exception ex) {
+        System.out.println("Error MyReportPDFUpload: " + ex);
+    }
+}
 
 }
