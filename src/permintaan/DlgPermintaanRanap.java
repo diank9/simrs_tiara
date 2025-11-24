@@ -101,7 +101,7 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
             } else if (i == 8) {
                 column.setPreferredWidth(160);
             } else if (i == 9) {
-                column.setPreferredWidth(65);
+                column.setPreferredWidth(90);
             } else if (i == 10) {
                 column.setMinWidth(0);
                 column.setMaxWidth(0);
@@ -531,7 +531,7 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(165, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-11-2025" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-11-2025" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -554,7 +554,7 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(30, 23));
         panelCari.add(jLabel25);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-11-2025" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-11-2025" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -601,7 +601,7 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         PanelInput.add(ChkInput, java.awt.BorderLayout.PAGE_END);
 
         FormInput.setName("FormInput"); // NOI18N
-        FormInput.setPreferredSize(new java.awt.Dimension(230, 150));
+        FormInput.setPreferredSize(new java.awt.Dimension(220, 170));
         FormInput.setLayout(null);
 
         NoRw.setEditable(false);
@@ -622,8 +622,8 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         NmPasien.setBounds(288, 10, 330, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-11-2025" }));
-        DTPTgl.setDisplayFormat("dd-MM-yyyy");
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-11-2025 13:51:22" }));
+        DTPTgl.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
         DTPTgl.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -632,12 +632,12 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
             }
         });
         FormInput.add(DTPTgl);
-        DTPTgl.setBounds(528, 70, 90, 23);
+        DTPTgl.setBounds(478, 70, 140, 23);
 
         jLabel10.setText("Tanggal :");
         jLabel10.setName("jLabel10"); // NOI18N
         FormInput.add(jLabel10);
-        jLabel10.setBounds(454, 70, 70, 23);
+        jLabel10.setBounds(400, 70, 70, 23);
 
         NoRM.setEditable(false);
         NoRM.setHighlighter(null);
@@ -785,13 +785,13 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         label20.setName("label20"); // NOI18N
         label20.setPreferredSize(new java.awt.Dimension(35, 23));
         FormInput.add(label20);
-        label20.setBounds(-5, 160, 70, 23);
+        label20.setBounds(0, 160, 69, 23);
 
         kdDokter2.setEditable(false);
         kdDokter2.setName("kdDokter2"); // NOI18N
-        kdDokter2.setPreferredSize(new java.awt.Dimension(75, 23));
+        kdDokter2.setPreferredSize(new java.awt.Dimension(77, 23));
         FormInput.add(kdDokter2);
-        kdDokter2.setBounds(70, 160, 150, 23);
+        kdDokter2.setBounds(73, 160, 155, 23);
 
         nmDokter2.setEditable(false);
         nmDokter2.setName("nmDokter2"); // NOI18N
@@ -973,10 +973,17 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         else if (kdDokter2.getText().trim().equals("")) {
             Valid.textKosong(kdDokter2, "DPJP");
         } else {
+            // Ambil langsung String dari widget.Tanggal
+            String tglJam = DTPTgl.getSelectedItem().toString();
+
+            // Konversi ke format MySQL datetime "yyyy-MM-dd HH:mm:ss"
+            String tglJamSql = Valid.SetTgl(tglJam.substring(0, 10)) + " " + tglJam.substring(11, 19);
+
             // Insert data ke tabel permintaan_ranap
             if (Sequel.menyimpantf("permintaan_ranap", "?,?,?,?,?", "Pasien", 5, new String[]{
                 NoRw.getText(),
-                Valid.SetTgl(DTPTgl.getSelectedItem() + ""),
+                //                Valid.SetTgl(DTPTgl.getSelectedItem() + ""),
+                tglJamSql,
                 KdKamar.getText(),
                 Diagnosa.getText(),
                 Catatan.getText()
@@ -1082,7 +1089,7 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
             sql = "";
             if (R1.isSelected() == true) {
                 sql = "select permintaan_ranap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur,"
-                        + "pasien.no_tlp,penjab.png_jawab,poliklinik.nm_poli,dokter.nm_dokter,permintaan_ranap.tanggal,permintaan_ranap.kd_kamar,kamar.kd_bangsal,"
+                        + "pasien.no_tlp,penjab.png_jawab,poliklinik.nm_poli,dokter.nm_dokter,DATE_FORMAT(permintaan_ranap.tanggal, '%Y-%m-%d %H:%i:%s') as tanggal,permintaan_ranap.kd_kamar,kamar.kd_bangsal,"
                         + "bangsal.nm_bangsal,kamar.trf_kamar,permintaan_ranap.diagnosa,permintaan_ranap.catatan from permintaan_ranap "
                         + "inner join reg_periksa on permintaan_ranap.no_rawat=reg_periksa.no_rawat "
                         + "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "
@@ -1097,7 +1104,7 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
                         + "or permintaan_ranap.diagnosa like '%" + TCari.getText().trim() + "%')") + " order by permintaan_ranap.tanggal";
             } else if (R2.isSelected() == true) {
                 sql = "select permintaan_ranap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur,"
-                        + "pasien.no_tlp,penjab.png_jawab,poliklinik.nm_poli,dokter.nm_dokter,permintaan_ranap.tanggal,permintaan_ranap.kd_kamar,kamar.kd_bangsal,"
+                        + "pasien.no_tlp,penjab.png_jawab,poliklinik.nm_poli,dokter.nm_dokter,DATE_FORMAT(permintaan_ranap.tanggal, '%Y-%m-%d %H:%i:%s') as tanggal,permintaan_ranap.kd_kamar,kamar.kd_bangsal,"
                         + "bangsal.nm_bangsal,kamar.trf_kamar,permintaan_ranap.diagnosa,permintaan_ranap.catatan from permintaan_ranap "
                         + "inner join reg_periksa on permintaan_ranap.no_rawat=reg_periksa.no_rawat "
                         + "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "
@@ -1669,7 +1676,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 // Prepare statement dengan subquery untuk menggabungkan multiple DPJP
                 ps = koneksi.prepareStatement(
                         "select permintaan_ranap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur,"
-                        + "pasien.no_tlp,penjab.png_jawab,poliklinik.nm_poli,dokter.nm_dokter,permintaan_ranap.tanggal,permintaan_ranap.kd_kamar,kamar.kd_bangsal,"
+                        + "pasien.no_tlp,penjab.png_jawab,poliklinik.nm_poli,dokter.nm_dokter,DATE_FORMAT(permintaan_ranap.tanggal, '%Y-%m-%d %H:%i:%s') as tanggal,permintaan_ranap.kd_kamar,kamar.kd_bangsal,"
                         + "bangsal.nm_bangsal,kamar.trf_kamar,permintaan_ranap.diagnosa,permintaan_ranap.catatan,reg_periksa.kd_dokter,"
                         + // Subquery untuk menggabungkan semua nama DPJP dengan separator koma, menampilkan statusdpjp dalam kurung
                         "(SELECT GROUP_CONCAT(CONCAT(d.nm_dokter,' (',dr.statusdpjp,')') SEPARATOR ', ') "
@@ -1721,7 +1728,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 // Prepare statement dengan subquery untuk menampilkan multiple DPJP
                 ps = koneksi.prepareStatement(
                         "select permintaan_ranap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur,"
-                        + "pasien.no_tlp,penjab.png_jawab,poliklinik.nm_poli,dokter.nm_dokter,permintaan_ranap.tanggal,permintaan_ranap.kd_kamar,kamar.kd_bangsal,"
+                        + "pasien.no_tlp,penjab.png_jawab,poliklinik.nm_poli,dokter.nm_dokter,DATE_FORMAT(permintaan_ranap.tanggal, '%Y-%m-%d %H:%i:%s') as tanggal,permintaan_ranap.kd_kamar,kamar.kd_bangsal,"
                         + "bangsal.nm_bangsal,kamar.trf_kamar,permintaan_ranap.diagnosa,permintaan_ranap.catatan,reg_periksa.kd_dokter,"
                         + // Subquery untuk menggabungkan semua nama DPJP beserta statusnya
                         "(SELECT GROUP_CONCAT(CONCAT(d.nm_dokter,' (',dr.statusdpjp,')') SEPARATOR ', ') "
@@ -1817,7 +1824,18 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             Diagnosa.setText(tbObat.getValueAt(tbObat.getSelectedRow(), 14).toString());
             Catatan.setText(tbObat.getValueAt(tbObat.getSelectedRow(), 15).toString());
             KdDokter.setText(tbObat.getValueAt(tbObat.getSelectedRow(), 16).toString());
-            Valid.SetTgl(DTPTgl, tbObat.getValueAt(tbObat.getSelectedRow(), 9).toString());
+            // Valid.SetTgl(DTPTgl, tbObat.getValueAt(tbObat.getSelectedRow(), 9).toString());
+
+            try {
+                // Ambil string tanggal dari DB (pastikan formatnya "yyyy-MM-dd HH:mm:ss")
+                String tglJam = tbObat.getValueAt(tbObat.getSelectedRow(), 9).toString();
+                // Parse ke objek Date lengkap
+                java.util.Date dateFull = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(tglJam);
+                // Set ke widget
+                DTPTgl.setDate(dateFull);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
 
             // Query untuk mengambil DPJP dengan status "Utama" saja
             try {
@@ -1863,7 +1881,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private void isForm() {
         if (ChkInput.isSelected() == true) {
             ChkInput.setVisible(false);
-            PanelInput.setPreferredSize(new Dimension(WIDTH, 230));
+            PanelInput.setPreferredSize(new Dimension(WIDTH, 220));
             FormInput.setVisible(true);
             ChkInput.setVisible(true);
         } else if (ChkInput.isSelected() == false) {

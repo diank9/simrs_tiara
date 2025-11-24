@@ -3371,6 +3371,7 @@ if (TNoRw.getText().equals("") || TNoRM.getText().equals("") || TPasien.getText(
                             filePDF.delete();
                             outputfile.delete();
 
+                            HapusPDFResumeRanap();
                             System.out.println("Prosess successfully : proses simpan dan upload selesai");
 
 //                        javax.swing.SwingUtilities.invokeLater(() -> {
@@ -4077,6 +4078,7 @@ if (TNoRw.getText().equals("") || TNoRM.getText().equals("") || TPasien.getText(
                         // upload ke server
                         UploadJPGResumeRanapSilent(noRawatFinal, fileName + ".jpg");
                         
+                        HapusPDFResumeRanap();
                         System.out.println("Prosess successfully : proses ganti dan upload selesai");
                     }
                 } catch (Exception e) {
@@ -4134,4 +4136,16 @@ if (TNoRw.getText().equals("") || TNoRM.getText().equals("") || TPasien.getText(
         }
     }
 
+    private void HapusPDFResumeRanap() {
+        File file = new File("tmpPDF");
+        String[] myFiles;
+        if (file.isDirectory()) {
+            myFiles = file.list();
+            for (int i = 0; i < myFiles.length; i++) {
+                File myFile = new File(file, myFiles[i]);
+                myFile.delete();
+            }
+        }
+    }
+    
 }
