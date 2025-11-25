@@ -60,7 +60,7 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
             "No.Rawat","No.RM","Nama Pasien","Tgl.Lahir","J.K.","Kode Dokter","Nama Dokter","Tanggal","Anamnesis","Hubungan","Keluhan Utama","Riwayat Penyakit Sekarang","Riwayat Penyakit Dahulu",
             "Riwayat Penyakit Keluarga","Riwayat Penggunakan Obat","Riwayat Alergi","Keadaan Umum","GCS","Kesadaran","TD(mmHg)","Nadi(x/menit)","RR(x/menit)","Suhu","SpO2","BB(Kg)","TB(cm)","Kepala",
             "Mata","Gigi & Mulut","THT","Thoraks","Abdomen","Genital & Anus","Ekstremitas","Kulit","Ket.Pemeriksaan Fisik","TFU","TBJ","His","Kontraksi","DJJ","Inspeksi","Inspekulo","VT","RT",
-            "Ultrasonografi","Kardiotokografi","Laboratorium","Diagnosis/Asesmen","Tatalaksana","Konsul/Rujuk"
+            "Ultrasonografi","Kardiotokografi","Laboratorium","Diagnosis/Asesmen","Tatalaksana","Konsul/Rujuk","Discharge Planning","Plan Of Care"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -69,7 +69,7 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
         tbObat.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbObat.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 51; i++) {
+        for (i = 0; i < 53; i++) {
             TableColumn column = tbObat.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(105);
@@ -173,6 +173,10 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
                 column.setPreferredWidth(300);
             }else if(i==50){
                 column.setPreferredWidth(150);
+            }else if(i==51){
+                column.setPreferredWidth(300);
+            }else if(i==52){
+                column.setPreferredWidth(300);
             }
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
@@ -208,6 +212,8 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
         VT.setDocument(new batasInput((int)5000).getKata(VT));
         RT.setDocument(new batasInput((int)5000).getKata(RT));
         Konsul.setDocument(new batasInput((int)1000).getKata(Konsul));
+        DischargePlanning.setDocument(new batasInput((int)1000).getKata(DischargePlanning));
+        PlanOfCare.setDocument(new batasInput((int)1000).getKata(PlanOfCare));
         TCari.setDocument(new batasInput((int)100).getKata(TCari));
         
         if(koneksiDB.CARICEPAT().equals("aktif")){
@@ -444,6 +450,14 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
         jLabel85 = new widget.Label();
         jLabel86 = new widget.Label();
         jLabel101 = new widget.Label();
+        jSeparator18 = new javax.swing.JSeparator();
+        jLabel105 = new widget.Label();
+        scrollPane18 = new widget.ScrollPane();
+        DischargePlanning = new widget.TextArea();
+        jSeparator19 = new javax.swing.JSeparator();
+        jLabel106 = new widget.Label();
+        scrollPane19 = new widget.ScrollPane();
+        PlanOfCare = new widget.TextArea();
         internalFrame3 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -631,12 +645,12 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
         internalFrame2.setLayout(new java.awt.BorderLayout(1, 1));
 
         scrollInput.setName("scrollInput"); // NOI18N
-        scrollInput.setPreferredSize(new java.awt.Dimension(102, 557));
+        scrollInput.setPreferredSize(new java.awt.Dimension(102, 750));
 
         FormInput.setBackground(new java.awt.Color(255, 255, 255));
         FormInput.setBorder(null);
         FormInput.setName("FormInput"); // NOI18N
-        FormInput.setPreferredSize(new java.awt.Dimension(870, 1133));
+        FormInput.setPreferredSize(new java.awt.Dimension(870, 1400));
         FormInput.setLayout(null);
 
         TNoRw.setHighlighter(null);
@@ -1356,7 +1370,7 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
         label11.setBounds(380, 40, 52, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-07-2024 21:05:21" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-07-2024 17:20:54" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -1643,6 +1657,70 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
         FormInput.add(jLabel101);
         jLabel101.setBounds(10, 680, 200, 23);
 
+        jSeparator18.setBackground(new java.awt.Color(239, 244, 234));
+        jSeparator18.setForeground(new java.awt.Color(239, 244, 234));
+        jSeparator18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
+        jSeparator18.setMinimumSize(new java.awt.Dimension(880, 1));
+        jSeparator18.setName("jSeparator18"); // NOI18N
+        jSeparator18.setPreferredSize(new java.awt.Dimension(0, 1));
+        FormInput.add(jSeparator18);
+        jSeparator18.setBounds(0, 1130, 880, 1);
+
+        jLabel105.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel105.setText("VIII. PERENCANAAN PULANG (DISCHARGE PLANNING)");
+        jLabel105.setName("jLabel105"); // NOI18N
+        FormInput.add(jLabel105);
+        jLabel105.setBounds(10, 1130, 270, 23);
+
+        scrollPane18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane18.setName("scrollPane18"); // NOI18N
+
+        DischargePlanning.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        DischargePlanning.setColumns(20);
+        DischargePlanning.setRows(24);
+        DischargePlanning.setName("DischargePlanning"); // NOI18N
+        DischargePlanning.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                DischargePlanningKeyPressed(evt);
+            }
+        });
+        scrollPane18.setViewportView(DischargePlanning);
+
+        FormInput.add(scrollPane18);
+        scrollPane18.setBounds(40, 1160, 810, 90);
+
+        jSeparator19.setBackground(new java.awt.Color(239, 244, 234));
+        jSeparator19.setForeground(new java.awt.Color(239, 244, 234));
+        jSeparator19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
+        jSeparator19.setMinimumSize(new java.awt.Dimension(880, 1));
+        jSeparator19.setName("jSeparator19"); // NOI18N
+        jSeparator19.setPreferredSize(new java.awt.Dimension(0, 1));
+        FormInput.add(jSeparator19);
+        jSeparator19.setBounds(0, 1260, 880, 1);
+
+        jLabel106.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel106.setText("IX. HASIL YANG DIHARAPKAN (PLAN OF CARE)");
+        jLabel106.setName("jLabel106"); // NOI18N
+        FormInput.add(jLabel106);
+        jLabel106.setBounds(10, 1270, 270, 23);
+
+        scrollPane19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane19.setName("scrollPane19"); // NOI18N
+
+        PlanOfCare.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        PlanOfCare.setColumns(20);
+        PlanOfCare.setRows(24);
+        PlanOfCare.setName("PlanOfCare"); // NOI18N
+        PlanOfCare.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PlanOfCareKeyPressed(evt);
+            }
+        });
+        scrollPane19.setViewportView(PlanOfCare);
+
+        FormInput.add(scrollPane19);
+        scrollPane19.setBounds(40, 1300, 810, 90);
+
         scrollInput.setViewportView(FormInput);
 
         internalFrame2.add(scrollInput, java.awt.BorderLayout.CENTER);
@@ -1684,7 +1762,7 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-07-2024" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-07-2024" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1698,7 +1776,7 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-07-2024" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-07-2024" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -2301,7 +2379,7 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
                 "penilaian_medis_ralan_kandungan.keadaan,penilaian_medis_ralan_kandungan.gcs,penilaian_medis_ralan_kandungan.kesadaran,penilaian_medis_ralan_kandungan.td,penilaian_medis_ralan_kandungan.nadi,penilaian_medis_ralan_kandungan.rr,penilaian_medis_ralan_kandungan.suhu,penilaian_medis_ralan_kandungan.spo,penilaian_medis_ralan_kandungan.bb,penilaian_medis_ralan_kandungan.tb,"+
                 "penilaian_medis_ralan_kandungan.kepala,penilaian_medis_ralan_kandungan.mata,penilaian_medis_ralan_kandungan.gigi,penilaian_medis_ralan_kandungan.tht,penilaian_medis_ralan_kandungan.thoraks,penilaian_medis_ralan_kandungan.abdomen,penilaian_medis_ralan_kandungan.ekstremitas,"+
                 "penilaian_medis_ralan_kandungan.genital,penilaian_medis_ralan_kandungan.kulit,penilaian_medis_ralan_kandungan.ket_fisik,penilaian_medis_ralan_kandungan.tfu,penilaian_medis_ralan_kandungan.tbj,penilaian_medis_ralan_kandungan.his,penilaian_medis_ralan_kandungan.kontraksi,penilaian_medis_ralan_kandungan.djj,penilaian_medis_ralan_kandungan.inspeksi,"+
-                "penilaian_medis_ralan_kandungan.inspekulo,penilaian_medis_ralan_kandungan.vt,penilaian_medis_ralan_kandungan.rt,penilaian_medis_ralan_kandungan.ultra,penilaian_medis_ralan_kandungan.kardio,penilaian_medis_ralan_kandungan.lab,penilaian_medis_ralan_kandungan.diagnosis,penilaian_medis_ralan_kandungan.tata,penilaian_medis_ralan_kandungan.konsul,dokter.nm_dokter "+
+                "penilaian_medis_ralan_kandungan.inspekulo,penilaian_medis_ralan_kandungan.vt,penilaian_medis_ralan_kandungan.rt,penilaian_medis_ralan_kandungan.ultra,penilaian_medis_ralan_kandungan.kardio,penilaian_medis_ralan_kandungan.lab,penilaian_medis_ralan_kandungan.diagnosis,penilaian_medis_ralan_kandungan.tata,penilaian_medis_ralan_kandungan.konsul,penilaian_medis_ralan_kandungan.dp,penilaian_medis_ralan_kandungan.poc,dokter.nm_dokter "+
                 "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                 "inner join penilaian_medis_ralan_kandungan on reg_periksa.no_rawat=penilaian_medis_ralan_kandungan.no_rawat "+
                 "inner join dokter on penilaian_medis_ralan_kandungan.kd_dokter=dokter.kd_dokter where penilaian_medis_ralan_kandungan.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
@@ -2356,6 +2434,14 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
         Valid.pindah2(evt,Inspekulo,RT);
     }//GEN-LAST:event_VTKeyPressed
 
+    private void DischargePlanningKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DischargePlanningKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DischargePlanningKeyPressed
+
+    private void PlanOfCareKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlanOfCareKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PlanOfCareKeyPressed
+
     /**
     * @param args the command line arguments
     */
@@ -2390,6 +2476,7 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
     private widget.Tanggal DTPCari1;
     private widget.Tanggal DTPCari2;
     private widget.TextArea Diagnosis;
+    private widget.TextArea DischargePlanning;
     private widget.ComboBox Ekstremitas;
     private widget.PanelBiasa FormInput;
     private widget.TextBox GCS;
@@ -2417,6 +2504,7 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
     private javax.swing.JMenuItem MnPenilaianMedis;
     private widget.TextBox Nadi;
     private widget.TextBox NmDokter;
+    private widget.TextArea PlanOfCare;
     private widget.TextArea RPD;
     private widget.TextArea RPK;
     private widget.TextArea RPO;
@@ -2452,6 +2540,8 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
     private widget.Label jLabel102;
     private widget.Label jLabel103;
     private widget.Label jLabel104;
+    private widget.Label jLabel105;
+    private widget.Label jLabel106;
     private widget.Label jLabel11;
     private widget.Label jLabel12;
     private widget.Label jLabel13;
@@ -2517,6 +2607,8 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
     private widget.Label label11;
     private widget.Label label14;
     private widget.panelisi panelGlass8;
@@ -2531,6 +2623,8 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
     private widget.ScrollPane scrollPane15;
     private widget.ScrollPane scrollPane16;
     private widget.ScrollPane scrollPane17;
+    private widget.ScrollPane scrollPane18;
+    private widget.ScrollPane scrollPane19;
     private widget.ScrollPane scrollPane2;
     private widget.ScrollPane scrollPane3;
     private widget.ScrollPane scrollPane4;
@@ -2551,7 +2645,7 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
                         "penilaian_medis_ralan_kandungan.keadaan,penilaian_medis_ralan_kandungan.gcs,penilaian_medis_ralan_kandungan.kesadaran,penilaian_medis_ralan_kandungan.td,penilaian_medis_ralan_kandungan.nadi,penilaian_medis_ralan_kandungan.rr,penilaian_medis_ralan_kandungan.suhu,penilaian_medis_ralan_kandungan.spo,penilaian_medis_ralan_kandungan.bb,penilaian_medis_ralan_kandungan.tb,"+
                         "penilaian_medis_ralan_kandungan.kepala,penilaian_medis_ralan_kandungan.mata,penilaian_medis_ralan_kandungan.gigi,penilaian_medis_ralan_kandungan.tht,penilaian_medis_ralan_kandungan.thoraks,penilaian_medis_ralan_kandungan.abdomen,penilaian_medis_ralan_kandungan.ekstremitas,"+
                         "penilaian_medis_ralan_kandungan.genital,penilaian_medis_ralan_kandungan.kulit,penilaian_medis_ralan_kandungan.ket_fisik,penilaian_medis_ralan_kandungan.tfu,penilaian_medis_ralan_kandungan.tbj,penilaian_medis_ralan_kandungan.his,penilaian_medis_ralan_kandungan.kontraksi,penilaian_medis_ralan_kandungan.djj,penilaian_medis_ralan_kandungan.inspeksi,"+
-                        "penilaian_medis_ralan_kandungan.inspekulo,penilaian_medis_ralan_kandungan.vt,penilaian_medis_ralan_kandungan.rt,penilaian_medis_ralan_kandungan.ultra,penilaian_medis_ralan_kandungan.kardio,penilaian_medis_ralan_kandungan.lab,penilaian_medis_ralan_kandungan.diagnosis,penilaian_medis_ralan_kandungan.tata,penilaian_medis_ralan_kandungan.konsul,dokter.nm_dokter "+
+                        "penilaian_medis_ralan_kandungan.inspekulo,penilaian_medis_ralan_kandungan.vt,penilaian_medis_ralan_kandungan.rt,penilaian_medis_ralan_kandungan.ultra,penilaian_medis_ralan_kandungan.kardio,penilaian_medis_ralan_kandungan.lab,penilaian_medis_ralan_kandungan.diagnosis,penilaian_medis_ralan_kandungan.tata,penilaian_medis_ralan_kandungan.konsul,penilaian_medis_ralan_kandungan.dp,penilaian_medis_ralan_kandungan.poc,dokter.nm_dokter "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_medis_ralan_kandungan on reg_periksa.no_rawat=penilaian_medis_ralan_kandungan.no_rawat "+
                         "inner join dokter on penilaian_medis_ralan_kandungan.kd_dokter=dokter.kd_dokter where "+
@@ -2563,7 +2657,7 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
                         "penilaian_medis_ralan_kandungan.keadaan,penilaian_medis_ralan_kandungan.gcs,penilaian_medis_ralan_kandungan.kesadaran,penilaian_medis_ralan_kandungan.td,penilaian_medis_ralan_kandungan.nadi,penilaian_medis_ralan_kandungan.rr,penilaian_medis_ralan_kandungan.suhu,penilaian_medis_ralan_kandungan.spo,penilaian_medis_ralan_kandungan.bb,penilaian_medis_ralan_kandungan.tb,"+
                         "penilaian_medis_ralan_kandungan.kepala,penilaian_medis_ralan_kandungan.mata,penilaian_medis_ralan_kandungan.gigi,penilaian_medis_ralan_kandungan.tht,penilaian_medis_ralan_kandungan.thoraks,penilaian_medis_ralan_kandungan.abdomen,penilaian_medis_ralan_kandungan.ekstremitas,"+
                         "penilaian_medis_ralan_kandungan.genital,penilaian_medis_ralan_kandungan.kulit,penilaian_medis_ralan_kandungan.ket_fisik,penilaian_medis_ralan_kandungan.tfu,penilaian_medis_ralan_kandungan.tbj,penilaian_medis_ralan_kandungan.his,penilaian_medis_ralan_kandungan.kontraksi,penilaian_medis_ralan_kandungan.djj,penilaian_medis_ralan_kandungan.inspeksi,"+
-                        "penilaian_medis_ralan_kandungan.inspekulo,penilaian_medis_ralan_kandungan.vt,penilaian_medis_ralan_kandungan.rt,penilaian_medis_ralan_kandungan.ultra,penilaian_medis_ralan_kandungan.kardio,penilaian_medis_ralan_kandungan.lab,penilaian_medis_ralan_kandungan.diagnosis,penilaian_medis_ralan_kandungan.tata,penilaian_medis_ralan_kandungan.konsul,dokter.nm_dokter "+
+                        "penilaian_medis_ralan_kandungan.inspekulo,penilaian_medis_ralan_kandungan.vt,penilaian_medis_ralan_kandungan.rt,penilaian_medis_ralan_kandungan.ultra,penilaian_medis_ralan_kandungan.kardio,penilaian_medis_ralan_kandungan.lab,penilaian_medis_ralan_kandungan.diagnosis,penilaian_medis_ralan_kandungan.tata,penilaian_medis_ralan_kandungan.konsul,penilaian_medis_ralan_kandungan.dp,penilaian_medis_ralan_kandungan.poc,dokter.nm_dokter "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_medis_ralan_kandungan on reg_periksa.no_rawat=penilaian_medis_ralan_kandungan.no_rawat "+
                         "inner join dokter on penilaian_medis_ralan_kandungan.kd_dokter=dokter.kd_dokter where "+
@@ -2592,7 +2686,7 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
                         rs.getString("keadaan"),rs.getString("gcs"),rs.getString("kesadaran"),rs.getString("td"),rs.getString("nadi"),rs.getString("rr"),rs.getString("suhu"),rs.getString("spo"),rs.getString("bb"),
                         rs.getString("tb"),rs.getString("kepala"),rs.getString("mata"),rs.getString("gigi"),rs.getString("tht"),rs.getString("thoraks"),rs.getString("abdomen"),rs.getString("genital"),rs.getString("ekstremitas"),
                         rs.getString("kulit"),rs.getString("ket_fisik"),rs.getString("tfu"),rs.getString("tbj"),rs.getString("his"),rs.getString("kontraksi"),rs.getString("djj"),rs.getString("inspeksi"),rs.getString("inspekulo"),
-                        rs.getString("vt"),rs.getString("rt"),rs.getString("ultra"),rs.getString("kardio"),rs.getString("lab"),rs.getString("diagnosis"),rs.getString("tata"),rs.getString("konsul")
+                        rs.getString("vt"),rs.getString("rt"),rs.getString("ultra"),rs.getString("kardio"),rs.getString("lab"),rs.getString("diagnosis"),rs.getString("tata"),rs.getString("konsul"),rs.getString("dp"),rs.getString("poc")
                     });
                 }
             } catch (Exception e) {
@@ -2655,6 +2749,8 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
         Diagnosis.setText("");
         Tatalaksana.setText("");
         Konsul.setText("");
+        DischargePlanning.setText("");
+        PlanOfCare.setText("");
         TglAsuhan.setDate(new Date());
         TabRawat.setSelectedIndex(0);
         Anamnesis.requestFocus();
@@ -2710,6 +2806,8 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
             Diagnosis.setText(tbObat.getValueAt(tbObat.getSelectedRow(),48).toString());
             Tatalaksana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),49).toString());
             Konsul.setText(tbObat.getValueAt(tbObat.getSelectedRow(),50).toString());
+            DischargePlanning.setText(tbObat.getValueAt(tbObat.getSelectedRow(),51).toString());
+            PlanOfCare.setText(tbObat.getValueAt(tbObat.getSelectedRow(),52).toString());
             Valid.SetTgl2(TglAsuhan,tbObat.getValueAt(tbObat.getSelectedRow(),7).toString());
         }
     }
@@ -2795,13 +2893,13 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
 
     private void ganti() {
         if(Sequel.mengedittf("penilaian_medis_ralan_kandungan","no_rawat=?","no_rawat=?,tanggal=?,kd_dokter=?,anamnesis=?,hubungan=?,keluhan_utama=?,rps=?,rpk=?,rpd=?,rpo=?,alergi=?,keadaan=?,gcs=?,kesadaran=?,td=?,nadi=?,rr=?,suhu=?,spo=?,bb=?,tb=?,"+
-                "kepala=?,mata=?,gigi=?,tht=?,thoraks=?,abdomen=?,genital=?,ekstremitas=?,kulit=?,ket_fisik=?,tfu=?,tbj=?,his=?,kontraksi=?,djj=?,inspeksi=?,inspekulo=?,vt=?,rt=?,ultra=?,kardio=?,lab=?,diagnosis=?,tata=?,konsul=?",47,new String[]{
+                "kepala=?,mata=?,gigi=?,tht=?,thoraks=?,abdomen=?,genital=?,ekstremitas=?,kulit=?,ket_fisik=?,tfu=?,tbj=?,his=?,kontraksi=?,djj=?,inspeksi=?,inspekulo=?,vt=?,rt=?,ultra=?,kardio=?,lab=?,diagnosis=?,tata=?,konsul=?,dp=?,poc=?",49,new String[]{
                 TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),KdDokter.getText(),Anamnesis.getSelectedItem().toString(),Hubungan.getText(),
                     KeluhanUtama.getText(),RPS.getText(),RPK.getText(),RPD.getText(),RPO.getText(),Alergi.getText(),Keadaan.getSelectedItem().toString(),GCS.getText(),Kesadaran.getSelectedItem().toString(),TD.getText(),
                     Nadi.getText(),RR.getText(),Suhu.getText(),SPO.getText(),BB.getText(),TB.getText(),Kepala.getSelectedItem().toString(),Mata.getSelectedItem().toString(),Gigi.getSelectedItem().toString(),THT.getSelectedItem().toString(),
                     Thoraks.getSelectedItem().toString(),Abdomen.getSelectedItem().toString(),Genital.getSelectedItem().toString(),Ekstremitas.getSelectedItem().toString(),Kulit.getSelectedItem().toString(),KetFisik.getText(),TFU.getText(),
                     TBJ.getText(),His.getText(),Kontraksi.getSelectedItem().toString(),DJJ.getText(),Inspeksi.getText(),Inspekulo.getText(),VT.getText(),RT.getText(),Ultra.getText(),Kardio.getText(),Laborat.getText(),
-                    Diagnosis.getText(),Tatalaksana.getText(),Konsul.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
+                    Diagnosis.getText(),Tatalaksana.getText(),Konsul.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString(),DischargePlanning.getText(),PlanOfCare.getText(),
             })==true){
                tbObat.setValueAt(TNoRw.getText(),tbObat.getSelectedRow(),0);
                tbObat.setValueAt(TNoRM.getText(),tbObat.getSelectedRow(),1);
@@ -2854,26 +2952,28 @@ public final class RMPenilaianAwalMedisRalanKandungan extends javax.swing.JDialo
                tbObat.setValueAt(Diagnosis.getText(),tbObat.getSelectedRow(),48);
                tbObat.setValueAt(Tatalaksana.getText(),tbObat.getSelectedRow(),49);
                tbObat.setValueAt(Konsul.getText(),tbObat.getSelectedRow(),50);
+               tbObat.setValueAt(DischargePlanning.getText(),tbObat.getSelectedRow(),51);
+               tbObat.setValueAt(PlanOfCare.getText(),tbObat.getSelectedRow(),52);
                emptTeks();
                TabRawat.setSelectedIndex(1);
         }
     }
 
     private void simpan() {
-        if(Sequel.menyimpantf("penilaian_medis_ralan_kandungan","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",46,new String[]{
+        if(Sequel.menyimpantf("penilaian_medis_ralan_kandungan","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",48,new String[]{
                 TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),KdDokter.getText(),Anamnesis.getSelectedItem().toString(),Hubungan.getText(),
                 KeluhanUtama.getText(),RPS.getText(),RPD.getText(),RPK.getText(),RPO.getText(),Alergi.getText(),Keadaan.getSelectedItem().toString(),GCS.getText(),Kesadaran.getSelectedItem().toString(),TD.getText(),
                 Nadi.getText(),RR.getText(),Suhu.getText(),SPO.getText(),BB.getText(),TB.getText(),Kepala.getSelectedItem().toString(),Mata.getSelectedItem().toString(),Gigi.getSelectedItem().toString(),THT.getSelectedItem().toString(),
                 Thoraks.getSelectedItem().toString(),Abdomen.getSelectedItem().toString(),Genital.getSelectedItem().toString(),Ekstremitas.getSelectedItem().toString(),Kulit.getSelectedItem().toString(),KetFisik.getText(),
                 TFU.getText(),TBJ.getText(),His.getText(),Kontraksi.getSelectedItem().toString(),DJJ.getText(),Inspeksi.getText(),Inspekulo.getText(),VT.getText(),RT.getText(),Ultra.getText(),Kardio.getText(),Laborat.getText(),
-                Diagnosis.getText(),Tatalaksana.getText(),Konsul.getText()
+                Diagnosis.getText(),Tatalaksana.getText(),Konsul.getText(),DischargePlanning.getText(),PlanOfCare.getText()
             })==true){
                 tabMode.addRow(new Object[]{
                     TNoRw.getText(),TNoRM.getText(),TPasien.getText(),TglLahir.getText(),Jk.getText(),KdDokter.getText(),NmDokter.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),
                     Anamnesis.getSelectedItem().toString(),Hubungan.getText(),KeluhanUtama.getText(),RPS.getText(),RPD.getText(),RPK.getText(),RPO.getText(),Alergi.getText(),Keadaan.getSelectedItem().toString(),GCS.getText(),Kesadaran.getSelectedItem().toString(),
                     TD.getText(),Nadi.getText(),RR.getText(),Suhu.getText(),SPO.getText(),BB.getText(),TB.getText(),Kepala.getSelectedItem().toString(),Mata.getSelectedItem().toString(),Gigi.getSelectedItem().toString(),THT.getSelectedItem().toString(),
                     Thoraks.getSelectedItem().toString(),Abdomen.getSelectedItem().toString(),Genital.getSelectedItem().toString(),Ekstremitas.getSelectedItem().toString(),Kulit.getSelectedItem().toString(),KetFisik.getText(),TFU.getText(),TBJ.getText(),
-                    His.getText(),Kontraksi.getSelectedItem().toString(),DJJ.getText(),Inspeksi.getText(),Inspekulo.getText(),VT.getText(),RT.getText(),Ultra.getText(),Kardio.getText(),Laborat.getText(),Diagnosis.getText(),Tatalaksana.getText(),Konsul.getText()
+                    His.getText(),Kontraksi.getSelectedItem().toString(),DJJ.getText(),Inspeksi.getText(),Inspekulo.getText(),VT.getText(),RT.getText(),Ultra.getText(),Kardio.getText(),Laborat.getText(),Diagnosis.getText(),Tatalaksana.getText(),Konsul.getText(),DischargePlanning.getText(),PlanOfCare.getText()
                 });
                 LCount.setText(""+tabMode.getRowCount());
                 emptTeks();

@@ -4,10 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/mbwnk/Khanza/SIMRS_RSTiara/src/fungsi/validasi.java</file>
-            <file>file:/home/mbwnk/Khanza/SIMRS_RSTiara/src/permintaan/DlgPermintaanRanap.java</file>
-            <file>file:/home/mbwnk/Khanza/SIMRS_RSTiara/src/surat/SuratSakit.java</file>
-            <file>file:/home/mbwnk/Khanza/SIMRS_RSTiara/src/rekammedis/RMTriaseIGD.java</file>
-            <file>file:/home/mbwnk/Khanza/SIMRS_RSTiara/src/rekammedis/RMDataResumePasienRanap.java</file>
+            <file>file:/home/mbwnk/Khanza/SIMRS_RSTiara/src/rekammedis/RMPenilaianAwalMedisRalanKandungan.java</file>
+            <file>file:/home/mbwnk/Khanza/SIMRS_RSTiara/src/rekammedis/RMPenilaianAwalMedisIGD.java</file>
         </group>
     </open-files>
 </project-private>
