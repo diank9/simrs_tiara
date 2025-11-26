@@ -79,7 +79,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
             "Hasil Pengkajian Resiko Jatuh","Lapor Dokter","Ket. Lapor","Skrining Gizi 1","Nilai 1","Skrining Gizi 2","Nilai 2","Total Skor","Tingkat Nyeri","Provokes",
             "Ket. Provokes","Kualitas","Ket. Kualitas","Lokasi","Menyebar","Skala Nyeri","Durasi","Nyeri Hilang","Ket. Hilang Nyeri","Lapor Ke Dokter",
             "Jam Lapor","Rencana Keperawatan Lainnya","NIP","Nama Petugas","Edukasi Diet dan Nutrisi","Edukasi Manajemen Nyeri","Edukasi Obat-obatan","Edukasi Penggunaan Alat Medis Yang Aman",
-            "Edukasi Perawatan Luka","Edukasi Rehabilitasi Medik","Ringkasan Edukasi Rehabilitasi Medik","Edukasi Lain-lain","Ringkasan Edukasi Lain-lain"
+            "Edukasi Perawatan Luka","Edukasi Rehabilitasi Medik","Tambahan Edukasi Lain-lain"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -89,7 +89,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         tbObat.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbObat.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 74; i++) {
+        for (i = 0; i < 72; i++) {
             TableColumn column = tbObat.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(105);
@@ -234,10 +234,6 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
             }else if(i==70){
                 column.setPreferredWidth(70);
             }else if(i==71){
-                column.setPreferredWidth(70);
-            }else if(i==72){
-                column.setPreferredWidth(70);
-            }else if(i==73){
                 column.setPreferredWidth(70);
             }
         }
@@ -389,8 +385,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         KetNyeri.setDocument(new batasInput((int)40).getKata(KetNyeri));
         KetDokter.setDocument(new batasInput((int)15).getKata(KetDokter));
         Rencana.setDocument(new batasInput((int)200).getKata(Rencana));
-        MET1.setDocument(new batasInput((int)200).getKata(MET1));
-        MET2.setDocument(new batasInput((int)200).getKata(MET2));
+        METLain.setDocument(new batasInput((int)200).getKata(METLain));
         
         TCari.setDocument(new batasInput((int)100).getKata(TCari));
         
@@ -659,7 +654,6 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         KetNyeri = new widget.TextBox();
         jLabel89 = new widget.Label();
         PadaDokter = new widget.ComboBox();
-        MET1 = new widget.TextBox();
         jLabel92 = new widget.Label();
         TotalHasil = new widget.TextBox();
         TglAsuhan = new widget.Tanggal();
@@ -715,23 +709,21 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         jSeparator11 = new javax.swing.JSeparator();
         jLabel78 = new widget.Label();
         jLabel79 = new widget.Label();
-        ME1 = new widget.ComboBox();
+        MEGizi = new widget.ComboBox();
         jLabel90 = new widget.Label();
-        ME2 = new widget.ComboBox();
+        MENyeri = new widget.ComboBox();
         jLabel91 = new widget.Label();
-        ME3 = new widget.ComboBox();
+        MEObat = new widget.ComboBox();
         jLabel98 = new widget.Label();
-        ME4 = new widget.ComboBox();
+        MEAlkes = new widget.ComboBox();
         jLabel99 = new widget.Label();
-        ME5 = new widget.ComboBox();
-        jLabel100 = new widget.Label();
-        ME6 = new widget.ComboBox();
+        MELuka = new widget.ComboBox();
+        MERehab = new widget.ComboBox();
         KetDokter = new widget.TextBox();
-        MET2 = new widget.TextBox();
         jLabel101 = new widget.Label();
-        ME7 = new widget.ComboBox();
         jLabel102 = new widget.Label();
-        jLabel103 = new widget.Label();
+        scrollPane7 = new widget.ScrollPane();
+        METLain = new widget.TextArea();
         internalFrame3 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -927,7 +919,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         FormInput.setBackground(new java.awt.Color(255, 255, 255));
         FormInput.setBorder(null);
         FormInput.setName("FormInput"); // NOI18N
-        FormInput.setPreferredSize(new java.awt.Dimension(870, 1390));
+        FormInput.setPreferredSize(new java.awt.Dimension(870, 1420));
         FormInput.setLayout(null);
 
         TNoRw.setHighlighter(null);
@@ -1817,16 +1809,6 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         FormInput.add(PadaDokter);
         PadaDokter.setBounds(634, 970, 80, 23);
 
-        MET1.setFocusTraversalPolicyProvider(true);
-        MET1.setName("MET1"); // NOI18N
-        MET1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                MET1KeyPressed(evt);
-            }
-        });
-        FormInput.add(MET1);
-        MET1.setBounds(560, 1250, 290, 23);
-
         jLabel92.setText("Nilai :");
         jLabel92.setName("jLabel92"); // NOI18N
         FormInput.add(jLabel92);
@@ -1845,7 +1827,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         TotalHasil.setBounds(774, 770, 80, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-11-2025 13:00:19" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-11-2025 08:40:52" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -2276,129 +2258,124 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         jLabel78.setBounds(10, 800, 380, 23);
 
         jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel79.setText("Diet dan nutrisi ?");
+        jLabel79.setText("Diet dan nutrisi");
         jLabel79.setName("jLabel79"); // NOI18N
         FormInput.add(jLabel79);
         jLabel79.setBounds(40, 1220, 250, 23);
 
-        ME1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
-        ME1.setName("ME1"); // NOI18N
-        ME1.addItemListener(new java.awt.event.ItemListener() {
+        MEGizi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        MEGizi.setName("MEGizi"); // NOI18N
+        MEGizi.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ME1ItemStateChanged(evt);
+                MEGiziItemStateChanged(evt);
             }
         });
-        ME1.addKeyListener(new java.awt.event.KeyAdapter() {
+        MEGizi.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                ME1KeyPressed(evt);
+                MEGiziKeyPressed(evt);
             }
         });
-        FormInput.add(ME1);
-        ME1.setBounds(280, 1220, 130, 23);
+        FormInput.add(MEGizi);
+        MEGizi.setBounds(280, 1220, 130, 23);
 
         jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel90.setText("Manajemen Nyeri ?");
+        jLabel90.setText("Manajemen Nyeri");
         jLabel90.setName("jLabel90"); // NOI18N
         FormInput.add(jLabel90);
         jLabel90.setBounds(40, 1250, 250, 23);
 
-        ME2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
-        ME2.setName("ME2"); // NOI18N
-        ME2.addItemListener(new java.awt.event.ItemListener() {
+        MENyeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        MENyeri.setName("MENyeri"); // NOI18N
+        MENyeri.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ME2ItemStateChanged(evt);
+                MENyeriItemStateChanged(evt);
             }
         });
-        ME2.addKeyListener(new java.awt.event.KeyAdapter() {
+        MENyeri.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                ME2KeyPressed(evt);
+                MENyeriKeyPressed(evt);
             }
         });
-        FormInput.add(ME2);
-        ME2.setBounds(280, 1250, 130, 23);
+        FormInput.add(MENyeri);
+        MENyeri.setBounds(280, 1250, 130, 23);
 
         jLabel91.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel91.setText("Obat-obatan ?");
+        jLabel91.setText("Obat-obatan");
         jLabel91.setName("jLabel91"); // NOI18N
         FormInput.add(jLabel91);
         jLabel91.setBounds(40, 1280, 250, 23);
 
-        ME3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
-        ME3.setName("ME3"); // NOI18N
-        ME3.addItemListener(new java.awt.event.ItemListener() {
+        MEObat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        MEObat.setName("MEObat"); // NOI18N
+        MEObat.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ME3ItemStateChanged(evt);
+                MEObatItemStateChanged(evt);
             }
         });
-        ME3.addKeyListener(new java.awt.event.KeyAdapter() {
+        MEObat.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                ME3KeyPressed(evt);
+                MEObatKeyPressed(evt);
             }
         });
-        FormInput.add(ME3);
-        ME3.setBounds(280, 1280, 130, 23);
+        FormInput.add(MEObat);
+        MEObat.setBounds(280, 1280, 130, 23);
 
         jLabel98.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel98.setText("Penggunaan alat medis yang aman ?");
+        jLabel98.setText("Penggunaan alat medis yang aman");
         jLabel98.setName("jLabel98"); // NOI18N
         FormInput.add(jLabel98);
         jLabel98.setBounds(40, 1310, 250, 23);
 
-        ME4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
-        ME4.setName("ME4"); // NOI18N
-        ME4.addItemListener(new java.awt.event.ItemListener() {
+        MEAlkes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        MEAlkes.setName("MEAlkes"); // NOI18N
+        MEAlkes.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ME4ItemStateChanged(evt);
+                MEAlkesItemStateChanged(evt);
             }
         });
-        ME4.addKeyListener(new java.awt.event.KeyAdapter() {
+        MEAlkes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                ME4KeyPressed(evt);
+                MEAlkesKeyPressed(evt);
             }
         });
-        FormInput.add(ME4);
-        ME4.setBounds(280, 1310, 130, 23);
+        FormInput.add(MEAlkes);
+        MEAlkes.setBounds(280, 1310, 130, 23);
 
         jLabel99.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel99.setText("Perawatan luka ?");
+        jLabel99.setText("Perawatan luka");
         jLabel99.setName("jLabel99"); // NOI18N
         FormInput.add(jLabel99);
         jLabel99.setBounds(40, 1340, 250, 23);
 
-        ME5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
-        ME5.setName("ME5"); // NOI18N
-        ME5.addItemListener(new java.awt.event.ItemListener() {
+        MELuka.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        MELuka.setName("MELuka"); // NOI18N
+        MELuka.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ME5ItemStateChanged(evt);
+                MELukaItemStateChanged(evt);
             }
         });
-        ME5.addKeyListener(new java.awt.event.KeyAdapter() {
+        MELuka.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                ME5KeyPressed(evt);
+                MELukaKeyPressed(evt);
             }
         });
-        FormInput.add(ME5);
-        ME5.setBounds(280, 1340, 130, 23);
+        FormInput.add(MELuka);
+        MELuka.setBounds(280, 1340, 130, 23);
 
-        jLabel100.setText("Ringkasan :");
-        jLabel100.setName("jLabel100"); // NOI18N
-        FormInput.add(jLabel100);
-        jLabel100.setBounds(450, 1340, 100, 23);
-
-        ME6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
-        ME6.setName("ME6"); // NOI18N
-        ME6.addItemListener(new java.awt.event.ItemListener() {
+        MERehab.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
+        MERehab.setName("MERehab"); // NOI18N
+        MERehab.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ME6ItemStateChanged(evt);
+                MERehabItemStateChanged(evt);
             }
         });
-        ME6.addKeyListener(new java.awt.event.KeyAdapter() {
+        MERehab.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                ME6KeyPressed(evt);
+                MERehabKeyPressed(evt);
             }
         });
-        FormInput.add(ME6);
-        ME6.setBounds(720, 1220, 130, 23);
+        FormInput.add(MERehab);
+        MERehab.setBounds(280, 1370, 130, 23);
 
         KetDokter.setFocusTraversalPolicyProvider(true);
         KetDokter.setName("KetDokter"); // NOI18N
@@ -2410,47 +2387,34 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         FormInput.add(KetDokter);
         KetDokter.setBounds(774, 970, 80, 23);
 
-        MET2.setFocusTraversalPolicyProvider(true);
-        MET2.setName("MET2"); // NOI18N
-        MET2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                MET2KeyPressed(evt);
-            }
-        });
-        FormInput.add(MET2);
-        MET2.setBounds(560, 1340, 290, 23);
-
         jLabel101.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel101.setText("Lain - lain");
+        jLabel101.setText("Lain - lain :");
         jLabel101.setName("jLabel101"); // NOI18N
         FormInput.add(jLabel101);
-        jLabel101.setBounds(450, 1310, 250, 23);
-
-        ME7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
-        ME7.setName("ME7"); // NOI18N
-        ME7.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ME7ItemStateChanged(evt);
-            }
-        });
-        ME7.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                ME7KeyPressed(evt);
-            }
-        });
-        FormInput.add(ME7);
-        ME7.setBounds(720, 1310, 130, 23);
+        jLabel101.setBounds(440, 1220, 250, 23);
 
         jLabel102.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel102.setText("Rehabilitasi ?");
+        jLabel102.setText("Rehabilitasi Medik");
         jLabel102.setName("jLabel102"); // NOI18N
         FormInput.add(jLabel102);
-        jLabel102.setBounds(450, 1220, 250, 23);
+        jLabel102.setBounds(40, 1370, 250, 23);
 
-        jLabel103.setText("Ringkasan :");
-        jLabel103.setName("jLabel103"); // NOI18N
-        FormInput.add(jLabel103);
-        jLabel103.setBounds(450, 1250, 100, 23);
+        scrollPane7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane7.setName("scrollPane7"); // NOI18N
+
+        METLain.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        METLain.setColumns(20);
+        METLain.setRows(5);
+        METLain.setName("METLain"); // NOI18N
+        METLain.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                METLainKeyPressed(evt);
+            }
+        });
+        scrollPane7.setViewportView(METLain);
+
+        FormInput.add(scrollPane7);
+        scrollPane7.setBounds(440, 1250, 410, 140);
 
         scrollInput.setViewportView(FormInput);
 
@@ -2492,7 +2456,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-11-2025" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-11-2025" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2506,7 +2470,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-11-2025" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-11-2025" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -2815,7 +2779,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                             "penilaian_awal_keperawatan_ralan.total_hasil,penilaian_awal_keperawatan_ralan.nyeri,penilaian_awal_keperawatan_ralan.provokes,penilaian_awal_keperawatan_ralan.ket_provokes,penilaian_awal_keperawatan_ralan.quality,penilaian_awal_keperawatan_ralan.ket_quality,penilaian_awal_keperawatan_ralan.lokasi,penilaian_awal_keperawatan_ralan.menyebar,"+
                             "penilaian_awal_keperawatan_ralan.skala_nyeri,penilaian_awal_keperawatan_ralan.durasi,penilaian_awal_keperawatan_ralan.nyeri_hilang,penilaian_awal_keperawatan_ralan.ket_nyeri,penilaian_awal_keperawatan_ralan.pada_dokter,penilaian_awal_keperawatan_ralan.ket_dokter,penilaian_awal_keperawatan_ralan.rencana,"+
                             "penilaian_awal_keperawatan_ralan.nip,petugas.nama,penilaian_awal_keperawatan_ralan.budaya,penilaian_awal_keperawatan_ralan.ket_budaya,"+
-                            "penilaian_awal_keperawatan_ralan.me1,penilaian_awal_keperawatan_ralan.me2,penilaian_awal_keperawatan_ralan.me3,penilaian_awal_keperawatan_ralan.me4,penilaian_awal_keperawatan_ralan.me5,penilaian_awal_keperawatan_ralan.me6,penilaian_awal_keperawatan_ralan.met1,penilaian_awal_keperawatan_ralan.me7,penilaian_awal_keperawatan_ralan.met2 "+
+                        "penilaian_awal_keperawatan_ralan.me_gizi,penilaian_awal_keperawatan_ralan.me_nyeri,penilaian_awal_keperawatan_ralan.me_obat,penilaian_awal_keperawatan_ralan.me_alkes,penilaian_awal_keperawatan_ralan.me_luka,penilaian_awal_keperawatan_ralan.me_rehab,penilaian_awal_keperawatan_ralan.met_lain "+
                             "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                             "inner join penilaian_awal_keperawatan_ralan on reg_periksa.no_rawat=penilaian_awal_keperawatan_ralan.no_rawat "+
                             "inner join petugas on penilaian_awal_keperawatan_ralan.nip=petugas.nip "+
@@ -2834,7 +2798,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                             "penilaian_awal_keperawatan_ralan.total_hasil,penilaian_awal_keperawatan_ralan.nyeri,penilaian_awal_keperawatan_ralan.provokes,penilaian_awal_keperawatan_ralan.ket_provokes,penilaian_awal_keperawatan_ralan.quality,penilaian_awal_keperawatan_ralan.ket_quality,penilaian_awal_keperawatan_ralan.lokasi,penilaian_awal_keperawatan_ralan.menyebar,"+
                             "penilaian_awal_keperawatan_ralan.skala_nyeri,penilaian_awal_keperawatan_ralan.durasi,penilaian_awal_keperawatan_ralan.nyeri_hilang,penilaian_awal_keperawatan_ralan.ket_nyeri,penilaian_awal_keperawatan_ralan.pada_dokter,penilaian_awal_keperawatan_ralan.ket_dokter,penilaian_awal_keperawatan_ralan.rencana,"+
                             "penilaian_awal_keperawatan_ralan.nip,petugas.nama,penilaian_awal_keperawatan_ralan.budaya,penilaian_awal_keperawatan_ralan.ket_budaya,"+
-                            "penilaian_awal_keperawatan_ralan.me1,penilaian_awal_keperawatan_ralan.me2,penilaian_awal_keperawatan_ralan.me3,penilaian_awal_keperawatan_ralan.me4,penilaian_awal_keperawatan_ralan.me5,penilaian_awal_keperawatan_ralan.me6,penilaian_awal_keperawatan_ralan.met1,penilaian_awal_keperawatan_ralan.me7,penilaian_awal_keperawatan_ralan.met2 "+
+                        "penilaian_awal_keperawatan_ralan.me_gizi,penilaian_awal_keperawatan_ralan.me_nyeri,penilaian_awal_keperawatan_ralan.me_obat,penilaian_awal_keperawatan_ralan.me_alkes,penilaian_awal_keperawatan_ralan.me_luka,penilaian_awal_keperawatan_ralan.me_rehab,penilaian_awal_keperawatan_ralan.met_lain "+
                             "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                             "inner join penilaian_awal_keperawatan_ralan on reg_periksa.no_rawat=penilaian_awal_keperawatan_ralan.no_rawat "+
                             "inner join petugas on penilaian_awal_keperawatan_ralan.nip=petugas.nip "+
@@ -3484,10 +3448,6 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         Valid.pindah(evt,KetNyeri,KetDokter);
     }//GEN-LAST:event_PadaDokterKeyPressed
 
-    private void MET1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MET1KeyPressed
-        
-    }//GEN-LAST:event_MET1KeyPressed
-
     private void RencanaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RencanaKeyPressed
         Valid.pindah2(evt,TCariMasalah,BtnSimpan);
     }//GEN-LAST:event_RencanaKeyPressed
@@ -3636,7 +3596,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                         "penilaian_awal_keperawatan_ralan.total_hasil,penilaian_awal_keperawatan_ralan.nyeri,penilaian_awal_keperawatan_ralan.provokes,penilaian_awal_keperawatan_ralan.ket_provokes,penilaian_awal_keperawatan_ralan.quality,penilaian_awal_keperawatan_ralan.ket_quality,penilaian_awal_keperawatan_ralan.lokasi,penilaian_awal_keperawatan_ralan.menyebar,"+
                         "penilaian_awal_keperawatan_ralan.skala_nyeri,penilaian_awal_keperawatan_ralan.durasi,penilaian_awal_keperawatan_ralan.nyeri_hilang,penilaian_awal_keperawatan_ralan.ket_nyeri,penilaian_awal_keperawatan_ralan.pada_dokter,penilaian_awal_keperawatan_ralan.ket_dokter,penilaian_awal_keperawatan_ralan.rencana,"+
                         "penilaian_awal_keperawatan_ralan.nip,petugas.nama,penilaian_awal_keperawatan_ralan.budaya,penilaian_awal_keperawatan_ralan.ket_budaya,"+
-                            "penilaian_awal_keperawatan_ralan.me1,penilaian_awal_keperawatan_ralan.me2,penilaian_awal_keperawatan_ralan.me3,penilaian_awal_keperawatan_ralan.me4,penilaian_awal_keperawatan_ralan.me5,penilaian_awal_keperawatan_ralan.me6,penilaian_awal_keperawatan_ralan.met1,penilaian_awal_keperawatan_ralan.me7,penilaian_awal_keperawatan_ralan.met2 "+
+                        "penilaian_awal_keperawatan_ralan.me_gizi,penilaian_awal_keperawatan_ralan.me_nyeri,penilaian_awal_keperawatan_ralan.me_obat,penilaian_awal_keperawatan_ralan.me_alkes,penilaian_awal_keperawatan_ralan.me_luka,penilaian_awal_keperawatan_ralan.me_rehab,penilaian_awal_keperawatan_ralan.met_lain "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_awal_keperawatan_ralan on reg_periksa.no_rawat=penilaian_awal_keperawatan_ralan.no_rawat "+
                         "inner join petugas on penilaian_awal_keperawatan_ralan.nip=petugas.nip "+
@@ -3761,69 +3721,61 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_tbMasalahKeperawatanMouseClicked
 
-    private void ME1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ME1ItemStateChanged
+    private void MEGiziItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_MEGiziItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_ME1ItemStateChanged
+    }//GEN-LAST:event_MEGiziItemStateChanged
 
-    private void ME1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ME1KeyPressed
+    private void MEGiziKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MEGiziKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ME1KeyPressed
+    }//GEN-LAST:event_MEGiziKeyPressed
 
-    private void ME2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ME2ItemStateChanged
+    private void MENyeriItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_MENyeriItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_ME2ItemStateChanged
+    }//GEN-LAST:event_MENyeriItemStateChanged
 
-    private void ME2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ME2KeyPressed
+    private void MENyeriKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MENyeriKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ME2KeyPressed
+    }//GEN-LAST:event_MENyeriKeyPressed
 
-    private void ME3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ME3ItemStateChanged
+    private void MEObatItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_MEObatItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_ME3ItemStateChanged
+    }//GEN-LAST:event_MEObatItemStateChanged
 
-    private void ME3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ME3KeyPressed
+    private void MEObatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MEObatKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ME3KeyPressed
+    }//GEN-LAST:event_MEObatKeyPressed
 
-    private void ME4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ME4ItemStateChanged
+    private void MEAlkesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_MEAlkesItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_ME4ItemStateChanged
+    }//GEN-LAST:event_MEAlkesItemStateChanged
 
-    private void ME4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ME4KeyPressed
+    private void MEAlkesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MEAlkesKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ME4KeyPressed
+    }//GEN-LAST:event_MEAlkesKeyPressed
 
-    private void ME5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ME5ItemStateChanged
+    private void MELukaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_MELukaItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_ME5ItemStateChanged
+    }//GEN-LAST:event_MELukaItemStateChanged
 
-    private void ME5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ME5KeyPressed
+    private void MELukaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MELukaKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ME5KeyPressed
+    }//GEN-LAST:event_MELukaKeyPressed
 
-    private void ME6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ME6ItemStateChanged
+    private void MERehabItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_MERehabItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_ME6ItemStateChanged
+    }//GEN-LAST:event_MERehabItemStateChanged
 
-    private void ME6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ME6KeyPressed
+    private void MERehabKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MERehabKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ME6KeyPressed
+    }//GEN-LAST:event_MERehabKeyPressed
 
     private void KetDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KetDokterKeyPressed
         Valid.pindah(evt,PadaDokter,Rencana);
     }//GEN-LAST:event_KetDokterKeyPressed
 
-    private void MET2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MET2KeyPressed
+    private void METLainKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_METLainKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MET2KeyPressed
-
-    private void ME7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ME7ItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ME7ItemStateChanged
-
-    private void ME7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ME7KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ME7KeyPressed
+    }//GEN-LAST:event_METLainKeyPressed
 
     /**
     * @param args the command line arguments
@@ -3900,15 +3852,13 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
     private widget.ComboBox Lapor;
     private widget.editorpane LoadHTML;
     private widget.TextBox Lokasi;
-    private widget.ComboBox ME1;
-    private widget.ComboBox ME2;
-    private widget.ComboBox ME3;
-    private widget.ComboBox ME4;
-    private widget.ComboBox ME5;
-    private widget.ComboBox ME6;
-    private widget.ComboBox ME7;
-    private widget.TextBox MET1;
-    private widget.TextBox MET2;
+    private widget.ComboBox MEAlkes;
+    private widget.ComboBox MEGizi;
+    private widget.ComboBox MELuka;
+    private widget.ComboBox MENyeri;
+    private widget.ComboBox MEObat;
+    private widget.ComboBox MERehab;
+    private widget.TextArea METLain;
     private widget.ComboBox MSA;
     private widget.ComboBox Menyebar;
     private widget.TextBox Nadi;
@@ -3960,10 +3910,8 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
     private widget.InternalFrame internalFrame2;
     private widget.InternalFrame internalFrame3;
     private widget.Label jLabel10;
-    private widget.Label jLabel100;
     private widget.Label jLabel101;
     private widget.Label jLabel102;
-    private widget.Label jLabel103;
     private widget.Label jLabel11;
     private widget.Label jLabel12;
     private widget.Label jLabel13;
@@ -4068,6 +4016,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
     private widget.ScrollPane scrollPane4;
     private widget.ScrollPane scrollPane5;
     private widget.ScrollPane scrollPane6;
+    private widget.ScrollPane scrollPane7;
     private widget.Table tbMasalahDetail;
     private widget.Table tbMasalahKeperawatan;
     private widget.Table tbObat;
@@ -4090,7 +4039,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                         "penilaian_awal_keperawatan_ralan.total_hasil,penilaian_awal_keperawatan_ralan.nyeri,penilaian_awal_keperawatan_ralan.provokes,penilaian_awal_keperawatan_ralan.ket_provokes,penilaian_awal_keperawatan_ralan.quality,penilaian_awal_keperawatan_ralan.ket_quality,penilaian_awal_keperawatan_ralan.lokasi,penilaian_awal_keperawatan_ralan.menyebar,"+
                         "penilaian_awal_keperawatan_ralan.skala_nyeri,penilaian_awal_keperawatan_ralan.durasi,penilaian_awal_keperawatan_ralan.nyeri_hilang,penilaian_awal_keperawatan_ralan.ket_nyeri,penilaian_awal_keperawatan_ralan.pada_dokter,penilaian_awal_keperawatan_ralan.ket_dokter,penilaian_awal_keperawatan_ralan.rencana,"+
                         "penilaian_awal_keperawatan_ralan.nip,petugas.nama,penilaian_awal_keperawatan_ralan.budaya,penilaian_awal_keperawatan_ralan.ket_budaya,"+
-                        "penilaian_awal_keperawatan_ralan.me1,penilaian_awal_keperawatan_ralan.me2,penilaian_awal_keperawatan_ralan.me3,penilaian_awal_keperawatan_ralan.me4,penilaian_awal_keperawatan_ralan.me5,penilaian_awal_keperawatan_ralan.me6,penilaian_awal_keperawatan_ralan.met1,penilaian_awal_keperawatan_ralan.me7,penilaian_awal_keperawatan_ralan.met2 "+
+                        "penilaian_awal_keperawatan_ralan.me_gizi,penilaian_awal_keperawatan_ralan.me_nyeri,penilaian_awal_keperawatan_ralan.me_obat,penilaian_awal_keperawatan_ralan.me_alkes,penilaian_awal_keperawatan_ralan.me_luka,penilaian_awal_keperawatan_ralan.me_rehab,penilaian_awal_keperawatan_ralan.met_lain "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_awal_keperawatan_ralan on reg_periksa.no_rawat=penilaian_awal_keperawatan_ralan.no_rawat "+
                         "inner join petugas on penilaian_awal_keperawatan_ralan.nip=petugas.nip "+
@@ -4109,7 +4058,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                         "penilaian_awal_keperawatan_ralan.total_hasil,penilaian_awal_keperawatan_ralan.nyeri,penilaian_awal_keperawatan_ralan.provokes,penilaian_awal_keperawatan_ralan.ket_provokes,penilaian_awal_keperawatan_ralan.quality,penilaian_awal_keperawatan_ralan.ket_quality,penilaian_awal_keperawatan_ralan.lokasi,penilaian_awal_keperawatan_ralan.menyebar,"+
                         "penilaian_awal_keperawatan_ralan.skala_nyeri,penilaian_awal_keperawatan_ralan.durasi,penilaian_awal_keperawatan_ralan.nyeri_hilang,penilaian_awal_keperawatan_ralan.ket_nyeri,penilaian_awal_keperawatan_ralan.pada_dokter,penilaian_awal_keperawatan_ralan.ket_dokter,penilaian_awal_keperawatan_ralan.rencana,"+
                         "penilaian_awal_keperawatan_ralan.nip,petugas.nama,penilaian_awal_keperawatan_ralan.budaya,penilaian_awal_keperawatan_ralan.ket_budaya,"+
-                        "penilaian_awal_keperawatan_ralan.me1,penilaian_awal_keperawatan_ralan.me2,penilaian_awal_keperawatan_ralan.me3,penilaian_awal_keperawatan_ralan.me4,penilaian_awal_keperawatan_ralan.me5,penilaian_awal_keperawatan_ralan.me6,penilaian_awal_keperawatan_ralan.met1,penilaian_awal_keperawatan_ralan.me7,penilaian_awal_keperawatan_ralan.met2 "+
+                        "penilaian_awal_keperawatan_ralan.me_gizi,penilaian_awal_keperawatan_ralan.me_nyeri,penilaian_awal_keperawatan_ralan.me_obat,penilaian_awal_keperawatan_ralan.me_alkes,penilaian_awal_keperawatan_ralan.me_luka,penilaian_awal_keperawatan_ralan.me_rehab,penilaian_awal_keperawatan_ralan.met_lain "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_awal_keperawatan_ralan on reg_periksa.no_rawat=penilaian_awal_keperawatan_ralan.no_rawat "+
                         "inner join petugas on penilaian_awal_keperawatan_ralan.nip=petugas.nip "+
@@ -4147,7 +4096,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                         rs.getString("total_hasil"),rs.getString("nyeri"),rs.getString("provokes"),rs.getString("ket_provokes"),rs.getString("quality"),rs.getString("ket_quality"),
                         rs.getString("lokasi"),rs.getString("menyebar"),rs.getString("skala_nyeri"),rs.getString("durasi"),rs.getString("nyeri_hilang"),rs.getString("ket_nyeri"),
                         rs.getString("pada_dokter"),rs.getString("ket_dokter"),rs.getString("rencana"),rs.getString("nip"),rs.getString("nama"),
-                        rs.getString("me1"),rs.getString("me2"),rs.getString("me3"),rs.getString("me4"),rs.getString("me5"),rs.getString("me6"),rs.getString("met1"),rs.getString("me7"),rs.getString("met2")
+                        rs.getString("me_gizi"),rs.getString("me_nyeri"),rs.getString("me_obat"),rs.getString("me_alkes"),rs.getString("me_luka"),rs.getString("me_rehab"),rs.getString("met_lain")
                     });
                 }
             } catch (Exception e) {
@@ -4229,15 +4178,13 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         Valid.tabelKosong(tabModeRencana);
         TabRawat.setSelectedIndex(0);
         Informasi.requestFocus();
-        ME1.setSelectedIndex(0);
-        ME2.setSelectedIndex(0);
-        ME3.setSelectedIndex(0);
-        ME4.setSelectedIndex(0);
-        ME5.setSelectedIndex(0);
-        ME6.setSelectedIndex(0);
-        MET1.setText("");
-        ME7.setSelectedIndex(0);
-        MET1.setText("");
+        MEGizi.setSelectedIndex(0);
+        MENyeri.setSelectedIndex(0);
+        MEObat.setSelectedIndex(0);
+        MEAlkes.setSelectedIndex(0);
+        MELuka.setSelectedIndex(0);
+        MERehab.setSelectedIndex(0);
+        METLain.setText("");
     } 
 
     private void getData() {
@@ -4304,15 +4251,13 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
             PadaDokter.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),60).toString());
             KetLapor.setText(tbObat.getValueAt(tbObat.getSelectedRow(),61).toString());
             Rencana.setText(tbObat.getValueAt(tbObat.getSelectedRow(),62).toString());
-            ME1.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),65).toString());
-            ME2.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),66).toString());
-            ME3.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),67).toString());
-            ME4.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),68).toString());
-            ME5.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),69).toString());
-            ME6.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),70).toString());
-            MET1.setText(tbObat.getValueAt(tbObat.getSelectedRow(),71).toString());
-            ME7.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),72).toString());
-            MET2.setText(tbObat.getValueAt(tbObat.getSelectedRow(),73).toString());
+            MEGizi.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),65).toString());
+            MENyeri.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),66).toString());
+            MEObat.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),67).toString());
+            MEAlkes.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),68).toString());
+            MELuka.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),69).toString());
+            MERehab.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),70).toString());
+            METLain.setText(tbObat.getValueAt(tbObat.getSelectedRow(),71).toString());
             Valid.tabelKosong(tabModeMasalah);
             Valid.tabelKosong(tabModeRencana);
             for (i = 0; i < tbMasalahDetail.getRowCount(); i++) {
@@ -4805,7 +4750,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                 SG1.getSelectedItem().toString(),Nilai1.getSelectedItem().toString(),SG2.getSelectedItem().toString(),Nilai2.getSelectedItem().toString(),TotalHasil.getText(),Nyeri.getSelectedItem().toString(),
                 Provokes.getSelectedItem().toString(),KetProvokes.getText(),Quality.getSelectedItem().toString(),KetQuality.getText(),Lokasi.getText(),Menyebar.getSelectedItem().toString(),SkalaNyeri.getSelectedItem().toString(),
                 Durasi.getText(),NyeriHilang.getSelectedItem().toString(),KetNyeri.getText(),PadaDokter.getSelectedItem().toString(),KetDokter.getText(),Rencana.getText(),KdPetugas.getText(), 
-                ME1.getSelectedItem().toString(),ME2.getSelectedItem().toString(),ME3.getSelectedItem().toString(),ME4.getSelectedItem().toString(),ME5.getSelectedItem().toString(),ME6.getSelectedItem().toString(),MET2.getText(),ME7.getSelectedItem().toString(),MET2.getText()
+                MEGizi.getSelectedItem().toString(),MENyeri.getSelectedItem().toString(),MEObat.getSelectedItem().toString(),MEAlkes.getSelectedItem().toString(),MELuka.getSelectedItem().toString(),MERehab.getSelectedItem().toString(),METLain.getText()
             })==true){
                 tabMode.addRow(new Object[]{
                     TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Jk.getText(),Agama.getText(),Bahasa.getText(),CacatFisik.getText(),TglLahir.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),
@@ -4816,7 +4761,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
                     Nilai1.getSelectedItem().toString(),SG2.getSelectedItem().toString(),Nilai2.getSelectedItem().toString(),TotalHasil.getText(),Nyeri.getSelectedItem().toString(),Provokes.getSelectedItem().toString(),KetProvokes.getText(),
                     Quality.getSelectedItem().toString(),KetQuality.getText(),Lokasi.getText(),Menyebar.getSelectedItem().toString(),SkalaNyeri.getSelectedItem().toString(),Durasi.getText(),NyeriHilang.getSelectedItem().toString(),KetNyeri.getText(),
                     PadaDokter.getSelectedItem().toString(),KetDokter.getText(),Rencana.getText(),KdPetugas.getText(),NmPetugas.getText(), 
-                ME1.getSelectedItem().toString(),ME2.getSelectedItem().toString(),ME3.getSelectedItem().toString(),ME4.getSelectedItem().toString(),ME5.getSelectedItem().toString(),ME6.getSelectedItem().toString(),MET2.getText(),ME7.getSelectedItem().toString(),MET2.getText()
+                MEGizi.getSelectedItem().toString(),MENyeri.getSelectedItem().toString(),MEObat.getSelectedItem().toString(),MEAlkes.getSelectedItem().toString(),MELuka.getSelectedItem().toString(),MERehab.getSelectedItem().toString(),METLain.getText()
                 });
                 LCount.setText(""+tabMode.getRowCount());
                 Valid.tabelKosong(tabModeDetailMasalah);
