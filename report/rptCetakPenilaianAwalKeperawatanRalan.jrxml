@@ -1927,13 +1927,13 @@ Rehabilitasi Medik]]></text>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="0" y="-849" width="1" height="927" uuid="759ba672-f945-45f1-8727-5d755b8cab92"/>
+				<reportElement x="0" y="-768" width="1" height="846" uuid="759ba672-f945-45f1-8727-5d755b8cab92"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="556" y="-849" width="1" height="927" uuid="b653d985-145b-4325-9c78-d962d4ff7c6b"/>
+				<reportElement x="556" y="-768" width="1" height="846" uuid="b653d985-145b-4325-9c78-d962d4ff7c6b"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>

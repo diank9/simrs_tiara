@@ -1202,7 +1202,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         jLabel50.setBounds(476, 340, 60, 23);
 
         jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel52.setText("IX. MATERI EDUKASI");
+        jLabel52.setText("IX. KEPERLUAN DAN MATERI EDUKASI");
         jLabel52.setName("jLabel52"); // NOI18N
         FormInput.add(jLabel52);
         jLabel52.setBounds(10, 1200, 380, 23);
