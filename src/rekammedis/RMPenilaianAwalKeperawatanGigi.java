@@ -86,7 +86,8 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
             "Keterangan Prothesa","Status Psikologis","Keterangan Status Psikologis","Hubungan Keluarga","Tinggal Dengan","Keterangan Tinggal","Ekonomi","Budaya",
             "Keterangan Budaya","Edukasi","Keterangan Edukasi","Cara Berjalan A","Cara Berjalan B","Cara Berjalan C","Hasil Pengkajian Resiko Jatuh","Lapor Dokter",
             "Jam Lapor","Tingkat Nyeri","Lokasi","Skala Nyeri","Durasi","Frekuensi","Nyeri Hilang Bila","Keterangan Hilang Nyeri","Diberitahunkan Dokter",
-            "Jam Diberitahukan","Kebersihan Mulut","Mukosa Mulut","Karies","Karang Gigi","Gingiva","Palatum","Rencana","Keterangan","NIP","Nama Petugas"
+            "Jam Diberitahukan","Kebersihan Mulut","Mukosa Mulut","Karies","Karang Gigi","Gingiva","Palatum","Rencana","Keterangan","NIP","Nama Petugas",
+            "M.E. Pasien", "R.E Pasien"
         }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -96,7 +97,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
         tbObat.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbObat.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 66; i++) {
+        for (i = 0; i < 68; i++) {
             TableColumn column = tbObat.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(105);
@@ -230,6 +231,10 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
                 column.setPreferredWidth(90);
             }else if(i==64){
                 column.setPreferredWidth(150);
+            }else if(i==65){
+                column.setPreferredWidth(50);
+            }else if(i==66){
+                column.setPreferredWidth(50);
             }
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
@@ -697,6 +702,13 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
         scrollPane2 = new widget.ScrollPane();
         Keterangan = new widget.TextArea();
         jLabel31 = new widget.Label();
+        scrollPane10 = new widget.ScrollPane();
+        METEdukasi = new widget.TextArea();
+        MEEdukasi = new widget.ComboBox();
+        jLabel170 = new widget.Label();
+        jLabel171 = new widget.Label();
+        jLabel172 = new widget.Label();
+        jSeparator15 = new javax.swing.JSeparator();
         internalFrame3 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -892,7 +904,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
         FormInput.setBackground(new java.awt.Color(255, 255, 255));
         FormInput.setBorder(null);
         FormInput.setName("FormInput"); // NOI18N
-        FormInput.setPreferredSize(new java.awt.Dimension(870, 1200));
+        FormInput.setPreferredSize(new java.awt.Dimension(870, 1470));
         FormInput.setLayout(null);
 
         TNoRw.setHighlighter(null);
@@ -2204,6 +2216,61 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
         FormInput.add(jLabel31);
         jLabel31.setBounds(600, 90, 130, 20);
 
+        scrollPane10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane10.setName("scrollPane10"); // NOI18N
+
+        METEdukasi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        METEdukasi.setColumns(20);
+        METEdukasi.setRows(5);
+        METEdukasi.setName("METEdukasi"); // NOI18N
+        METEdukasi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                METEdukasiKeyPressed(evt);
+            }
+        });
+        scrollPane10.setViewportView(METEdukasi);
+
+        FormInput.add(scrollPane10);
+        scrollPane10.setBounds(200, 1290, 620, 140);
+
+        MEEdukasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "Diet dan nutrisi", "Manajemen nyeri", "Obat-obatan", "Penggunaan alat medis yang aman", "Perawatan luka", "Rehabilitasi medik", "Lain-lain" }));
+        MEEdukasi.setName("MEEdukasi"); // NOI18N
+        MEEdukasi.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                MEEdukasiItemStateChanged(evt);
+            }
+        });
+        MEEdukasi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                MEEdukasiKeyPressed(evt);
+            }
+        });
+        FormInput.add(MEEdukasi);
+        MEEdukasi.setBounds(200, 1260, 390, 23);
+
+        jLabel170.setText("Edukasi Pasien :");
+        jLabel170.setName("jLabel170"); // NOI18N
+        FormInput.add(jLabel170);
+        jLabel170.setBounds(60, 1260, 130, 23);
+
+        jLabel171.setText("Uraian Edukasi :");
+        jLabel171.setName("jLabel171"); // NOI18N
+        FormInput.add(jLabel171);
+        jLabel171.setBounds(60, 1290, 130, 23);
+
+        jLabel172.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel172.setText("IX. KEPERLUAN EDUKASI");
+        jLabel172.setName("jLabel172"); // NOI18N
+        FormInput.add(jLabel172);
+        jLabel172.setBounds(30, 1230, 380, 23);
+
+        jSeparator15.setBackground(new java.awt.Color(239, 244, 234));
+        jSeparator15.setForeground(new java.awt.Color(239, 244, 234));
+        jSeparator15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 244, 234)));
+        jSeparator15.setName("jSeparator15"); // NOI18N
+        FormInput.add(jSeparator15);
+        jSeparator15.setBounds(0, 1210, 880, 1);
+
         scrollInput.setViewportView(FormInput);
 
         internalFrame2.add(scrollInput, java.awt.BorderLayout.CENTER);
@@ -2560,7 +2627,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
                             "penilaian_awal_keperawatan_gigi.lokasi,penilaian_awal_keperawatan_gigi.skala_nyeri,penilaian_awal_keperawatan_gigi.durasi,penilaian_awal_keperawatan_gigi.frekuensi,penilaian_awal_keperawatan_gigi.nyeri_hilang,"+
                             "penilaian_awal_keperawatan_gigi.ket_nyeri,penilaian_awal_keperawatan_gigi.pada_dokter,penilaian_awal_keperawatan_gigi.ket_dokter,penilaian_awal_keperawatan_gigi.kebersihan_mulut,penilaian_awal_keperawatan_gigi.mukosa_mulut,"+
                             "penilaian_awal_keperawatan_gigi.karies,penilaian_awal_keperawatan_gigi.karang_gigi,penilaian_awal_keperawatan_gigi.gingiva,penilaian_awal_keperawatan_gigi.palatum,penilaian_awal_keperawatan_gigi.rencana,"+
-                            "penilaian_awal_keperawatan_gigi.nip,petugas.nama "+
+                            "penilaian_awal_keperawatan_gigi.nip,petugas.nama,penilaian_awal_keperawatan_gigi.me_edukasi,penilaian_awal_keperawatan_gigi.met_edukasi "+
                             "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                             "inner join penilaian_awal_keperawatan_gigi on reg_periksa.no_rawat=penilaian_awal_keperawatan_gigi.no_rawat "+
                             "inner join petugas on penilaian_awal_keperawatan_gigi.nip=petugas.nip "+
@@ -2581,7 +2648,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
                             "penilaian_awal_keperawatan_gigi.lokasi,penilaian_awal_keperawatan_gigi.skala_nyeri,penilaian_awal_keperawatan_gigi.durasi,penilaian_awal_keperawatan_gigi.frekuensi,penilaian_awal_keperawatan_gigi.nyeri_hilang,"+
                             "penilaian_awal_keperawatan_gigi.ket_nyeri,penilaian_awal_keperawatan_gigi.pada_dokter,penilaian_awal_keperawatan_gigi.ket_dokter,penilaian_awal_keperawatan_gigi.kebersihan_mulut,penilaian_awal_keperawatan_gigi.mukosa_mulut,"+
                             "penilaian_awal_keperawatan_gigi.karies,penilaian_awal_keperawatan_gigi.karang_gigi,penilaian_awal_keperawatan_gigi.gingiva,penilaian_awal_keperawatan_gigi.palatum,penilaian_awal_keperawatan_gigi.rencana,"+
-                            "penilaian_awal_keperawatan_gigi.nip,petugas.nama "+
+                            "penilaian_awal_keperawatan_gigi.nip,petugas.nama,penilaian_awal_keperawatan_gigi.me_edukasi,penilaian_awal_keperawatan_gigi.met_edukasi "+
                             "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                             "inner join penilaian_awal_keperawatan_gigi on reg_periksa.no_rawat=penilaian_awal_keperawatan_gigi.no_rawat "+
                             "inner join petugas on penilaian_awal_keperawatan_gigi.nip=petugas.nip "+
@@ -3289,7 +3356,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
                         "penilaian_awal_keperawatan_gigi.lokasi,penilaian_awal_keperawatan_gigi.skala_nyeri,penilaian_awal_keperawatan_gigi.durasi,penilaian_awal_keperawatan_gigi.frekuensi,penilaian_awal_keperawatan_gigi.nyeri_hilang,"+
                         "penilaian_awal_keperawatan_gigi.ket_nyeri,penilaian_awal_keperawatan_gigi.pada_dokter,penilaian_awal_keperawatan_gigi.ket_dokter,penilaian_awal_keperawatan_gigi.kebersihan_mulut,penilaian_awal_keperawatan_gigi.mukosa_mulut,"+
                         "penilaian_awal_keperawatan_gigi.karies,penilaian_awal_keperawatan_gigi.karang_gigi,penilaian_awal_keperawatan_gigi.gingiva,penilaian_awal_keperawatan_gigi.palatum,penilaian_awal_keperawatan_gigi.rencana,"+
-                        "penilaian_awal_keperawatan_gigi.nip,petugas.nama,penilaian_awal_keperawatan_gigi.ket "+
+                        "penilaian_awal_keperawatan_gigi.nip,petugas.nama,penilaian_awal_keperawatan_gigi.ket,penilaian_awal_keperawatan_gigi.me_edukasi,penilaian_awal_keperawatan_gigi.met_edukasi "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_awal_keperawatan_gigi on reg_periksa.no_rawat=penilaian_awal_keperawatan_gigi.no_rawat "+
                         "inner join petugas on penilaian_awal_keperawatan_gigi.nip=petugas.nip "+
@@ -3492,6 +3559,18 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_KeteranganKeyPressed
 
+    private void METEdukasiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_METEdukasiKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_METEdukasiKeyPressed
+
+    private void MEEdukasiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_MEEdukasiItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MEEdukasiItemStateChanged
+
+    private void MEEdukasiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MEEdukasiKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MEEdukasiKeyPressed
+
     /**
     * @param args the command line arguments
     */
@@ -3574,6 +3653,8 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
     private widget.ComboBox Lapor;
     private widget.editorpane LoadHTML;
     private widget.TextBox Lokasi;
+    private widget.ComboBox MEEdukasi;
+    private widget.TextArea METEdukasi;
     private widget.ComboBox MSA;
     private widget.ComboBox Mukosa;
     private widget.TextBox Nadi;
@@ -3631,6 +3712,9 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
     private widget.Label jLabel15;
     private widget.Label jLabel16;
     private widget.Label jLabel17;
+    private widget.Label jLabel170;
+    private widget.Label jLabel171;
+    private widget.Label jLabel172;
     private widget.Label jLabel18;
     private widget.Label jLabel19;
     private widget.Label jLabel20;
@@ -3692,6 +3776,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
     private widget.Label jLabel99;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -3709,6 +3794,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
     private widget.panelisi panelGlass9;
     private widget.ScrollPane scrollInput;
     private widget.ScrollPane scrollPane1;
+    private widget.ScrollPane scrollPane10;
     private widget.ScrollPane scrollPane2;
     private widget.ScrollPane scrollPane5;
     private widget.ScrollPane scrollPane6;
@@ -3736,7 +3822,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
                         "penilaian_awal_keperawatan_gigi.lokasi,penilaian_awal_keperawatan_gigi.skala_nyeri,penilaian_awal_keperawatan_gigi.durasi,penilaian_awal_keperawatan_gigi.frekuensi,penilaian_awal_keperawatan_gigi.nyeri_hilang,"+
                         "penilaian_awal_keperawatan_gigi.ket_nyeri,penilaian_awal_keperawatan_gigi.pada_dokter,penilaian_awal_keperawatan_gigi.ket_dokter,penilaian_awal_keperawatan_gigi.kebersihan_mulut,penilaian_awal_keperawatan_gigi.mukosa_mulut,"+
                         "penilaian_awal_keperawatan_gigi.karies,penilaian_awal_keperawatan_gigi.karang_gigi,penilaian_awal_keperawatan_gigi.gingiva,penilaian_awal_keperawatan_gigi.palatum,penilaian_awal_keperawatan_gigi.rencana,"+
-                        "penilaian_awal_keperawatan_gigi.nip,petugas.nama,penilaian_awal_keperawatan_gigi.ket "+
+                        "penilaian_awal_keperawatan_gigi.nip,petugas.nama,penilaian_awal_keperawatan_gigi.ket,penilaian_awal_keperawatan_gigi.me_edukasi,penilaian_awal_keperawatan_gigi.met_edukasi "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_awal_keperawatan_gigi on reg_periksa.no_rawat=penilaian_awal_keperawatan_gigi.no_rawat "+
                         "inner join petugas on penilaian_awal_keperawatan_gigi.nip=petugas.nip "+
@@ -3757,7 +3843,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
                         "penilaian_awal_keperawatan_gigi.lokasi,penilaian_awal_keperawatan_gigi.skala_nyeri,penilaian_awal_keperawatan_gigi.durasi,penilaian_awal_keperawatan_gigi.frekuensi,penilaian_awal_keperawatan_gigi.nyeri_hilang,"+
                         "penilaian_awal_keperawatan_gigi.ket_nyeri,penilaian_awal_keperawatan_gigi.pada_dokter,penilaian_awal_keperawatan_gigi.ket_dokter,penilaian_awal_keperawatan_gigi.kebersihan_mulut,penilaian_awal_keperawatan_gigi.mukosa_mulut,"+
                         "penilaian_awal_keperawatan_gigi.karies,penilaian_awal_keperawatan_gigi.karang_gigi,penilaian_awal_keperawatan_gigi.gingiva,penilaian_awal_keperawatan_gigi.palatum,penilaian_awal_keperawatan_gigi.rencana,"+
-                        "penilaian_awal_keperawatan_gigi.nip,petugas.nama,penilaian_awal_keperawatan_gigi.keterangan "+
+                        "penilaian_awal_keperawatan_gigi.nip,petugas.nama,penilaian_awal_keperawatan_gigi.keterangan,penilaian_awal_keperawatan_gigi.me_edukasi,penilaian_awal_keperawatan_gigi.met_edukasi "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_awal_keperawatan_gigi on reg_periksa.no_rawat=penilaian_awal_keperawatan_gigi.no_rawat "+
                         "inner join petugas on penilaian_awal_keperawatan_gigi.nip=petugas.nip "+
@@ -3871,6 +3957,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
         KarangGigi.setSelectedIndex(0);
         Gingiva.setSelectedIndex(0);
         Palatum.setSelectedIndex(0);
+        METEdukasi.setText("");
         for (i = 0; i < tabModeMasalah.getRowCount(); i++) {
             tabModeMasalah.setValueAt(false,i,0);
         }
@@ -4429,7 +4516,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
     }
 
     private void simpan() {
-        if(Sequel.menyimpantf("penilaian_awal_keperawatan_gigi","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",57,new String[]{
+        if(Sequel.menyimpantf("penilaian_awal_keperawatan_gigi","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",59,new String[]{
                 TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),Informasi.getSelectedItem().toString(),TD.getText(),Nadi.getText(),RR.getText(),Suhu.getText(), 
                 BB.getText(),TB.getText(),BMI.getText(),KeluhanUtama.getText(),RiwayatPenyakit.getSelectedItem().toString(),KetRiwayatPenyakit.getText(),Alergi.getText(),RiwayatPerawatan.getSelectedItem().toString(),KetRiwayatPerawatan.getText(), 
                 KebiasaanSikatGigi.getSelectedItem().toString(),KebiasaanLain.getSelectedItem().toString(),KetKebiasaanLain.getText(),ObatDiminum.getText(),AlatBantu.getSelectedItem().toString(),KetBantu.getText(),Prothesa.getSelectedItem().toString(), 
@@ -4437,7 +4524,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
                 StatusBudaya.getSelectedItem().toString(),KetBudaya.getText(),Edukasi.getSelectedItem().toString(),KetEdukasi.getText(),ATS.getSelectedItem().toString(),BJM.getSelectedItem().toString(),MSA.getSelectedItem().toString(), 
                 Hasil.getSelectedItem().toString(),Lapor.getSelectedItem().toString(),KetLapor.getText(),Nyeri.getSelectedItem().toString(),Lokasi.getText(),SkalaNyeri.getSelectedItem().toString(),Durasi.getText(),Frekuensi.getText(), 
                 NyeriHilang.getSelectedItem().toString(),KetNyeri.getText(),PadaDokter.getSelectedItem().toString(),KetDokter.getText(),KebersihanMulut.getSelectedItem().toString(),Mukosa.getSelectedItem().toString(),Karies.getSelectedItem().toString(),
-                KarangGigi.getSelectedItem().toString(),Gingiva.getSelectedItem().toString(),Palatum.getSelectedItem().toString(),Rencana.getText(),KdPetugas.getText(),Keterangan.getText()
+                KarangGigi.getSelectedItem().toString(),Gingiva.getSelectedItem().toString(),Palatum.getSelectedItem().toString(),Rencana.getText(),KdPetugas.getText(),Keterangan.getText(),MEEdukasi.getSelectedItem().toString(), METEdukasi.getText()
             })==true){
                 tabMode.addRow(new Object[]{
                     TNoRw.getText(),TNoRM.getText(),TPasien.getText(),Jk.getText(),Agama.getText(),Bahasa.getText(),CacatFisik.getText(),TglLahir.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),Informasi.getSelectedItem().toString(),
@@ -4446,7 +4533,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
                     StatusPsiko.getSelectedItem().toString(),KetPsiko.getText(),HubunganKeluarga.getSelectedItem().toString(),TinggalDengan.getSelectedItem().toString(),KetTinggal.getText(),Ekonomi.getSelectedItem().toString(),StatusBudaya.getSelectedItem().toString(),KetBudaya.getText(),
                     Edukasi.getSelectedItem().toString(),KetEdukasi.getText(),ATS.getSelectedItem().toString(),BJM.getSelectedItem().toString(),MSA.getSelectedItem().toString(),Hasil.getSelectedItem().toString(),Lapor.getSelectedItem().toString(),KetLapor.getText(),Nyeri.getSelectedItem().toString(),
                     Lokasi.getText(),SkalaNyeri.getSelectedItem().toString(),Durasi.getText(),Frekuensi.getText(),NyeriHilang.getSelectedItem().toString(),KetNyeri.getText(),PadaDokter.getSelectedItem().toString(),KetDokter.getText(),KebersihanMulut.getSelectedItem().toString(),
-                    Mukosa.getSelectedItem().toString(),Karies.getSelectedItem().toString(),KarangGigi.getSelectedItem().toString(),Gingiva.getSelectedItem().toString(),Palatum.getSelectedItem().toString(),Rencana.getText(),KdPetugas.getText(),NmPetugas.getText(),Keterangan.getText()
+                    Mukosa.getSelectedItem().toString(),Karies.getSelectedItem().toString(),KarangGigi.getSelectedItem().toString(),Gingiva.getSelectedItem().toString(),Palatum.getSelectedItem().toString(),Rencana.getText(),KdPetugas.getText(),NmPetugas.getText(),Keterangan.getText(),MEEdukasi.getSelectedItem().toString(), METEdukasi.getText()
                 });
                 LCount.setText(""+tabMode.getRowCount());
                 Valid.tabelKosong(tabModeDetailMasalah);

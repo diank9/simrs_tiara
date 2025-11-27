@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>MyReports</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>net.sf.jasperreports.builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>net.sf.jasperreports.nature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>rptCetakPenilaianAwalKeperawatanRalan.jrxml</name>
+			<type>1</type>
+			<location>/home/mbwnk/Khanza/SIMRS_RSTiara/report/rptCetakPenilaianAwalKeperawatanRalan.jrxml</location>
+		</link>
+		<link>
+			<name>rptCetakPenilaianAwalKeperawatanRalanAnak.jasper</name>
+			<type>1</type>
+			<location>/home/mbwnk/Khanza/SIMRS_RSTiara/report/rptCetakPenilaianAwalKeperawatanRalanAnak.jasper</location>
+		</link>
+		<link>
+			<name>rptCetakPenilaianAwalKeperawatanRalanAnak.jrxml</name>
+			<type>1</type>
+			<location>/home/mbwnk/Khanza/SIMRS_RSTiara/report/rptCetakPenilaianAwalKeperawatanRalanAnak.jrxml</location>
+		</link>
+	</linkedResources>
+</projectDescription>
