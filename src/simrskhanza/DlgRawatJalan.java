@@ -113,6 +113,7 @@ import rekammedis.RMPenatalaksanaanTerapiOkupasi;
 import rekammedis.RMPengkajianRestrain;
 import rekammedis.RMPenilaianAwalKeperawatanBayiAnak;
 import rekammedis.RMPenilaianAwalKeperawatanGigi;
+import rekammedis.RMPenilaianAwalKeperawatanMata;
 import rekammedis.RMPenilaianAwalKeperawatanIGD;
 import rekammedis.RMPenilaianAwalKeperawatanKebidanan;
 import rekammedis.RMPenilaianAwalKeperawatanRalan;
@@ -1553,6 +1554,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         BtnAwalKeperawatanIGD = new widget.Button();
         BtnAwalKeperawatan = new widget.Button();
         BtnAwalKeperawatanGigi = new widget.Button();
+        BtnAwalKeperawatanMata = new widget.Button();
         BtnAwalKeperawatanKandungan = new widget.Button();
         BtnAwalKeperawatanAnak = new widget.Button();
         BtnAwalKeperawatanPsikiatri = new widget.Button();
@@ -3936,6 +3938,22 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         BtnAwalKeperawatanGigi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAwalKeperawatanGigiActionPerformed(evt);
+            }
+        });
+        
+        BtnAwalKeperawatanMata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); 
+        BtnAwalKeperawatanMata.setText("Awal Keperawatan Mata");
+        BtnAwalKeperawatanMata.setFocusPainted(false);
+        BtnAwalKeperawatanMata.setFont(new java.awt.Font("Tahoma", 0, 11)); 
+        BtnAwalKeperawatanMata.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnAwalKeperawatanMata.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnAwalKeperawatanMata.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnAwalKeperawatanMata.setName("BtnAwalKeperawatanMata"); 
+        BtnAwalKeperawatanMata.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnAwalKeperawatanMata.setRoundRect(false);
+        BtnAwalKeperawatanMata.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAwalKeperawatanMataActionPerformed(evt);
             }
         });
 
@@ -7756,6 +7774,23 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             this.setCursor(Cursor.getDefaultCursor());
         }
     }//GEN-LAST:event_BtnAwalKeperawatanGigiActionPerformed
+    
+    private void BtnAwalKeperawatanMataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAwalKeperawatanaMataActionPerformed
+        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{ 
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMPenilaianAwalKeperawatanMata form=new RMPenilaianAwalKeperawatanMata(null,false);
+            form.isCek();
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_BtnAwalKeperawatanMataActionPerformed
 
     private void BtnAwalKeperawatanKandunganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAwalKeperawatanKandunganActionPerformed
         if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
@@ -10213,6 +10248,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Button BtnAwalKeperawatanAnak;
     private widget.Button BtnAwalKeperawatanGeriatri;
     private widget.Button BtnAwalKeperawatanGigi;
+    private widget.Button BtnAwalKeperawatanMata;
     private widget.Button BtnAwalKeperawatanIGD;
     private widget.Button BtnAwalKeperawatanKandungan;
     private widget.Button BtnAwalKeperawatanPsikiatri;
@@ -10921,6 +10957,10 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         BtnAwalKeperawatanGigi.setVisible(akses.getpenilaian_awal_keperawatan_gigi());   
         if(akses.getpenilaian_awal_keperawatan_gigi()==true){
             tinggi=tinggi+24;
+        }
+        BtnAwalKeperawatanMata.setVisible(akses.getpenilaian_awal_keperawatan_gigi());   
+        if(akses.getpenilaian_awal_keperawatan_gigi()==true){
+            tinggi=tinggi+24; //update buat testing
         }
         BtnAwalKeperawatanKandungan.setVisible(akses.getpenilaian_awal_keperawatan_kebidanan()); 
         if(akses.getpenilaian_awal_keperawatan_kebidanan()==true){
@@ -13421,6 +13461,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         FormMenu.add(BtnAwalKeperawatanIGD);
         FormMenu.add(BtnAwalKeperawatan);
         FormMenu.add(BtnAwalKeperawatanGigi);
+        FormMenu.add(BtnAwalKeperawatanMata);
         FormMenu.add(BtnAwalKeperawatanKandungan);
         FormMenu.add(BtnAwalKeperawatanAnak);
         FormMenu.add(BtnAwalKeperawatanPsikiatri);
