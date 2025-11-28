@@ -583,15 +583,15 @@
 				</graphicElement>
 			</line>
 		</band>
-		<band height="129">
+		<band height="111">
 			<line>
-				<reportElement x="0" y="98" width="557" height="1" uuid="9633dad3-62e2-4e79-ae59-5604eb717ac7"/>
+				<reportElement x="0" y="80" width="557" height="1" uuid="9633dad3-62e2-4e79-ae59-5604eb717ac7"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="3" y="2" width="247" height="11" uuid="3f10835f-03d6-40f1-891a-e5b263c49e79">
+				<reportElement x="3" y="2" width="117" height="11" uuid="3f10835f-03d6-40f1-891a-e5b263c49e79">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -602,7 +602,7 @@
 				<text><![CDATA[I. KEADAAN UMUM]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="3" y="14" width="130" height="11" uuid="d60eee16-6c6d-413c-869f-4990debdc646">
+				<reportElement x="3" y="14" width="86" height="11" uuid="d60eee16-6c6d-413c-869f-4990debdc646">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -612,7 +612,7 @@
 				<textFieldExpression><![CDATA["TD : "+$F{td}+" mmHg"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="25" width="130" height="11" uuid="ddd61476-4d64-48d1-a0ba-dd00efcabf1a">
+				<reportElement x="3" y="25" width="86" height="11" uuid="ddd61476-4d64-48d1-a0ba-dd00efcabf1a">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -622,7 +622,7 @@
 				<textFieldExpression><![CDATA["Nadi : "+$F{nadi}+" x/menit"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="36" width="130" height="11" uuid="93a79f3a-5a3c-4855-9a76-d2452ab74768">
+				<reportElement x="3" y="36" width="86" height="11" uuid="93a79f3a-5a3c-4855-9a76-d2452ab74768">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -632,7 +632,7 @@
 				<textFieldExpression><![CDATA["RR : "+$F{rr}+" x/menit"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="47" width="130" height="11" uuid="812a307e-a023-42e7-bac1-6879f1d22a01">
+				<reportElement x="3" y="47" width="86" height="11" uuid="812a307e-a023-42e7-bac1-6879f1d22a01">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -642,7 +642,7 @@
 				<textFieldExpression><![CDATA["Suhu : "+$F{suhu}+" °C"]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="3" y="101" width="247" height="11" uuid="715c4062-f5c6-47ba-bc0c-f5b202010569">
+				<reportElement x="3" y="83" width="247" height="11" uuid="715c4062-f5c6-47ba-bc0c-f5b202010569">
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -653,7 +653,7 @@
 				<text><![CDATA[II. STATUS NUTRISI]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="3" y="113" width="144" height="11" uuid="9c48965b-63f5-45a2-94d8-4b704c001b14">
+				<reportElement x="3" y="95" width="144" height="11" uuid="9c48965b-63f5-45a2-94d8-4b704c001b14">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -664,7 +664,7 @@
 				<textFieldExpression><![CDATA["BB : "+$F{bb}+" Kg"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="155" y="113" width="144" height="11" uuid="501b9ac7-be64-40b6-b83c-b577b66497a1">
+				<reportElement x="155" y="95" width="144" height="11" uuid="501b9ac7-be64-40b6-b83c-b577b66497a1">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -675,7 +675,7 @@
 				<textFieldExpression><![CDATA["TB : "+$F{tb}+" cm"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="306" y="113" width="144" height="11" uuid="27d0a306-596f-432b-a07a-90794c4eaa9b">
+				<reportElement x="306" y="95" width="144" height="11" uuid="27d0a306-596f-432b-a07a-90794c4eaa9b">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
@@ -686,21 +686,21 @@
 				<textFieldExpression><![CDATA["BMI : "+$F{bmi}+" Kg/m²"]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="0" y="126" width="557" height="1" uuid="6948903e-7e57-4583-8fa9-a29e9d83d2a8"/>
+				<reportElement x="0" y="109" width="557" height="1" uuid="6948903e-7e57-4583-8fa9-a29e9d83d2a8"/>
 				<graphicElement>
 					<pen lineWidth="0.75"/>
 				</graphicElement>
 			</line>
 			<image scaleImage="FillFrame" isUsingCache="true" onErrorType="Blank">
-				<reportElement x="145" y="14" width="235" height="65" uuid="81a056d3-5960-4e69-a6bb-224eff94b5e0"/>
+				<reportElement x="120" y="11" width="253" height="65" uuid="81a056d3-5960-4e69-a6bb-224eff94b5e0"/>
 				<imageExpression><![CDATA[$P{gigigeligi2}]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="390" y="13" width="144" height="11" uuid="55975043-d6e7-4da8-85f5-b602a4287306">
+				<reportElement x="390" y="14" width="144" height="43" uuid="55975043-d6e7-4da8-85f5-b602a4287306">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
-				<textElement verticalAlignment="Middle">
+				<textElement verticalAlignment="Top">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>

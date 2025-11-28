@@ -226,14 +226,14 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
             }else if(i==62){
                 column.setPreferredWidth(250);
             }else if(i==65){
-                column.setPreferredWidth(250);
+                column.setPreferredWidth(250); // keterangan
             }else if(i==63){
-                column.setPreferredWidth(90);
+                column.setPreferredWidth(90); //nip
             }else if(i==64){
-                column.setPreferredWidth(150);
-            }else if(i==65){
-                column.setPreferredWidth(50);
+                column.setPreferredWidth(150);  //nama
             }else if(i==66){
+                column.setPreferredWidth(50); // edukasi
+            }else if(i==67){
                 column.setPreferredWidth(50);
             }
         }
@@ -4416,7 +4416,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
                 StatusBudaya.getSelectedItem().toString(),KetBudaya.getText(),Edukasi.getSelectedItem().toString(),KetEdukasi.getText(),ATS.getSelectedItem().toString(),BJM.getSelectedItem().toString(),MSA.getSelectedItem().toString(), 
                 Hasil.getSelectedItem().toString(),Lapor.getSelectedItem().toString(),KetLapor.getText(),Nyeri.getSelectedItem().toString(),Lokasi.getText(),SkalaNyeri.getSelectedItem().toString(),Durasi.getText(),Frekuensi.getText(), 
                 NyeriHilang.getSelectedItem().toString(),KetNyeri.getText(),PadaDokter.getSelectedItem().toString(),KetDokter.getText(),KebersihanMulut.getSelectedItem().toString(),Mukosa.getSelectedItem().toString(),Karies.getSelectedItem().toString(),
-                KarangGigi.getSelectedItem().toString(),Gingiva.getSelectedItem().toString(),Palatum.getSelectedItem().toString(),Rencana.getText(),Keterangan.getText(),KdPetugas.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
+                KarangGigi.getSelectedItem().toString(),Gingiva.getSelectedItem().toString(),Palatum.getSelectedItem().toString(),Rencana.getText(),Keterangan.getText(),KdPetugas.getText(),MEEdukasi.getSelectedItem().toString(),METEdukasi.getText(),tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
              })==true){
                 tbObat.setValueAt(TNoRw.getText(),tbObat.getSelectedRow(),0);
                 tbObat.setValueAt(TNoRM.getText(),tbObat.getSelectedRow(),1);
@@ -4484,6 +4484,8 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
                 tbObat.setValueAt(KdPetugas.getText(),tbObat.getSelectedRow(),63);
                 tbObat.setValueAt(NmPetugas.getText(),tbObat.getSelectedRow(),64);
                 tbObat.setValueAt(Keterangan.getText(),tbObat.getSelectedRow(),65);
+                tbObat.setValueAt(MEEdukasi.getSelectedItem().toString(),tbObat.getSelectedRow(),66);
+                tbObat.setValueAt(METEdukasi.getText(),tbObat.getSelectedRow(),67);
                 Sequel.meghapus("penilaian_awal_keperawatan_gigi_masalah","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
                 Sequel.meghapus("penilaian_awal_keperawatan_ralan_rencana_gigi","no_rawat",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
                 Valid.tabelKosong(tabModeDetailMasalah);
@@ -4516,7 +4518,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
     }
 
     private void simpan() {
-        if(Sequel.menyimpantf("penilaian_awal_keperawatan_gigi","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",59,new String[]{
+        if(Sequel.menyimpantf("penilaian_awal_keperawatan_gigi","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","No.Rawat",60,new String[]{
                 TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),Informasi.getSelectedItem().toString(),TD.getText(),Nadi.getText(),RR.getText(),Suhu.getText(), 
                 BB.getText(),TB.getText(),BMI.getText(),KeluhanUtama.getText(),RiwayatPenyakit.getSelectedItem().toString(),KetRiwayatPenyakit.getText(),Alergi.getText(),RiwayatPerawatan.getSelectedItem().toString(),KetRiwayatPerawatan.getText(), 
                 KebiasaanSikatGigi.getSelectedItem().toString(),KebiasaanLain.getSelectedItem().toString(),KetKebiasaanLain.getText(),ObatDiminum.getText(),AlatBantu.getSelectedItem().toString(),KetBantu.getText(),Prothesa.getSelectedItem().toString(), 
