@@ -1873,7 +1873,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         TotalHasil.setBounds(774, 830, 80, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28-11-2025 09:58:35" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-12-2025 09:59:11" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -2177,21 +2177,21 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         PanelWall1.setWarna(new java.awt.Color(110, 110, 110));
         PanelWall1.setLayout(null);
         FormInput.add(PanelWall1);
-        PanelWall1.setBounds(30, 1100, 130, 80);
+        PanelWall1.setBounds(30, 1100, 180, 80);
 
         label15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label15.setText("Mata Kanan (OD)");
         label15.setName("label15"); // NOI18N
         label15.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label15);
-        label15.setBounds(190, 1090, 170, 23);
+        label15.setBounds(220, 1090, 170, 23);
 
         label16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label16.setText("VISUS");
         label16.setName("label16"); // NOI18N
         label16.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label16);
-        label16.setBounds(360, 1120, 100, 23);
+        label16.setBounds(390, 1120, 100, 23);
 
         VisusKanan.setFocusTraversalPolicyProvider(true);
         VisusKanan.setName("VisusKanan"); // NOI18N
@@ -2201,7 +2201,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(VisusKanan);
-        VisusKanan.setBounds(190, 1120, 170, 23);
+        VisusKanan.setBounds(220, 1120, 170, 23);
 
         VisusKiri.setFocusTraversalPolicyProvider(true);
         VisusKiri.setName("VisusKiri"); // NOI18N
@@ -2211,14 +2211,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(VisusKiri);
-        VisusKiri.setBounds(460, 1120, 170, 23);
+        VisusKiri.setBounds(490, 1120, 170, 23);
 
         label17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label17.setText("Mata Kiri (OS) ");
         label17.setName("label17"); // NOI18N
         label17.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label17);
-        label17.setBounds(460, 1090, 170, 23);
+        label17.setBounds(490, 1090, 170, 23);
 
         PanelWall2.setBackground(new java.awt.Color(29, 29, 29));
         PanelWall2.setBackgroundImage(new javax.swing.ImageIcon(getClass().getResource("/picture/mata.png"))); // NOI18N
@@ -2228,14 +2228,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         PanelWall2.setWarna(new java.awt.Color(110, 110, 110));
         PanelWall2.setLayout(null);
         FormInput.add(PanelWall2);
-        PanelWall2.setBounds(660, 1100, 130, 80);
+        PanelWall2.setBounds(670, 1100, 180, 80);
 
         label18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label18.setText("REFRAKSI");
         label18.setName("label18"); // NOI18N
         label18.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label18);
-        label18.setBounds(360, 1145, 100, 23);
+        label18.setBounds(390, 1150, 100, 23);
 
         RefraksiKanan.setFocusTraversalPolicyProvider(true);
         RefraksiKanan.setName("RefraksiKanan"); // NOI18N
@@ -2245,7 +2245,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(RefraksiKanan);
-        RefraksiKanan.setBounds(190, 1145, 170, 23);
+        RefraksiKanan.setBounds(220, 1150, 170, 23);
 
         RefraksiKiri.setFocusTraversalPolicyProvider(true);
         RefraksiKiri.setName("RefraksiKiri"); // NOI18N
@@ -2255,7 +2255,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(RefraksiKiri);
-        RefraksiKiri.setBounds(460, 1145, 170, 23);
+        RefraksiKiri.setBounds(490, 1150, 170, 23);
 
         TioKanan.setFocusTraversalPolicyProvider(true);
         TioKanan.setName("TioKanan"); // NOI18N
@@ -2265,14 +2265,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(TioKanan);
-        TioKanan.setBounds(190, 1170, 170, 23);
+        TioKanan.setBounds(220, 1170, 170, 23);
 
         label19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label19.setText("TIO");
         label19.setName("label19"); // NOI18N
         label19.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label19);
-        label19.setBounds(360, 1170, 100, 23);
+        label19.setBounds(390, 1170, 100, 23);
 
         TioKiri.setFocusTraversalPolicyProvider(true);
         TioKiri.setName("TioKiri"); // NOI18N
@@ -2282,7 +2282,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(TioKiri);
-        TioKiri.setBounds(460, 1170, 170, 23);
+        TioKiri.setBounds(490, 1170, 170, 23);
 
         PalberaKanan.setFocusTraversalPolicyProvider(true);
         PalberaKanan.setName("PalberaKanan"); // NOI18N
@@ -2292,14 +2292,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(PalberaKanan);
-        PalberaKanan.setBounds(190, 1195, 170, 23);
+        PalberaKanan.setBounds(220, 1200, 170, 23);
 
         label20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label20.setText("PALBERA");
         label20.setName("label20"); // NOI18N
         label20.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label20);
-        label20.setBounds(360, 1195, 100, 23);
+        label20.setBounds(390, 1200, 100, 23);
 
         PalberaKiri.setFocusTraversalPolicyProvider(true);
         PalberaKiri.setName("PalberaKiri"); // NOI18N
@@ -2309,7 +2309,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(PalberaKiri);
-        PalberaKiri.setBounds(460, 1195, 170, 23);
+        PalberaKiri.setBounds(490, 1200, 170, 23);
 
         KonjungtivaKanan.setFocusTraversalPolicyProvider(true);
         KonjungtivaKanan.setName("KonjungtivaKanan"); // NOI18N
@@ -2319,14 +2319,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(KonjungtivaKanan);
-        KonjungtivaKanan.setBounds(190, 1220, 170, 23);
+        KonjungtivaKanan.setBounds(220, 1220, 170, 23);
 
         label21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label21.setText("KONJUNGTIVA");
         label21.setName("label21"); // NOI18N
         label21.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label21);
-        label21.setBounds(360, 1220, 100, 23);
+        label21.setBounds(390, 1220, 100, 23);
 
         KonjungtivaKiri.setFocusTraversalPolicyProvider(true);
         KonjungtivaKiri.setName("KonjungtivaKiri"); // NOI18N
@@ -2336,7 +2336,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(KonjungtivaKiri);
-        KonjungtivaKiri.setBounds(460, 1220, 170, 23);
+        KonjungtivaKiri.setBounds(490, 1220, 170, 23);
 
         SkleraKanan.setFocusTraversalPolicyProvider(true);
         SkleraKanan.setName("SkleraKanan"); // NOI18N
@@ -2346,14 +2346,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(SkleraKanan);
-        SkleraKanan.setBounds(190, 1245, 170, 23);
+        SkleraKanan.setBounds(220, 1250, 170, 23);
 
         label22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label22.setText("SKLERA");
         label22.setName("label22"); // NOI18N
         label22.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label22);
-        label22.setBounds(360, 1245, 100, 23);
+        label22.setBounds(390, 1250, 100, 23);
 
         SkleraKiri.setFocusTraversalPolicyProvider(true);
         SkleraKiri.setName("SkleraKiri"); // NOI18N
@@ -2363,7 +2363,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(SkleraKiri);
-        SkleraKiri.setBounds(460, 1245, 170, 23);
+        SkleraKiri.setBounds(490, 1250, 170, 23);
 
         KorneaKanan.setFocusTraversalPolicyProvider(true);
         KorneaKanan.setName("KorneaKanan"); // NOI18N
@@ -2373,14 +2373,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(KorneaKanan);
-        KorneaKanan.setBounds(190, 1270, 170, 23);
+        KorneaKanan.setBounds(220, 1270, 170, 23);
 
         label23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label23.setText("KORNEA");
         label23.setName("label23"); // NOI18N
         label23.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label23);
-        label23.setBounds(360, 1270, 100, 23);
+        label23.setBounds(390, 1270, 100, 23);
 
         KorneaKiri.setFocusTraversalPolicyProvider(true);
         KorneaKiri.setName("KorneaKiri"); // NOI18N
@@ -2390,7 +2390,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(KorneaKiri);
-        KorneaKiri.setBounds(460, 1270, 170, 23);
+        KorneaKiri.setBounds(490, 1270, 170, 23);
 
         BMDKanan.setFocusTraversalPolicyProvider(true);
         BMDKanan.setName("BMDKanan"); // NOI18N
@@ -2400,14 +2400,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(BMDKanan);
-        BMDKanan.setBounds(190, 1295, 170, 23);
+        BMDKanan.setBounds(220, 1300, 170, 23);
 
         label24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label24.setText("BMD");
         label24.setName("label24"); // NOI18N
         label24.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label24);
-        label24.setBounds(360, 1295, 100, 23);
+        label24.setBounds(390, 1300, 100, 23);
 
         BMDKiri.setFocusTraversalPolicyProvider(true);
         BMDKiri.setName("BMDKiri"); // NOI18N
@@ -2417,7 +2417,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(BMDKiri);
-        BMDKiri.setBounds(460, 1295, 170, 23);
+        BMDKiri.setBounds(490, 1300, 170, 23);
 
         IrisKanan.setFocusTraversalPolicyProvider(true);
         IrisKanan.setName("IrisKanan"); // NOI18N
@@ -2427,14 +2427,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(IrisKanan);
-        IrisKanan.setBounds(190, 1320, 170, 23);
+        IrisKanan.setBounds(220, 1320, 170, 23);
 
         label25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label25.setText("IRIS");
         label25.setName("label25"); // NOI18N
         label25.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label25);
-        label25.setBounds(360, 1320, 100, 23);
+        label25.setBounds(390, 1320, 100, 23);
 
         IrisKiri.setFocusTraversalPolicyProvider(true);
         IrisKiri.setName("IrisKiri"); // NOI18N
@@ -2444,7 +2444,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(IrisKiri);
-        IrisKiri.setBounds(460, 1320, 170, 23);
+        IrisKiri.setBounds(490, 1320, 170, 23);
 
         PupilKanan.setFocusTraversalPolicyProvider(true);
         PupilKanan.setName("PupilKanan"); // NOI18N
@@ -2454,14 +2454,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(PupilKanan);
-        PupilKanan.setBounds(190, 1345, 170, 23);
+        PupilKanan.setBounds(220, 1350, 170, 23);
 
         label26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label26.setText("PUPIL");
         label26.setName("label26"); // NOI18N
         label26.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label26);
-        label26.setBounds(360, 1345, 100, 23);
+        label26.setBounds(390, 1350, 100, 23);
 
         PupilKiri.setFocusTraversalPolicyProvider(true);
         PupilKiri.setName("PupilKiri"); // NOI18N
@@ -2471,7 +2471,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(PupilKiri);
-        PupilKiri.setBounds(460, 1345, 170, 23);
+        PupilKiri.setBounds(490, 1350, 170, 23);
 
         LensaKanan.setFocusTraversalPolicyProvider(true);
         LensaKanan.setName("LensaKanan"); // NOI18N
@@ -2481,7 +2481,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(LensaKanan);
-        LensaKanan.setBounds(190, 1370, 170, 23);
+        LensaKanan.setBounds(220, 1370, 170, 23);
 
         LensaKiri.setFocusTraversalPolicyProvider(true);
         LensaKiri.setName("LensaKiri"); // NOI18N
@@ -2491,20 +2491,20 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(LensaKiri);
-        LensaKiri.setBounds(460, 1370, 170, 23);
+        LensaKiri.setBounds(490, 1370, 170, 23);
 
         label27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label27.setText("LENSA");
         label27.setName("label27"); // NOI18N
         label27.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label27);
-        label27.setBounds(360, 1370, 100, 23);
+        label27.setBounds(390, 1370, 100, 23);
 
         jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel90.setText("Oftalmoskopi Kanan (OD) :");
         jLabel90.setName("jLabel90"); // NOI18N
         FormInput.add(jLabel90);
-        jLabel90.setBounds(450, 1400, 170, 23);
+        jLabel90.setBounds(490, 1400, 170, 23);
 
         ScorllPane5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         ScorllPane5.setName("ScorllPane5"); // NOI18N
@@ -2649,7 +2649,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         jLabel102.setText("XI. KEPERLUAN EDUKASI");
         jLabel102.setName("jLabel102"); // NOI18N
         FormInput.add(jLabel102);
-        jLabel102.setBounds(0, 1630, 380, 23);
+        jLabel102.setBounds(20, 1630, 380, 23);
 
         jSeparator15.setBackground(new java.awt.Color(239, 244, 234));
         jSeparator15.setForeground(new java.awt.Color(239, 244, 234));
@@ -2740,7 +2740,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28-11-2025" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-12-2025" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2754,7 +2754,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28-11-2025" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-12-2025" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
