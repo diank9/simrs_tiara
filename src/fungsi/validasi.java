@@ -1682,4 +1682,60 @@ public final class validasi {
     }
 }
 
+    public void MyReportPDFUploadAskepMata(String reportName, String reportDirName, String judul, String FileName, String query, Map parameters) {
+    Properties systemProp = System.getProperties();
+    String currentDir = systemProp.getProperty("user.dir");
+    File dir = new File(currentDir);
+    File fileRpt;
+    String fullPath = "";
+    
+    // Cari lokasi file jasper report
+    if (dir.isDirectory()) {
+        String[] isiDir = dir.list();
+        for (String iDir : isiDir) {
+            fileRpt = new File(currentDir + File.separatorChar + iDir + File.separatorChar + reportDirName + File.separatorChar + reportName);
+            if (fileRpt.isFile()) {
+                fullPath = fileRpt.toString();
+            }
+        }
+    }
+    
+    try {
+        try (Statement stm = connect.createStatement()) {
+            try {
+                // Pastikan folder tmpPDF ada
+                File tmpPDFDir = new File(currentDir + File.separatorChar + "tmpPDF");
+                if (!tmpPDFDir.exists()) {
+                    tmpPDFDir.mkdir();
+                }
+                
+                // Path output PDF
+                String outputPdfPath = tmpPDFDir + File.separator + FileName + ".pdf";
+                String inputJasperPath = "./" + reportDirName + "/" + reportName;
+                
+                // Execute query untuk ambil data
+                ResultSet rs = stm.executeQuery(query);
+                
+                // Wrap ResultSet ke JRResultSetDataSource
+                JRResultSetDataSource jrRS = new JRResultSetDataSource(rs);
+                
+                // Generate PDF dari data source
+                JasperPrint jasperPrint = JasperFillManager.fillReport(inputJasperPath, parameters, jrRS);
+                
+                // Export ke PDF file
+                JasperExportManager.exportReportToPdfFile(jasperPrint, outputPdfPath);
+                
+                // Close ResultSet
+                rs.close();
+                
+            } catch (Exception rptexcpt) {
+                System.out.println("Report Can't create because : " + rptexcpt);
+                JOptionPane.showMessageDialog(null, "Report Can't create because : " + rptexcpt);
+            }
+        }
+    } catch (Exception e) {
+        System.out.println("Database error: " + e);
+    }
+}
+
 }

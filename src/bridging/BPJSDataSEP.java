@@ -59,8 +59,8 @@ import org.springframework.web.client.RestTemplate;
 import simrskhanza.DlgKamarInap;
 import rekammedis.RMRiwayatPerawatan;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+//import java.text.SimpleDateFormat;
+//import java.util.Date;
 // Tambahan Generated PDF
 import java.io.*;
 import org.apache.commons.io.FileUtils;
@@ -6273,8 +6273,8 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                 // Generate timestamp saat tombol diklik (format: HH.mm.ss)
                 String timestamp = new java.text.SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
 
-                // Generate nama file: SEP_NoSEP_NoRawat_timestamp
-                // Contoh: SEP_0301R0011024V000001_20241103000001_143025.jpg
+                // Generate nama file: SEP_NoSEP_timestamp
+                // Contoh: SEP_0301R0011024V000001_14.30.25.jpg
                 FileName = "SEP_" + tbDataSEP.getValueAt(tbDataSEP.getSelectedRow(), 0).toString().trim()
                         + "_at_" + timestamp;
 

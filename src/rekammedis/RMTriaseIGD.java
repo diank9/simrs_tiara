@@ -711,6 +711,7 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
         TNoRM1 = new widget.TextBox();
         TPasien1 = new widget.TextBox();
         BtnPrint1 = new widget.Button();
+        BtnUpload = new widget.Button();
         ScrollHTML = new widget.ScrollPane();
         LoadHTML = new widget.editorpane();
         panelGlass8 = new widget.panelisi();
@@ -972,7 +973,7 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
         jLabel28.setBounds(362, 10, 90, 23);
 
         PrimerTanggalTriase.setForeground(new java.awt.Color(50, 70, 50));
-        PrimerTanggalTriase.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-11-2025 09:10:59" }));
+        PrimerTanggalTriase.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-12-2025 13:28:21" }));
         PrimerTanggalTriase.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         PrimerTanggalTriase.setName("PrimerTanggalTriase"); // NOI18N
         PrimerTanggalTriase.setOpaque(false);
@@ -1399,7 +1400,7 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
         jLabel37.setBounds(362, 10, 90, 23);
 
         SekunderTanggalTriase.setForeground(new java.awt.Color(50, 70, 50));
-        SekunderTanggalTriase.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-11-2025 09:11:01" }));
+        SekunderTanggalTriase.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-12-2025 13:28:22" }));
         SekunderTanggalTriase.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         SekunderTanggalTriase.setName("SekunderTanggalTriase"); // NOI18N
         SekunderTanggalTriase.setOpaque(false);
@@ -1693,7 +1694,7 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
         jLabel18.setBounds(0, 40, 89, 23);
 
         TanggalKunjungan.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalKunjungan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-11-2025 09:11:01" }));
+        TanggalKunjungan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-12-2025 13:28:22" }));
         TanggalKunjungan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TanggalKunjungan.setName("TanggalKunjungan"); // NOI18N
         TanggalKunjungan.setOpaque(false);
@@ -1852,7 +1853,7 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-11-2025" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-12-2025" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1866,7 +1867,7 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-11-2025" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-12-2025" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1961,7 +1962,7 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
         TPasien1.setBackground(new java.awt.Color(245, 250, 240));
         TPasien1.setHighlighter(null);
         TPasien1.setName("TPasien1"); // NOI18N
-        TPasien1.setPreferredSize(new java.awt.Dimension(255, 23));
+        TPasien1.setPreferredSize(new java.awt.Dimension(230, 23));
         FormMenu.add(TPasien1);
 
         BtnPrint1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item (copy).png"))); // NOI18N
@@ -1975,6 +1976,19 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnPrint1);
+
+        BtnUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/save-16x16i.png"))); // NOI18N
+        BtnUpload.setMnemonic('T');
+        BtnUpload.setToolTipText("Alt+T");
+        BtnUpload.setEnabled(false);
+        BtnUpload.setName("BtnUpload"); // NOI18N
+        BtnUpload.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnUpload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUploadActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnUpload);
 
         PanelAccor.add(FormMenu, java.awt.BorderLayout.NORTH);
 
@@ -4627,6 +4641,111 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnSimpanKeyPressed
 
+    private void BtnUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUploadActionPerformed
+        // Validasi nomor rawat harus terisi
+        if (TNoRw.getText().trim().equals("")) {
+            Valid.textKosong(TNoRw, "No. Rawat");
+            return;
+        }
+
+        String noRawat = TNoRw.getText().trim();
+
+        // Cek apakah data triase sudah ada di database
+        int cekData = Sequel.cariInteger(
+                "select count(*) from data_triase_igd where no_rawat=?", noRawat);
+
+        if (cekData == 0) {
+            JOptionPane.showMessageDialog(null,
+                    "Prosess failed : proses upload gagal !!");
+            return;
+        }
+
+        // Cek skala triase yang aktif dari database
+        int skalaAktif = 0;
+
+        // Cek di skala primer (1-2)
+        if (Sequel.cariInteger("select count(*) from data_triase_igdprimer where no_rawat=?", noRawat) > 0) {
+            if (Sequel.cariInteger("select count(*) from data_triase_igddetail_skala1 where no_rawat=?", noRawat) > 0) {
+                skalaAktif = 1;
+            } else if (Sequel.cariInteger("select count(*) from data_triase_igddetail_skala2 where no_rawat=?", noRawat) > 0) {
+                skalaAktif = 2;
+            }
+        } // Cek di skala sekunder (3-5)
+        else if (Sequel.cariInteger("select count(*) from data_triase_igdsekunder where no_rawat=?", noRawat) > 0) {
+            if (Sequel.cariInteger("select count(*) from data_triase_igddetail_skala3 where no_rawat=?", noRawat) > 0) {
+                skalaAktif = 3;
+            } else if (Sequel.cariInteger("select count(*) from data_triase_igddetail_skala4 where no_rawat=?", noRawat) > 0) {
+                skalaAktif = 4;
+            } else if (Sequel.cariInteger("select count(*) from data_triase_igddetail_skala5 where no_rawat=?", noRawat) > 0) {
+                skalaAktif = 5;
+            }
+        }
+
+        if (skalaAktif == 0) {
+            JOptionPane.showMessageDialog(null,
+                    "Prosess failed : proses upload gagal !!");
+            return;
+        }
+
+        // Konfirmasi upload
+        int pilihan = JOptionPane.showConfirmDialog(null,
+                "Upload dokumen triase untuk no rawat " + noRawat + "?",
+                "Konfirmasi Upload",
+                JOptionPane.YES_NO_OPTION);
+
+        if (pilihan == JOptionPane.YES_OPTION) {
+            final int skalaUpload = skalaAktif;
+            final String noRawatFinal = noRawat;
+
+            // Jalankan upload di background thread (copy logic dari tombol simpan)
+            new Thread(() -> {
+                try {
+                    // Generate PDF
+                    if (CreatePDFTriaseIGD(noRawatFinal, skalaUpload)) {
+
+                        // Convert PDF to JPG
+                        if (ConvertPDFtoJPGTriase(noRawatFinal)) {
+
+                            // Upload ke server
+                            UploadJPGTriaseSilent(noRawatFinal);
+
+                            // Hapus file temporary
+                            HapusPDFTriase();
+
+                            // Tampilkan notifikasi sukses
+                            javax.swing.SwingUtilities.invokeLater(() -> {
+                                JOptionPane.showMessageDialog(null,
+                                        "Upload dokumen triase berhasil!");
+                            });
+
+                            System.out.println("Prosess successfully : proses upload triase selesai");
+
+                        } else {
+                            System.out.println("Warning: Konversi PDF ke JPG gagal");
+                            javax.swing.SwingUtilities.invokeLater(() -> {
+                                JOptionPane.showMessageDialog(null,
+                                        "Gagal konversi dokumen ke JPG");
+                            });
+                        }
+                    } else {
+                        System.out.println("Warning: Generate PDF gagal");
+                        javax.swing.SwingUtilities.invokeLater(() -> {
+                            JOptionPane.showMessageDialog(null,
+                                    "Gagal generate PDF dokumen");
+                        });
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error upload: " + e);
+                    e.printStackTrace();
+                    javax.swing.SwingUtilities.invokeLater(() -> {
+                        JOptionPane.showMessageDialog(null,
+                                "Terjadi kesalahan saat upload: " + e.getMessage());
+                    });
+                }
+            }).start();
+        }
+    }//GEN-LAST:event_BtnUploadActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4662,6 +4781,7 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
     private widget.Button BtnTambahPemeriksaan1;
     private widget.Button BtnTambahSkala1;
     private widget.Button BtnTambahSkala2;
+    private widget.Button BtnUpload;
     private widget.ComboBox CaraMasuk;
     private widget.CekBox ChkAccor;
     private widget.Tanggal DTPCari1;
@@ -6067,7 +6187,6 @@ public final class RMTriaseIGD extends javax.swing.JDialog {
                         Thread.sleep(500); // Delay 500ms untuk memastikan data sudah tersedia
 
 //                        System.out.println("Mulai generate PDF...");
-
                         // Generate PDF dengan timestamp baru (otomatis beda nama file)
                         if (CreatePDFTriaseIGD(noRawatFinal, skalaUpload)) {
 //                            System.out.println("PDF berhasil dibuat untuk Skala " + skalaUpload);

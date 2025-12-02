@@ -427,7 +427,6 @@ public final class DlgDataInsidenKeselamatan1 extends javax.swing.JDialog {
         ppGrafikBatangKejadianIHPPerTahun.setForeground(new java.awt.Color(50, 50, 50));
         ppGrafikBatangKejadianIHPPerTahun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
         ppGrafikBatangKejadianIHPPerTahun.setText("Grafik Batang Kejadian IHP Per Tahun");
-        ppGrafikBatangKejadianIHPPerTahun.setActionCommand("Grafik Batang Kejadian IHP Per Tahun");
         ppGrafikBatangKejadianIHPPerTahun.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikBatangKejadianIHPPerTahun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppGrafikBatangKejadianIHPPerTahun.setName("ppGrafikBatangKejadianIHPPerTahun"); // NOI18N
@@ -749,6 +748,7 @@ public final class DlgDataInsidenKeselamatan1 extends javax.swing.JDialog {
         FormInput.add(jLabel16);
         jLabel16.setBounds(0, 40, 100, 23);
 
+        Lokasi.setEnabled(false);
         Lokasi.setHighlighter(null);
         Lokasi.setName("Lokasi"); // NOI18N
         Lokasi.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1010,7 +1010,6 @@ public final class DlgDataInsidenKeselamatan1 extends javax.swing.JDialog {
         internalFrame1.add(PanelInput, java.awt.BorderLayout.PAGE_START);
 
         getContentPane().add(internalFrame1, java.awt.BorderLayout.CENTER);
-        internalFrame1.getAccessibleContext().setAccessibleName("::[ Data Insiden HAIS Pasien ]::");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
