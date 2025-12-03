@@ -2275,7 +2275,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         label18.setName("label18"); // NOI18N
         label18.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label18);
-        label18.setBounds(390, 1150, 100, 23);
+        label18.setBounds(390, 1145, 100, 23);
 
         RefraksiKanan.setFocusTraversalPolicyProvider(true);
         RefraksiKanan.setName("RefraksiKanan"); // NOI18N
@@ -2285,7 +2285,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(RefraksiKanan);
-        RefraksiKanan.setBounds(220, 1150, 170, 23);
+        RefraksiKanan.setBounds(220, 1145, 170, 23);
 
         RefraksiKiri.setFocusTraversalPolicyProvider(true);
         RefraksiKiri.setName("RefraksiKiri"); // NOI18N
@@ -2295,7 +2295,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(RefraksiKiri);
-        RefraksiKiri.setBounds(490, 1150, 170, 23);
+        RefraksiKiri.setBounds(490, 1145, 170, 23);
 
         TioKanan.setFocusTraversalPolicyProvider(true);
         TioKanan.setName("TioKanan"); // NOI18N
@@ -2332,14 +2332,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(PalberaKanan);
-        PalberaKanan.setBounds(220, 1200, 170, 23);
+        PalberaKanan.setBounds(220, 1195, 170, 23);
 
         label20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label20.setText("PALBERA");
         label20.setName("label20"); // NOI18N
         label20.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label20);
-        label20.setBounds(390, 1200, 100, 23);
+        label20.setBounds(390, 1195, 100, 23);
 
         PalberaKiri.setFocusTraversalPolicyProvider(true);
         PalberaKiri.setName("PalberaKiri"); // NOI18N
@@ -2349,7 +2349,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(PalberaKiri);
-        PalberaKiri.setBounds(490, 1200, 170, 23);
+        PalberaKiri.setBounds(490, 1195, 170, 23);
 
         KonjungtivaKanan.setFocusTraversalPolicyProvider(true);
         KonjungtivaKanan.setName("KonjungtivaKanan"); // NOI18N
@@ -2386,14 +2386,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(SkleraKanan);
-        SkleraKanan.setBounds(220, 1250, 170, 23);
+        SkleraKanan.setBounds(220, 1245, 170, 23);
 
         label22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label22.setText("SKLERA");
         label22.setName("label22"); // NOI18N
         label22.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label22);
-        label22.setBounds(390, 1250, 100, 23);
+        label22.setBounds(390, 1245, 100, 23);
 
         SkleraKiri.setFocusTraversalPolicyProvider(true);
         SkleraKiri.setName("SkleraKiri"); // NOI18N
@@ -2403,7 +2403,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(SkleraKiri);
-        SkleraKiri.setBounds(490, 1250, 170, 23);
+        SkleraKiri.setBounds(490, 1245, 170, 23);
 
         KorneaKanan.setFocusTraversalPolicyProvider(true);
         KorneaKanan.setName("KorneaKanan"); // NOI18N
@@ -2440,14 +2440,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(BMDKanan);
-        BMDKanan.setBounds(220, 1300, 170, 23);
+        BMDKanan.setBounds(220, 1295, 170, 23);
 
         label24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label24.setText("BMD");
         label24.setName("label24"); // NOI18N
         label24.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label24);
-        label24.setBounds(390, 1300, 100, 23);
+        label24.setBounds(390, 1295, 100, 23);
 
         BMDKiri.setFocusTraversalPolicyProvider(true);
         BMDKiri.setName("BMDKiri"); // NOI18N
@@ -2457,7 +2457,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(BMDKiri);
-        BMDKiri.setBounds(490, 1300, 170, 23);
+        BMDKiri.setBounds(490, 1295, 170, 23);
 
         IrisKanan.setFocusTraversalPolicyProvider(true);
         IrisKanan.setName("IrisKanan"); // NOI18N
@@ -2494,14 +2494,14 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(PupilKanan);
-        PupilKanan.setBounds(220, 1350, 170, 23);
+        PupilKanan.setBounds(220, 1345, 170, 23);
 
         label26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label26.setText("PUPIL");
         label26.setName("label26"); // NOI18N
         label26.setPreferredSize(new java.awt.Dimension(70, 23));
         FormInput.add(label26);
-        label26.setBounds(390, 1350, 100, 23);
+        label26.setBounds(390, 1345, 100, 23);
 
         PupilKiri.setFocusTraversalPolicyProvider(true);
         PupilKiri.setName("PupilKiri"); // NOI18N
@@ -2511,7 +2511,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
             }
         });
         FormInput.add(PupilKiri);
-        PupilKiri.setBounds(490, 1350, 170, 23);
+        PupilKiri.setBounds(490, 1345, 170, 23);
 
         LensaKanan.setFocusTraversalPolicyProvider(true);
         LensaKanan.setName("LensaKanan"); // NOI18N
@@ -4444,7 +4444,116 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnUploadActionPerformed
 
     private void BtnSimpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpan1ActionPerformed
-        // TODO add your handling code here:
+        if (TNoRM.getText().trim().equals("")) {
+            Valid.textKosong(TNoRw, "Nama Pasien");
+        } else if (TD.getText().trim().equals("")) {
+            Valid.textKosong(TD, "TD(mmHg)");
+        } else if (Nadi.getText().trim().equals("")) {
+            Valid.textKosong(Nadi, "Nadi(x/menit)");
+        } else if (RR.getText().trim().equals("")) {
+            Valid.textKosong(RR, "RR(x/menit)");
+        } else if (Suhu.getText().trim().equals("")) {
+            Valid.textKosong(Suhu, "Suhu(C)");
+        } else if (GCS.getText().trim().equals("")) {
+            Valid.textKosong(GCS, "GCS");
+        } else if (BB.getText().trim().equals("")) {
+            Valid.textKosong(BB, "BB(Kg)");
+        } else if (TB.getText().trim().equals("")) {
+            Valid.textKosong(TB, "TB(Cm)");
+        } else if (BMI.getText().trim().equals("")) {
+            Valid.textKosong(BMI, "BMI(Kg/m2)");
+        } else if (KeluhanUtama.getText().trim().equals("")) {
+            Valid.textKosong(KeluhanUtama, "Keluhan Utama");
+        } else if (RPD.getText().trim().equals("")) {
+            Valid.textKosong(RPD, "Riwayat Penyakit Dahulu");
+        } else if (RPS.getText().trim().equals("")) {
+            Valid.textKosong(RPS, "Riwayat Penyakit Sekarang");
+        } else if (RPK.getText().trim().equals("")) {
+            Valid.textKosong(RPK, "Riwayat Penyakit Keluarga");
+        } else if (RPO.getText().trim().equals("")) {
+            Valid.textKosong(RPO, "Riwayat Pengobatan");
+        } else if (Alergi.getText().trim().equals("")) {
+            Valid.textKosong(Alergi, "Alergi");
+        } else if (TotalHasil.getText().trim().equals("")) {
+            Valid.textKosong(TotalHasil, "Total Hasil");
+        } else if (Lokasi.getText().trim().equals("")) {
+            Valid.textKosong(Lokasi, "Lokasi");
+        } else if (Rencana.getText().trim().equals("")) {
+            Valid.textKosong(Rencana, "Rencana");
+        } else if (NmPetugas.getText().trim().equals("")) {
+            Valid.textKosong(BtnDokter, "Petugas");
+        } else {
+            // Proses simpan data ke database
+            if (Sequel.menyimpantf("penilaian_awal_keperawatan_mata", "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?", "No.Rawat", 88, new String[]{
+                TNoRw.getText(), Valid.SetTgl(TglAsuhan.getSelectedItem() + "") + " " + TglAsuhan.getSelectedItem().toString().substring(11, 19), Informasi.getSelectedItem().toString(), TD.getText(), Nadi.getText(), RR.getText(),
+                Suhu.getText(), GCS.getText(), BB.getText(), TB.getText(), BMI.getText(), KeluhanUtama.getText(), RPD.getText(), RPS.getText(), RPK.getText(), RPO.getText(), Alergi.getText(), AlatBantu.getSelectedItem().toString(), KetBantu.getText(),
+                Prothesa.getSelectedItem().toString(), KetProthesa.getText(), ADL.getSelectedItem().toString(), StatusPsiko.getSelectedItem().toString(), KetPsiko.getText(), HubunganKeluarga.getSelectedItem().toString(),
+                TinggalDengan.getSelectedItem().toString(), KetTinggal.getText(), Ekonomi.getSelectedItem().toString(), StatusBudaya.getSelectedItem().toString(), KetBudaya.getText(), Edukasi.getSelectedItem().toString(),
+                KetEdukasi.getText(), ATS.getSelectedItem().toString(), BJM.getSelectedItem().toString(), MSA.getSelectedItem().toString(), Hasil.getSelectedItem().toString(), Lapor.getSelectedItem().toString(), KetLapor.getText(),
+                SG1.getSelectedItem().toString(), Nilai1.getSelectedItem().toString(), SG2.getSelectedItem().toString(), Nilai2.getSelectedItem().toString(), SG3.getSelectedItem().toString(), Nilai3.getSelectedItem().toString(),
+                SG4.getSelectedItem().toString(), Nilai4.getSelectedItem().toString(), TotalHasil.getText(), Nyeri.getSelectedItem().toString(),
+                Provokes.getSelectedItem().toString(), KetProvokes.getText(), Quality.getSelectedItem().toString(), KetQuality.getText(), Lokasi.getText(), Menyebar.getSelectedItem().toString(), SkalaNyeri.getSelectedItem().toString(),
+                Durasi.getText(), NyeriHilang.getSelectedItem().toString(), KetNyeri.getText(), PadaDokter.getSelectedItem().toString(), KetDokter.getText(), VisusKanan.getText(), VisusKiri.getText(), RefraksiKanan.getText(), RefraksiKiri.getText(),
+                TioKanan.getText(), TioKiri.getText(), PalberaKanan.getText(), PalberaKiri.getText(), KonjungtivaKanan.getText(), KonjungtivaKiri.getText(), SkleraKanan.getText(), SkleraKiri.getText(), KorneaKanan.getText(), KorneaKiri.getText(),
+                BMDKanan.getText(), BMDKiri.getText(), IrisKanan.getText(), IrisKiri.getText(), PupilKanan.getText(), PupilKiri.getText(), LensaKanan.getText(), LensaKiri.getText(), OftalmoskopiKanan.getText(), OftalmoskopiKiri.getText(),
+                Rencana.getText(), KdPetugas.getText(), MEEdukasi.getSelectedItem().toString(), METEdukasi.getText()
+            }) == true) {
+
+                // Simpan masalah keperawatan
+                for (i = 0; i < tbMasalahKeperawatan.getRowCount(); i++) {
+                    if (tbMasalahKeperawatan.getValueAt(i, 0).toString().equals("true")) {
+                        Sequel.menyimpan2("penilaian_awal_keperawatan_mata_masalah", "?,?", 2, new String[]{TNoRw.getText(), tbMasalahKeperawatan.getValueAt(i, 1).toString()});
+                    }
+                }
+
+                // ===== TAMBAHAN: AUTO UPLOAD SETELAH SIMPAN =====
+                try {
+                    // Refresh tabel untuk mendapatkan data yang baru disimpan
+                    tampil();
+
+                    // Cari dan select row yang baru disimpan berdasarkan no_rawat
+                    for (int row = 0; row < tbObat.getRowCount(); row++) {
+                        if (tbObat.getValueAt(row, 0).toString().equals(TNoRw.getText())) {
+                            tbObat.setRowSelectionInterval(row, row);
+                            break;
+                        }
+                    }
+
+                    // Pastikan ada row yang terseleksi
+                    if (tbObat.getSelectedRow() > -1) {
+                        // Generate timestamp untuk unique filename
+                        String timestamp = new java.text.SimpleDateFormat("HH.mm.ss").format(new java.util.Date());
+
+                        // Generate nama file
+                        FileName = "AskepMata_" + TNoRw.getText().trim().replaceAll("/", "") + "_" + timestamp;
+
+                        // Set cursor loading
+                        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
+                        // Proses berurutan: PDF → JPG → Upload → Cleanup
+                        CreatePDFAskepMataFromSimpan(FileName, TNoRw.getText());
+                        ConvertPDFtoJPG(FileName);
+                        UploadJPGAskepMataFromSimpan(FileName, "berkasrawat/pages/upload/", TNoRw.getText());
+                        HapusPDF();
+
+                        // Kembalikan cursor normal
+                        this.setCursor(Cursor.getDefaultCursor());
+
+                        JOptionPane.showMessageDialog(null, "Data berhasil disimpan dan diupload!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Data berhasil disimpan, namun gagal melakukan auto-upload. Silakan gunakan tombol Upload manual.");
+                    }
+
+                } catch (Exception uploadEx) {
+                    System.out.println("Error auto upload: " + uploadEx);
+                    uploadEx.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Data berhasil disimpan, namun terjadi error saat auto-upload: " + uploadEx.getMessage());
+                }
+                // ===== AKHIR TAMBAHAN =====
+
+                emptTeks();
+            }
+        }
     }//GEN-LAST:event_BtnSimpan1ActionPerformed
 
     private void BtnSimpan1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpan1KeyPressed
@@ -5553,6 +5662,246 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
                 File myFile = new File(file, myFiles[i]);
                 myFile.delete();
             }
+        }
+    }
+
+    // Method baru untuk CreatePDF dari proses simpan (tidak bergantung pada tabel selection)
+    private void CreatePDFAskepMataFromSimpan(String FileName, String noRawat) {
+        try {
+            // Setup parameter report jasper
+            Map<String, Object> param = new HashMap<>();
+
+            param.put("namars", akses.getnamars());
+            param.put("alamatrs", akses.getalamatrs());
+            param.put("kotars", akses.getkabupatenrs());
+            param.put("propinsirs", akses.getpropinsirs());
+            param.put("kontakrs", akses.getkontakrs());
+            param.put("emailrs", akses.getemailrs());
+
+            param.put("logo", Sequel.cariGambar("select setting.logo from setting"));
+            param.put("nyeri", Sequel.cariGambar("select gambar.nyeri from gambar"));
+
+            try {
+                param.put("mata", getClass().getResource("/picture/mata.png").openStream());
+            } catch (Exception e) {
+                System.out.println("Notif Gambar Mata : " + e);
+            }
+
+            // Ambil NIP petugas dari field input
+            String nipPetugas = KdPetugas.getText();
+
+            // Get fingerprint petugas
+            param.put("finger", Sequel.cariIsi(
+                    "select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",
+                    nipPetugas
+            ));
+
+            // Get masalah keperawatan
+            try {
+                masalahkeperawatan = "";
+                ps2 = koneksi.prepareStatement(
+                        "select master_masalah_keperawatan_mata.kode_masalah,master_masalah_keperawatan_mata.nama_masalah "
+                        + "from master_masalah_keperawatan_mata "
+                        + "inner join penilaian_awal_keperawatan_mata_masalah on penilaian_awal_keperawatan_mata_masalah.kode_masalah=master_masalah_keperawatan_mata.kode_masalah "
+                        + "where penilaian_awal_keperawatan_mata_masalah.no_rawat=? order by kode_masalah"
+                );
+
+                try {
+                    ps2.setString(1, noRawat);
+                    rs2 = ps2.executeQuery();
+
+                    while (rs2.next()) {
+                        masalahkeperawatan = rs2.getString("nama_masalah") + ", " + masalahkeperawatan;
+                    }
+
+                    if (masalahkeperawatan.length() > 2) {
+                        masalahkeperawatan = masalahkeperawatan.substring(0, masalahkeperawatan.length() - 2);
+                    }
+                } catch (Exception e) {
+                    System.out.println("Notif Query Masalah : " + e);
+                } finally {
+                    if (rs2 != null) {
+                        rs2.close();
+                    }
+                    if (ps2 != null) {
+                        ps2.close();
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Notif Masalah Keperawatan : " + e);
+            }
+
+            param.put("masalah", masalahkeperawatan);
+
+            // Query SQL untuk report
+            String query = "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,"
+                    + "pasien.tgl_lahir,pasien.agama,bahasa_pasien.nama_bahasa,cacat_fisik.nama_cacat,"
+                    + "penilaian_awal_keperawatan_mata.tanggal,penilaian_awal_keperawatan_mata.informasi,"
+                    + "penilaian_awal_keperawatan_mata.td,penilaian_awal_keperawatan_mata.nadi,penilaian_awal_keperawatan_mata.rr,penilaian_awal_keperawatan_mata.suhu,"
+                    + "penilaian_awal_keperawatan_mata.gcs,penilaian_awal_keperawatan_mata.bb,penilaian_awal_keperawatan_mata.tb,penilaian_awal_keperawatan_mata.bmi,"
+                    + "penilaian_awal_keperawatan_mata.keluhan_utama,penilaian_awal_keperawatan_mata.rpd,penilaian_awal_keperawatan_mata.rps,"
+                    + "penilaian_awal_keperawatan_mata.rpk,penilaian_awal_keperawatan_mata.rpo,penilaian_awal_keperawatan_mata.alergi,"
+                    + "penilaian_awal_keperawatan_mata.alat_bantu,penilaian_awal_keperawatan_mata.ket_bantu,"
+                    + "penilaian_awal_keperawatan_mata.prothesa,penilaian_awal_keperawatan_mata.ket_pro,"
+                    + "penilaian_awal_keperawatan_mata.adl,penilaian_awal_keperawatan_mata.status_psiko,penilaian_awal_keperawatan_mata.ket_psiko,"
+                    + "penilaian_awal_keperawatan_mata.hub_keluarga,penilaian_awal_keperawatan_mata.tinggal_dengan,penilaian_awal_keperawatan_mata.ket_tinggal,"
+                    + "penilaian_awal_keperawatan_mata.ekonomi,penilaian_awal_keperawatan_mata.budaya,penilaian_awal_keperawatan_mata.ket_budaya,"
+                    + "penilaian_awal_keperawatan_mata.edukasi,penilaian_awal_keperawatan_mata.ket_edukasi,"
+                    + "penilaian_awal_keperawatan_mata.berjalan_a,penilaian_awal_keperawatan_mata.berjalan_b,penilaian_awal_keperawatan_mata.berjalan_c,"
+                    + "penilaian_awal_keperawatan_mata.hasil,penilaian_awal_keperawatan_mata.lapor,penilaian_awal_keperawatan_mata.ket_lapor,"
+                    + "penilaian_awal_keperawatan_mata.sg1,penilaian_awal_keperawatan_mata.nilai1,"
+                    + "penilaian_awal_keperawatan_mata.sg2,penilaian_awal_keperawatan_mata.nilai2,"
+                    + "penilaian_awal_keperawatan_mata.sg3,penilaian_awal_keperawatan_mata.nilai3,"
+                    + "penilaian_awal_keperawatan_mata.sg4,penilaian_awal_keperawatan_mata.nilai4,"
+                    + "penilaian_awal_keperawatan_mata.total_hasil,penilaian_awal_keperawatan_mata.nyeri,"
+                    + "penilaian_awal_keperawatan_mata.provokes,penilaian_awal_keperawatan_mata.ket_provokes,"
+                    + "penilaian_awal_keperawatan_mata.quality,penilaian_awal_keperawatan_mata.ket_quality,"
+                    + "penilaian_awal_keperawatan_mata.lokasi,penilaian_awal_keperawatan_mata.menyebar,penilaian_awal_keperawatan_mata.skala_nyeri,"
+                    + "penilaian_awal_keperawatan_mata.durasi,penilaian_awal_keperawatan_mata.nyeri_hilang,penilaian_awal_keperawatan_mata.ket_nyeri,"
+                    + "penilaian_awal_keperawatan_mata.pada_dokter,penilaian_awal_keperawatan_mata.ket_dokter,"
+                    + "penilaian_awal_keperawatan_mata.visuskanan,penilaian_awal_keperawatan_mata.visuskiri,"
+                    + "penilaian_awal_keperawatan_mata.refraksikanan,penilaian_awal_keperawatan_mata.refraksikiri,"
+                    + "penilaian_awal_keperawatan_mata.tiokanan,penilaian_awal_keperawatan_mata.tiokiri,"
+                    + "penilaian_awal_keperawatan_mata.palberakanan,penilaian_awal_keperawatan_mata.palberakiri,"
+                    + "penilaian_awal_keperawatan_mata.konjungtivakanan,penilaian_awal_keperawatan_mata.konjungtivakiri,"
+                    + "penilaian_awal_keperawatan_mata.sklerakanan,penilaian_awal_keperawatan_mata.sklerakiri,"
+                    + "penilaian_awal_keperawatan_mata.korneakanan,penilaian_awal_keperawatan_mata.korneakiri,"
+                    + "penilaian_awal_keperawatan_mata.bmdkanan,penilaian_awal_keperawatan_mata.bmdkiri,"
+                    + "penilaian_awal_keperawatan_mata.iriskanan,penilaian_awal_keperawatan_mata.iriskiri,"
+                    + "penilaian_awal_keperawatan_mata.pupilkanan,penilaian_awal_keperawatan_mata.pupilkiri,"
+                    + "penilaian_awal_keperawatan_mata.lensakanan,penilaian_awal_keperawatan_mata.lensakiri,"
+                    + "penilaian_awal_keperawatan_mata.oftalmoskopikanan,penilaian_awal_keperawatan_mata.oftalmoskopikiri,"
+                    + "GROUP_CONCAT(CONCAT(master_masalah_keperawatan_mata.nama_masalah) SEPARATOR ', ') as masalah,"
+                    + "penilaian_awal_keperawatan_mata.rencana,penilaian_awal_keperawatan_mata.nip,petugas.nama,"
+                    + "penilaian_awal_keperawatan_mata.me_edukasi,penilaian_awal_keperawatan_mata.met_edukasi "
+                    + "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "
+                    + "inner join penilaian_awal_keperawatan_mata on reg_periksa.no_rawat=penilaian_awal_keperawatan_mata.no_rawat "
+                    + "inner join petugas on penilaian_awal_keperawatan_mata.nip=petugas.nip "
+                    + "inner join bahasa_pasien on bahasa_pasien.id=pasien.bahasa_pasien "
+                    + "inner join cacat_fisik on cacat_fisik.id=pasien.cacat_fisik "
+                    + "left join penilaian_awal_keperawatan_mata_masalah on reg_periksa.no_rawat=penilaian_awal_keperawatan_mata_masalah.no_rawat "
+                    + "left join master_masalah_keperawatan_mata on penilaian_awal_keperawatan_mata_masalah.kode_masalah=master_masalah_keperawatan_mata.kode_masalah "
+                    + "where reg_periksa.no_rawat='" + noRawat + "'";
+
+            // Generate PDF
+            Valid.MyReportPDFUploadAskepMata("rptCetakPenilaianAwalKeperawatanMata.jasper", "report",
+                    "::[ Laporan Pengkajian Awal Keperawatan Mata ]::", FileName, query, param);
+
+        } catch (Exception e) {
+            System.out.println("Error CreatePDFAskepMataFromSimpan: " + e);
+            e.printStackTrace();
+            throw new RuntimeException("Gagal membuat PDF: " + e.getMessage());
+        }
+    }
+
+// Method baru untuk Upload dari proses simpan (tidak bergantung pada tabel selection)
+    private void UploadJPGAskepMataFromSimpan(String FileName, String docpath, String noRawat) {
+        try {
+            // Path folder tmpPDF
+            File folder = new File("tmpPDF/");
+
+            // Filter semua file JPG dengan prefix FileName
+            File[] jpgFiles = folder.listFiles((dir, name)
+                    -> name.startsWith(FileName) && name.toLowerCase().endsWith(".jpg")
+            );
+
+            // Validasi ada file JPG yang ditemukan
+            if (jpgFiles == null || jpgFiles.length == 0) {
+                throw new RuntimeException("File JPG tidak ditemukan di folder tmpPDF!");
+            }
+
+            // Ambil/buat kode berkas untuk askep mata
+            kodeberkas = Sequel.cariIsi("SELECT kode FROM master_berkas_digital WHERE nama LIKE '%kep%Mata%'");
+
+            if (kodeberkas.equals("")) {
+                String last = Sequel.cariIsi(
+                        "select ifnull(MAX(CONVERT(kode, signed)),0)+1 from master_berkas_digital"
+                );
+                kodeberkas = String.format("%03d", Integer.parseInt(last));
+                Sequel.menyimpan(
+                        "master_berkas_digital", "'" + kodeberkas + "','Awal Keperawatan Mata'", "Master Berkas Digital"
+                );
+            }
+
+            int successCount = 0;
+            int failCount = 0;
+
+            // Loop upload semua file JPG hasil convert
+            for (File jpgFile : jpgFiles) {
+                HttpClient httpClient = new DefaultHttpClient();
+
+                try {
+                    // Baca file menjadi byte array
+                    byte[] data = FileUtils.readFileToByteArray(jpgFile);
+
+                    // Setup HTTP POST request
+                    HttpPost postRequest = new HttpPost("http://" + koneksiDB.HOSTHYBRIDWEB() + ":"
+                            + koneksiDB.PORTWEB() + "/" + koneksiDB.HYBRIDWEB() + "/upload.php?doc=" + docpath);
+
+                    // Setup multipart entity dengan file JPG
+                    ByteArrayBody fileData = new ByteArrayBody(data, jpgFile.getName());
+                    MultipartEntity reqEntity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
+                    reqEntity.addPart("file", fileData);
+                    postRequest.setEntity(reqEntity);
+
+                    // Execute HTTP POST upload
+                    HttpResponse response = httpClient.execute(postRequest);
+
+                    // Consume response entity untuk release connection
+                    if (response.getEntity() != null) {
+                        response.getEntity().consumeContent();
+                    }
+
+                    // Simpan info file ke database
+                    String lokasiFinal = "pages/upload/" + jpgFile.getName();
+                    boolean uploadSuccess = false;
+
+                    // Cek apakah file sudah pernah diupload (untuk update)
+                    if (Sequel.cariInteger("SELECT COUNT(no_rawat) AS jumlah FROM berkas_digital_perawatan "
+                            + "WHERE lokasi_file='" + lokasiFinal + "'") > 0) {
+                        // Update data existing
+                        uploadSuccess = Sequel.mengedittf("berkas_digital_perawatan", "lokasi_file=?",
+                                "no_rawat=?,kode=?,lokasi_file=?", 4, new String[]{
+                                    noRawat,
+                                    kodeberkas,
+                                    lokasiFinal,
+                                    lokasiFinal
+                                });
+                    } else {
+                        // Insert data baru
+                        uploadSuccess = Sequel.menyimpantf("berkas_digital_perawatan", "?,?,?", "No.Rawat", 3, new String[]{
+                            noRawat,
+                            kodeberkas,
+                            lokasiFinal
+                        });
+                    }
+
+                    // Hitung success/fail
+                    if (uploadSuccess) {
+                        successCount++;
+                        System.out.println("Upload berhasil: " + jpgFile.getName());
+                    } else {
+                        failCount++;
+                        System.out.println("Upload gagal disimpan ke DB: " + jpgFile.getName());
+                    }
+
+                } catch (Exception e) {
+                    failCount++;
+                    System.out.println("Error upload file " + jpgFile.getName() + ": " + e);
+                }
+            }
+
+            // Log hasil upload
+            System.out.println("Upload selesai - Berhasil: " + successCount + ", Gagal: " + failCount);
+
+            if (failCount > 0) {
+                throw new RuntimeException("Beberapa file gagal diupload. Berhasil: " + successCount + ", Gagal: " + failCount);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Upload JPG Askep Mata error: " + e);
+            e.printStackTrace();
+            throw new RuntimeException("Terjadi kesalahan saat upload JPG: " + e.getMessage());
         }
     }
 }

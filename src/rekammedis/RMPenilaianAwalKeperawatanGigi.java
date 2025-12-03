@@ -3843,7 +3843,7 @@ public final class RMPenilaianAwalKeperawatanGigi extends javax.swing.JDialog {
                         "penilaian_awal_keperawatan_gigi.lokasi,penilaian_awal_keperawatan_gigi.skala_nyeri,penilaian_awal_keperawatan_gigi.durasi,penilaian_awal_keperawatan_gigi.frekuensi,penilaian_awal_keperawatan_gigi.nyeri_hilang,"+
                         "penilaian_awal_keperawatan_gigi.ket_nyeri,penilaian_awal_keperawatan_gigi.pada_dokter,penilaian_awal_keperawatan_gigi.ket_dokter,penilaian_awal_keperawatan_gigi.kebersihan_mulut,penilaian_awal_keperawatan_gigi.mukosa_mulut,"+
                         "penilaian_awal_keperawatan_gigi.karies,penilaian_awal_keperawatan_gigi.karang_gigi,penilaian_awal_keperawatan_gigi.gingiva,penilaian_awal_keperawatan_gigi.palatum,penilaian_awal_keperawatan_gigi.rencana,"+
-                        "penilaian_awal_keperawatan_gigi.nip,petugas.nama,penilaian_awal_keperawatan_gigi.keterangan,penilaian_awal_keperawatan_gigi.me_edukasi,penilaian_awal_keperawatan_gigi.met_edukasi "+
+                        "penilaian_awal_keperawatan_gigi.nip,petugas.nama,penilaian_awal_keperawatan_gigi.ket,penilaian_awal_keperawatan_gigi.me_edukasi,penilaian_awal_keperawatan_gigi.met_edukasi "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
                         "inner join penilaian_awal_keperawatan_gigi on reg_periksa.no_rawat=penilaian_awal_keperawatan_gigi.no_rawat "+
                         "inner join petugas on penilaian_awal_keperawatan_gigi.nip=petugas.nip "+
