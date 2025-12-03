@@ -8986,7 +8986,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                             "<td width='25%' border='0'>: ").append(rs2.getString("berjalan_c")).append("</td>").append(
                                     "</tr>").append(
                                             "<tr>").append(
-                                            "<td colspan='2' border='0'>Hasil : ").append(rs2.getString("hasil")).append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dilaporkan kepada dokter ? ").append(rs2.getString("lapor")).append((rs2.getString("ket_lapor").equals("") ? "" : " Jam dilaporkan : " + rs2.getString("ket_lapor"))).append("</td>").append(
+                                            "<td colspan='2' border='0'>Hasil : ").append(rs2.getString("hasil")).append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dilaporkan kepada dokter ? ").append(rs2.getString("lapor")).append((rs2.getString("ket_lapor").equals("") ? "" : ", Jam dilaporkan : " + rs2.getString("ket_lapor"))).append("</td>").append(
                                     "</tr>").append(
                                             "</table>").append(
                                             "</td>").append(
@@ -9048,7 +9048,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                     "<td width='50%' border='0'>Nyeri hilang bila : ").append(rs2.getString("nyeri_hilang")).append((rs2.getString("ket_nyeri").equals("") ? "" : ", " + rs2.getString("ket_nyeri"))).append("</td>").append(
                                     "</tr>").append(
                                             "<tr>").append(
-                                            "<td border='0'  colspan='2'>Diberitahukan pada dokter ? ").append(rs2.getString("pada_dokter")).append((rs2.getString("ket_dokter").equals("") ? "" : " Jam " + rs2.getString("ket_dokter"))).append("</td>").append(
+                                            "<td border='0'  colspan='2'>Diberitahukan pada dokter ? ").append(rs2.getString("pada_dokter")).append((rs2.getString("ket_dokter").equals("") ? "" : ", Jam " + rs2.getString("ket_dokter"))).append("</td>").append(
                                     "</tr>").append(
                                             "</table>").append(
                                             "</td>").append(

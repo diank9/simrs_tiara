@@ -537,7 +537,7 @@
                                     </Property>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="1">
-                                        <StringItem index="0" value="02-12-2025 13:28:21"/>
+                                        <StringItem index="0" value="03-12-2025 13:55:56"/>
                                       </StringArray>
                                     </Property>
                                     <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy HH:mm:ss"/>
@@ -1376,7 +1376,7 @@
                                     </Property>
                                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                       <StringArray count="1">
-                                        <StringItem index="0" value="02-12-2025 13:28:22"/>
+                                        <StringItem index="0" value="03-12-2025 13:55:57"/>
                                       </StringArray>
                                     </Property>
                                     <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy HH:mm:ss"/>
@@ -2005,7 +2005,7 @@
                             </Property>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="1">
-                                <StringItem index="0" value="02-12-2025 13:28:22"/>
+                                <StringItem index="0" value="03-12-2025 13:55:57"/>
                               </StringArray>
                             </Property>
                             <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy HH:mm:ss"/>
@@ -2310,7 +2310,7 @@
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="1">
-                            <StringItem index="0" value="02-12-2025"/>
+                            <StringItem index="0" value="03-12-2025"/>
                           </StringArray>
                         </Property>
                         <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -2338,7 +2338,7 @@
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="1">
-                            <StringItem index="0" value="02-12-2025"/>
+                            <StringItem index="0" value="03-12-2025"/>
                           </StringArray>
                         </Property>
                         <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -2547,7 +2547,6 @@
                             </Property>
                             <Property name="mnemonic" type="int" value="84"/>
                             <Property name="toolTipText" type="java.lang.String" value="Alt+T"/>
-                            <Property name="enabled" type="boolean" value="false"/>
                             <Property name="name" type="java.lang.String" value="BtnUpload" noResource="true"/>
                             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                               <Dimension value="[28, 23]"/>
@@ -2630,6 +2629,24 @@
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BtnSimpanKeyPressed"/>
               </Events>
             </Component>
+            <Component class="widget.Button" name="BtnSimpanUpload">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/picture/save-16x16.png"/>
+                </Property>
+                <Property name="mnemonic" type="int" value="83"/>
+                <Property name="text" type="java.lang.String" value="S &amp; U"/>
+                <Property name="toolTipText" type="java.lang.String" value="Alt+S"/>
+                <Property name="name" type="java.lang.String" value="BtnSimpanUpload" noResource="true"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[100, 30]"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSimpanUploadActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BtnSimpanUploadKeyPressed"/>
+              </Events>
+            </Component>
             <Component class="widget.Button" name="BtnBatal">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -2682,6 +2699,24 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnEditActionPerformed"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BtnEditKeyPressed"/>
+              </Events>
+            </Component>
+            <Component class="widget.Button" name="BtnEditUpload">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/picture/inventaris.png"/>
+                </Property>
+                <Property name="mnemonic" type="int" value="71"/>
+                <Property name="text" type="java.lang.String" value="G &amp; U"/>
+                <Property name="toolTipText" type="java.lang.String" value="Alt+G"/>
+                <Property name="name" type="java.lang.String" value="BtnEditUpload" noResource="true"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[100, 30]"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnEditUploadActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BtnEditUploadKeyPressed"/>
               </Events>
             </Component>
             <Component class="widget.Button" name="BtnPrint">

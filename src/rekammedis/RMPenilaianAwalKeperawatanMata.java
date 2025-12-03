@@ -519,7 +519,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         internalFrame1 = new widget.InternalFrame();
         panelGlass8 = new widget.panelisi();
         BtnSimpan = new widget.Button();
-        BtnSimpan1 = new widget.Button();
+        BtnSimpanUpload = new widget.Button();
         BtnBatal = new widget.Button();
         BtnHapus = new widget.Button();
         BtnEdit = new widget.Button();
@@ -818,23 +818,23 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         });
         panelGlass8.add(BtnSimpan);
 
-        BtnSimpan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/save-16x16.png"))); // NOI18N
-        BtnSimpan1.setMnemonic('S');
-        BtnSimpan1.setText("S & U");
-        BtnSimpan1.setToolTipText("Alt+S");
-        BtnSimpan1.setName("BtnSimpan1"); // NOI18N
-        BtnSimpan1.setPreferredSize(new java.awt.Dimension(100, 30));
-        BtnSimpan1.addActionListener(new java.awt.event.ActionListener() {
+        BtnSimpanUpload.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/save-16x16.png"))); // NOI18N
+        BtnSimpanUpload.setMnemonic('S');
+        BtnSimpanUpload.setText("S & U");
+        BtnSimpanUpload.setToolTipText("Alt+S");
+        BtnSimpanUpload.setName("BtnSimpanUpload"); // NOI18N
+        BtnSimpanUpload.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnSimpanUpload.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSimpan1ActionPerformed(evt);
+                BtnSimpanUploadActionPerformed(evt);
             }
         });
-        BtnSimpan1.addKeyListener(new java.awt.event.KeyAdapter() {
+        BtnSimpanUpload.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                BtnSimpan1KeyPressed(evt);
+                BtnSimpanUploadKeyPressed(evt);
             }
         });
-        panelGlass8.add(BtnSimpan1);
+        panelGlass8.add(BtnSimpanUpload);
 
         BtnBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Cancel-2-16x16.png"))); // NOI18N
         BtnBatal.setMnemonic('B');
@@ -1913,7 +1913,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         TotalHasil.setBounds(774, 830, 80, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-12-2025 15:40:26" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-12-2025 09:19:11" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -2780,7 +2780,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-12-2025" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-12-2025" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2794,7 +2794,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-12-2025" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-12-2025" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -4443,7 +4443,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_BtnUploadActionPerformed
 
-    private void BtnSimpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpan1ActionPerformed
+    private void BtnSimpanUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanUploadActionPerformed
         if (TNoRM.getText().trim().equals("")) {
             Valid.textKosong(TNoRw, "Nama Pasien");
         } else if (TD.getText().trim().equals("")) {
@@ -4554,11 +4554,11 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
                 emptTeks();
             }
         }
-    }//GEN-LAST:event_BtnSimpan1ActionPerformed
+    }//GEN-LAST:event_BtnSimpanUploadActionPerformed
 
-    private void BtnSimpan1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpan1KeyPressed
+    private void BtnSimpanUploadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpanUploadKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnSimpan1KeyPressed
+    }//GEN-LAST:event_BtnSimpanUploadKeyPressed
 
     /**
      * @param args the command line arguments
@@ -4599,7 +4599,7 @@ public final class RMPenilaianAwalKeperawatanMata extends javax.swing.JDialog {
     private widget.Button BtnPrint;
     private widget.Button BtnPrint1;
     private widget.Button BtnSimpan;
-    private widget.Button BtnSimpan1;
+    private widget.Button BtnSimpanUpload;
     private widget.Button BtnTambahMasalah;
     private widget.Button BtnUpload;
     private widget.TextBox CacatFisik;
