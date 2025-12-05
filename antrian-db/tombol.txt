@@ -1,0 +1,80 @@
+
+        sisa_antrian.setForeground(new java.awt.Color(255, 0, 51));
+        sisa_antrian.setText("0");
+        sisa_antrian.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        sisa_antrian.setName("sisa_antrian"); // NOI18N
+        sisa_antrian.setPreferredSize(new java.awt.Dimension(65, 23));
+        panelGlass8.add(sisa_antrian);
+
+        Panggil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/marketing.png"))); // NOI18N
+        Panggil.setMnemonic('M');
+        Panggil.setToolTipText("Alt+M");
+        Panggil.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        Panggil.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Panggil.setName("Panggil"); // NOI18N
+        Panggil.setPreferredSize(new java.awt.Dimension(32, 23));
+        Panggil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PanggilActionPerformed(evt);
+            }
+        });
+        Panggil.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PanggilKeyPressed(evt);
+            }
+        });
+        panelGlass8.add(Panggil);
+
+
+// Ini contoh implementasi disamping tombol tampil pemeriksaan radiologi, untuk sisanya bisa disesuaikan berdasarkan form nya
+// Pembuatan tabel baru harus sinkron dengan tabel poliklinik soalnya ada parameter ngambil nm_poli jadi perlu dibuat relasinya
+
+    private void PanggilActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        try {
+            // 1️⃣ Tandai antrian RAD yang sedang dipanggil menjadi selesai
+            Sequel.mengedit(
+                    "antrian_db",
+                    "status='1' AND kd_poli='RAD'",
+                    "status='2', w_selesai=NOW()"
+            );
+
+            // 2️⃣ Ambil nomor antrian RAD berikutnya
+            String nomorAntrian = Sequel.cariIsi(
+                    "SELECT nomor FROM antrian_db "
+                    + "WHERE status='0' AND kd_poli='RAD' "
+                    + "ORDER BY w_cetak ASC LIMIT 1"
+            );
+
+            if (nomorAntrian.equals("")) {
+
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Tidak ada antrian Radiologi.",
+                        "Informasi",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+
+            } else {
+
+                // 3️⃣ Ubah antrian menjadi dipanggil
+                Sequel.mengedit(
+                        "antrian_db",
+                        "nomor='" + nomorAntrian + "' AND kd_poli='RAD'",
+                        "status='1', w_panggil=NOW()"
+                );
+
+                // 4️⃣ Hitung sisa antrian
+                String sisaAntrian = Sequel.cariIsi(
+                        "SELECT COUNT(*) FROM antrian_db "
+                        + "WHERE status='0' AND kd_poli='RAD'"
+                );
+
+                sisa_antrian.setText(sisaAntrian);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }                                       
+
