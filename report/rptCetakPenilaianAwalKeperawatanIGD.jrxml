@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 5.2.0  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="557" leftMargin="19" rightMargin="19" topMargin="19" bottomMargin="19" uuid="34c13d5a-cd6b-451e-8001-9fd298d2274a">
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="557" leftMargin="19" rightMargin="19" topMargin="19" bottomMargin="19" uuid="34c13d5a-cd6b-451e-8001-9fd298d2274a">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -855,7 +855,7 @@
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA["a. Kondisi psikologis : "+$F{psikologis}+"   b. Gangguan Jiwa di masa lalu :  "+$F{jiwa}+"   c. Adakah perilaku : "+$F{perilaku}+", Dilaporkan Ke : "+$F{dilaporkan}+", Sebutkan : "+$F{sebutkan}+"   d. Hubungan pasien dengan anggota keluarga : "+$F{hubungan}+"   e. Status pernikahan : "+$F{stts_nikah}+"   f. Tinggal dengan : "+$F{tinggal_dengan}+($F{ket_tinggal}.equals("")?"":", "+$F{ket_tinggal})+"   g. Pekerjaan : "+$F{pekerjaan}+"   h. Pembayaran : "+$F{png_jawab}+"   i. Bahasa sehari-hari  : "+$F{nama_bahasa}+"   j. Agama : "+$F{agama}+"   k. Nilai-nilai kepercayaan/budaya yang perlu diperhatikan : "+$F{budaya}+($F{ket_budaya}.equals("")?"":", "+$F{ket_budaya})+"   l. Pendidikan pasien : "+$F{pnd}+"   m. Pendidikan penanggung jawab : "+$F{pendidikan_pj}+($F{ket_pendidikan_pj}.equals("")?"":", "+$F{ket_pendidikan_pj})+"   n. Edukasi diberikan kepada : "+$F{edukasi}+($F{ket_edukasi}.equals("")?"":", "+$F{ket_edukasi})]]></textFieldExpression>
+				<textFieldExpression><![CDATA["a. Kondisi psikologis : "+$F{psikologis}+"       b. Gangguan Jiwa di masa lalu :  "+$F{jiwa}+"       c. Adakah perilaku : "+$F{perilaku}+", Dilaporkan Ke : "+$F{dilaporkan}+", Sebutkan : "+$F{sebutkan}+"       d. Hubungan pasien dengan anggota keluarga : "+$F{hubungan}+"       e. Status pernikahan : "+$F{stts_nikah}+"       f. Tinggal dengan : "+$F{tinggal_dengan}+($F{ket_tinggal}.equals("")?"":", "+$F{ket_tinggal})+"       g. Pekerjaan : "+$F{pekerjaan}+"       h. Pembayaran : "+$F{png_jawab}+"       i. Bahasa sehari-hari  : "+$F{nama_bahasa}+"       j. Agama : "+$F{agama}+"       k. Nilai-nilai kepercayaan/budaya yang perlu diperhatikan : "+$F{budaya}+($F{ket_budaya}.equals("")?"":", "+$F{ket_budaya})+"       l. Pendidikan pasien : "+$F{pnd}+"       m. Pendidikan penanggung jawab : "+$F{pendidikan_pj}+($F{ket_pendidikan_pj}.equals("")?"":", "+$F{ket_pendidikan_pj})+"       n. Edukasi diberikan kepada : "+$F{edukasi}+($F{ket_edukasi}.equals("")?"":", "+$F{ket_edukasi})]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="0" y="524" width="557" height="1" uuid="63666636-5722-4e91-b419-4b713fe839d8"/>
@@ -1651,7 +1651,7 @@
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA["a. Kemampuan aktifitas sehari-hari : "+$F{kemampuan}+"   b. Aktifitas : "+$F{aktifitas}+"   c. Alat bantu : "+$F{alat_bantu}+($F{ket_bantu}.equals("")?"":", "+$F{ket_bantu})+"   d. Cacat tubuh : "+$F{nama_cacat}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["a. Kemampuan aktifitas sehari-hari : "+$F{kemampuan}+"       b. Aktifitas : "+$F{aktifitas}+"       c. Cacat fisik : "+$F{nama_cacat}+"       d. Alat bantu : "+$F{alat_bantu}+($F{ket_bantu}.equals("")?"":", "+$F{ket_bantu})]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="334" y="213" width="221" height="11" uuid="300b6492-a8a4-4c81-a14f-00963271dc1e">

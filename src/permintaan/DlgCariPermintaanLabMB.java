@@ -389,6 +389,7 @@ public class DlgCariPermintaanLabMB extends javax.swing.JDialog {
         ScrollMenu = new widget.ScrollPane();
         FormMenu = new widget.PanelBiasa();
         BtnCetakHasilLab = new widget.Button();
+        BtnUbahHasilLab = new widget.Button();
         BtnBarcodePermintaan = new widget.Button();
         BtnBarcodePermintaan2 = new widget.Button();
 
@@ -432,7 +433,7 @@ public class DlgCariPermintaanLabMB extends javax.swing.JDialog {
         internalFrame5.add(jLabel26);
         jLabel26.setBounds(6, 32, 100, 23);
 
-        TanggalPulang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-06-2025 07:55:09" }));
+        TanggalPulang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-12-2025 20:41:49" }));
         TanggalPulang.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TanggalPulang.setName("TanggalPulang"); // NOI18N
         TanggalPulang.setOpaque(false);
@@ -999,6 +1000,25 @@ public class DlgCariPermintaanLabMB extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnCetakHasilLab);
+
+        BtnUbahHasilLab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnUbahHasilLab.setText("Ubah Permintaan Lab");
+        BtnUbahHasilLab.setFocusPainted(false);
+        BtnUbahHasilLab.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnUbahHasilLab.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnUbahHasilLab.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnUbahHasilLab.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnUbahHasilLab.setMaximumSize(new java.awt.Dimension(144, 18));
+        BtnUbahHasilLab.setMinimumSize(new java.awt.Dimension(144, 18));
+        BtnUbahHasilLab.setName("BtnUbahHasilLab"); // NOI18N
+        BtnUbahHasilLab.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnUbahHasilLab.setRoundRect(false);
+        BtnUbahHasilLab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUbahHasilLabActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnUbahHasilLab);
 
         BtnBarcodePermintaan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnBarcodePermintaan.setText("Barcode No.Permintaan");
@@ -2180,6 +2200,124 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         WindowTerkirim.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void BtnUbahHasilLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUbahHasilLabActionPerformed
+        if (TabPilihRawat.getSelectedIndex() == 0) {
+            // Rawat Jalan
+            if (!NoPermintaan.trim().equals("")) {
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
+                // Query data pasien dan dokter dari database
+                String noRM = "";
+                String namaPasien = "";
+                String nmPerujuk = "";
+
+                try {
+                    // Ambil data pasien
+                    String sql = "SELECT reg_periksa.no_rkm_medis, pasien.nm_pasien "
+                    + "FROM reg_periksa INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis "
+                    + "WHERE reg_periksa.no_rawat = ?";
+                    PreparedStatement ps = koneksi.prepareStatement(sql);
+                    ps.setString(1, NoRawat);
+                    ResultSet rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        noRM = rs.getString("no_rkm_medis");
+                        namaPasien = rs.getString("nm_pasien");
+                    }
+                    rs.close();
+                    ps.close();
+
+                    // Ambil nama dokter perujuk
+                    String sql2 = "SELECT nm_dokter FROM dokter WHERE kd_dokter = ?";
+                    PreparedStatement ps2 = koneksi.prepareStatement(sql2);
+                    ps2.setString(1, KodeDokter);
+                    ResultSet rs2 = ps2.executeQuery();
+
+                    if (rs2.next()) {
+                        nmPerujuk = rs2.getString("nm_dokter");
+                    }
+                    rs2.close();
+                    ps2.close();
+
+                } catch (Exception e) {
+                    System.out.println("Notifikasi : " + e);
+                }
+
+                // Cek 2 karakter awal NoPermintaan
+                String kodePermintaan = NoPermintaan.substring(0, 2);
+
+                // Tampilkan dialog
+                DlgPermintaanLaboratorium11 dlgro = new DlgPermintaanLaboratorium11(null, false);
+                dlgro.setSize(internalFrame1.getWidth() - 20, internalFrame1.getHeight() - 20);
+                dlgro.setLocationRelativeTo(internalFrame1);
+                dlgro.setDataLab(NoPermintaan, NoRawat, noRM, namaPasien, KodeDokter, nmPerujuk, DiagnosaKlinis, InformasiTambahan, "Ralan", kodePermintaan);
+                dlgro.setVisible(true);
+
+                this.setCursor(Cursor.getDefaultCursor());
+            } else {
+                JOptionPane.showMessageDialog(null, "Maaf, silahkan pilih data permintaan...!!!!");
+                TCari.requestFocus();
+            }
+        } else if (TabPilihRawat.getSelectedIndex() == 1) {
+            // Rawat Inap
+            if (!NoPermintaan.trim().equals("")) {
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
+                // Query data pasien dan dokter dari database
+                String noRM = "";
+                String namaPasien = "";
+                String nmPerujuk = "";
+
+                try {
+                    // Ambil data pasien
+                    String sql = "SELECT reg_periksa.no_rkm_medis, pasien.nm_pasien "
+                    + "FROM reg_periksa INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis "
+                    + "WHERE reg_periksa.no_rawat = ?";
+                    PreparedStatement ps = koneksi.prepareStatement(sql);
+                    ps.setString(1, NoRawat);
+                    ResultSet rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        noRM = rs.getString("no_rkm_medis");
+                        namaPasien = rs.getString("nm_pasien");
+                    }
+                    rs.close();
+                    ps.close();
+
+                    // Ambil nama dokter perujuk
+                    String sql2 = "SELECT nm_dokter FROM dokter WHERE kd_dokter = ?";
+                    PreparedStatement ps2 = koneksi.prepareStatement(sql2);
+                    ps2.setString(1, KodeDokter);
+                    ResultSet rs2 = ps2.executeQuery();
+
+                    if (rs2.next()) {
+                        nmPerujuk = rs2.getString("nm_dokter");
+                    }
+                    rs2.close();
+                    ps2.close();
+
+                } catch (Exception e) {
+                    System.out.println("Notifikasi : " + e);
+                }
+
+                // Cek 2 karakter awal NoPermintaan
+                String kodePermintaan = NoPermintaan.substring(0, 2);
+
+                // Tampilkan dialog
+                DlgPermintaanLaboratorium11 dlgro = new DlgPermintaanLaboratorium11(null, false);
+                dlgro.setSize(internalFrame1.getWidth() - 20, internalFrame1.getHeight() - 20);
+                dlgro.setLocationRelativeTo(internalFrame1);
+                dlgro.setDataLab(NoPermintaan, NoRawat, noRM, namaPasien, KodeDokter, nmPerujuk, DiagnosaKlinis, InformasiTambahan, "Ranap", kodePermintaan);
+                dlgro.setVisible(true);
+
+                this.setCursor(Cursor.getDefaultCursor());
+            } else {
+                JOptionPane.showMessageDialog(null, "Maaf, silahkan pilih data permintaan...!!!!");
+                TCari.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_BtnUbahHasilLabActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -2213,6 +2351,7 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
     private widget.Button BtnSeek5;
     private widget.Button BtnSeek6;
     private widget.Button BtnSimpan4;
+    private widget.Button BtnUbahHasilLab;
     private widget.CekBox ChkAccor;
     private widget.TextBox CrDokter;
     private widget.TextBox CrDokter2;

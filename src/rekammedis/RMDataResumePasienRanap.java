@@ -922,7 +922,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-11-2025" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-12-2025" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -936,7 +936,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-11-2025" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-12-2025" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -1789,7 +1789,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         KetDilanjutkan.setBounds(236, 1081, 270, 23);
 
         Kontrol.setForeground(new java.awt.Color(50, 70, 50));
-        Kontrol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-11-2025 09:51:50" }));
+        Kontrol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-12-2025 09:43:27" }));
         Kontrol.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         Kontrol.setName("Kontrol"); // NOI18N
         Kontrol.setOpaque(false);
@@ -1945,6 +1945,7 @@ public final class RMDataResumePasienRanap extends javax.swing.JDialog {
         BtnDokter6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         BtnDokter6.setMnemonic('2');
         BtnDokter6.setToolTipText("Alt+2");
+        BtnDokter6.setEnabled(false);
         BtnDokter6.setName("BtnDokter6"); // NOI18N
         BtnDokter6.setPreferredSize(new java.awt.Dimension(28, 23));
         BtnDokter6.addActionListener(new java.awt.event.ActionListener() {
@@ -2910,7 +2911,7 @@ if (TNoRw.getText().equals("") || TNoRM.getText().equals("") || TPasien.getText(
         resume.setNoRm(TNoRM.getText(), TPasien.getText());
         resume.setSize(internalFrame1.getWidth(), internalFrame1.getHeight());
         resume.setLocationRelativeTo(internalFrame1);
-//        resume.setVisible(true);
+        resume.setVisible(true);
         resume.setVisible(false);
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_BtnDokter6ActionPerformed

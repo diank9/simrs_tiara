@@ -3097,7 +3097,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkTriase.setSelected(false);
             chkAsuhanKeperawatanRalan.setSelected(false);
             chkAsuhanKeperawatanRalanGigi.setSelected(false);
-            chkAsuhanKeperawatanRalanMata.setSelected(true);
+            chkAsuhanKeperawatanRalanMata.setSelected(false);
             chkAsuhanKeperawatanRalanBayi.setSelected(false);
             chkAsuhanKeperawatanRalanKandungan.setSelected(false);
             chkAsuhanKeperawatanRanap.setSelected(false);
@@ -4498,7 +4498,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     menampilkanAsuhanKeperawatanRalan(rs.getString("no_rawat"));
                     //menampilkan asuhan awal keperawatan rawat jalan gigi
                     menampilkanAsuhanKeperawatanRalanGigi(rs.getString("no_rawat"));
-                    //menampilkan asuhan awal keperawatan rawat jalan gigi
+                    //menampilkan asuhan awal keperawatan rawat jalan mata
                     menampilkanAsuhanKeperawatanRalanMata(rs.getString("no_rawat"));
                     //menampilkan asuhan awal keperawatan rawat jalan bayi
                     menampilkanAsuhanKeperawatanRalanBayi(rs.getString("no_rawat"));

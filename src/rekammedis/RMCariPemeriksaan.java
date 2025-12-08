@@ -46,7 +46,7 @@ public final class RMCariPemeriksaan extends javax.swing.JDialog {
         this.setLocation(10,2);
         setSize(656,250);
 
-        Object[] row={"Tanggal","Jam","Pemeriksaan"};
+        Object[] row={"Tanggal","Jam","Pemeriksaan","Dokter/Petugas"};
         tabMode=new DefaultTableModel(null,row){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -54,7 +54,7 @@ public final class RMCariPemeriksaan extends javax.swing.JDialog {
         //tbPenyakit.setDefaultRenderer(Object.class, new WarnaTable(panelJudul.getBackground(),tbPenyakit.getBackground()));
         tbKamar.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbKamar.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        for (z= 0; z < 3; z++) {
+        for (z= 0; z < 4; z++) {
             TableColumn column = tbKamar.getColumnModel().getColumn(z);
             if(z==0){
                 column.setPreferredWidth(65);
@@ -62,6 +62,8 @@ public final class RMCariPemeriksaan extends javax.swing.JDialog {
                 column.setPreferredWidth(50);
             }else if(z==2){
                 column.setPreferredWidth(750);
+            }else if(z==3){
+                column.setPreferredWidth(200);
             }
         }
         tbKamar.setDefaultRenderer(Object.class, new WarnaTable());
@@ -332,8 +334,10 @@ public final class RMCariPemeriksaan extends javax.swing.JDialog {
         Valid.tabelKosong(tabMode);
         try{
             ps=koneksi.prepareStatement(
-                    "select pemeriksaan_ralan.tgl_perawatan,pemeriksaan_ralan.jam_rawat,pemeriksaan_ralan.pemeriksaan "+
-                    "from pemeriksaan_ralan where pemeriksaan_ralan.no_rawat=? and "+
+                    "select pemeriksaan_ralan.tgl_perawatan,pemeriksaan_ralan.jam_rawat,pemeriksaan_ralan.pemeriksaan,pegawai.nama "+
+                    "from pemeriksaan_ralan " +
+                    "INNER JOIN pegawai ON pemeriksaan_ralan.nip = pegawai.nik "+
+                    "where pemeriksaan_ralan.no_rawat=? and "+
                     "(pemeriksaan_ralan.tgl_perawatan like ? or pemeriksaan_ralan.pemeriksaan like ?) "+
                     "order by pemeriksaan_ralan.tgl_perawatan,pemeriksaan_ralan.jam_rawat");
             try{
@@ -343,7 +347,7 @@ public final class RMCariPemeriksaan extends javax.swing.JDialog {
                 rs=ps.executeQuery();
                 while(rs.next()){
                     tabMode.addRow(new String[] {
-                        rs.getString(1),rs.getString(2),rs.getString(3)
+                        rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)
                     });
                 }
             }catch(Exception ex){
@@ -362,8 +366,10 @@ public final class RMCariPemeriksaan extends javax.swing.JDialog {
         
         try{
             ps=koneksi.prepareStatement(
-                    "select pemeriksaan_ranap.tgl_perawatan,pemeriksaan_ranap.jam_rawat,pemeriksaan_ranap.pemeriksaan "+
-                    "from pemeriksaan_ranap where pemeriksaan_ranap.no_rawat=? and "+
+                    "select pemeriksaan_ranap.tgl_perawatan,pemeriksaan_ranap.jam_rawat,pemeriksaan_ranap.pemeriksaan,pegawai.nama "+
+                    "from pemeriksaan_ranap " +
+                    "INNER JOIN pegawai ON pemeriksaan_ranap.nip = pegawai.nik "+
+                    "where pemeriksaan_ranap.no_rawat=? and "+
                     "(pemeriksaan_ranap.tgl_perawatan like ? or pemeriksaan_ranap.pemeriksaan like ?) "+
                     "order by pemeriksaan_ranap.tgl_perawatan,pemeriksaan_ranap.jam_rawat");
             try{
@@ -373,7 +379,7 @@ public final class RMCariPemeriksaan extends javax.swing.JDialog {
                 rs=ps.executeQuery();
                 while(rs.next()){
                     tabMode.addRow(new String[] {
-                        rs.getString(1),rs.getString(2),rs.getString(3)
+                        rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)
                     });
                 }
             }catch(Exception ex){
