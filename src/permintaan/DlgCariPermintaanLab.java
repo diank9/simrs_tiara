@@ -4530,6 +4530,16 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         if (TabPilihRawat.getSelectedIndex() == 0) {
             // Rawat Jalan
             if (!NoPermintaan.trim().equals("")) {
+                // Cek apakah sampel sudah diambil
+                if (!Sampel.equals("") && !Sampel.equals("0000-00-00") && !JamSampel.equals("") && !JamSampel.equals("00:00:00")) {
+                    JOptionPane.showMessageDialog(rootPane,
+                            "Maaf, sampel untuk permintaan " + NoPermintaan + " sudah diambil.\n"
+                            + "Pemeriksaan tidak bisa dilakukan perubahan!",
+                            "Peringatan",
+                            JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
                 // Query data pasien dan dokter dari database
@@ -4540,8 +4550,8 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
                 try {
                     // Ambil data pasien
                     String sql = "SELECT reg_periksa.no_rkm_medis, pasien.nm_pasien "
-                    + "FROM reg_periksa INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis "
-                    + "WHERE reg_periksa.no_rawat = ?";
+                            + "FROM reg_periksa INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis "
+                            + "WHERE reg_periksa.no_rawat = ?";
                     PreparedStatement ps = koneksi.prepareStatement(sql);
                     ps.setString(1, NoRawat);
                     ResultSet rs = ps.executeQuery();
@@ -4587,6 +4597,16 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
         } else if (TabPilihRawat.getSelectedIndex() == 1) {
             // Rawat Inap
             if (!NoPermintaan.trim().equals("")) {
+                // Cek apakah sampel sudah diambil
+                if (!Sampel.equals("") && !Sampel.equals("0000-00-00") && !JamSampel.equals("") && !JamSampel.equals("00:00:00")) {
+                    JOptionPane.showMessageDialog(rootPane,
+                            "Maaf, sampel untuk permintaan " + NoPermintaan + " sudah diambil.\n"
+                            + "Pemeriksaan tidak bisa dilakukan perubahan!",
+                            "Peringatan",
+                            JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
                 // Query data pasien dan dokter dari database
@@ -4597,8 +4617,8 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
                 try {
                     // Ambil data pasien
                     String sql = "SELECT reg_periksa.no_rkm_medis, pasien.nm_pasien "
-                    + "FROM reg_periksa INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis "
-                    + "WHERE reg_periksa.no_rawat = ?";
+                            + "FROM reg_periksa INNER JOIN pasien ON reg_periksa.no_rkm_medis = pasien.no_rkm_medis "
+                            + "WHERE reg_periksa.no_rawat = ?";
                     PreparedStatement ps = koneksi.prepareStatement(sql);
                     ps.setString(1, NoRawat);
                     ResultSet rs = ps.executeQuery();
