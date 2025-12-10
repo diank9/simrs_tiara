@@ -3302,7 +3302,11 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 bg.write(".isi td{border-right: 1px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 1px solid #e2e7dd;background: #ffffff;color:#323232;}.isi a{text-decoration:none;color:#8b9b95;padding:0 0 0 0px;font-family: Tahoma;font-size: 8.5px;border: white;}.isi_sep td{border-right: 0px solid #e2e7dd;font: 8.5px tahoma;height:12px;border-bottom: 0px solid #e2e7dd;background: #ffffff;color:#323232;}");
                 bg.close();
 
-                PdfWriter pdf = new PdfWriter("RPP" + NoRawat.getText().trim().replaceAll("/", "") + ".pdf");
+                File folder = new File("klaimPDF");
+                if (!folder.exists()) {
+                    folder.mkdirs(); // membuat folder jika belum ada
+                }
+                PdfWriter pdf = new PdfWriter("klaimPDF" + File.separator + "RPP" + NoRawat.getText().trim().replaceAll("/", "") + ".pdf");
                 HtmlConverter.convertToPdf(
                         LoadHTMLRiwayatPerawatan.getText().replaceAll("<head>", "<head><link href=\"file.css\" rel=\"stylesheet\" type=\"text/css\" />").
                                 replaceAll("<body>",
@@ -3389,7 +3393,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                 ).
                                 replaceAll((getClass().getResource("/picture/")) + "", "./gambar/"), pdf
                 );
-                File f = new File("RPP" + NoRawat.getText().trim().replaceAll("/", "") + ".pdf");
+                File f = new File("klaimPDF" + File.separator + "RPP" + NoRawat.getText().trim().replaceAll("/", "") + ".pdf");
                 Desktop.getDesktop().browse(f.toURI());
             } catch (Exception e) {
                 System.out.println("Notifikasi : " + e);
