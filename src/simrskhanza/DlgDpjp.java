@@ -422,7 +422,7 @@ public class DlgDpjp extends javax.swing.JDialog {
         panelGlass9.add(jLabel14);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-11-2025" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-11-2025" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -435,7 +435,7 @@ public class DlgDpjp extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-11-2025" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-11-2025" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -623,7 +623,7 @@ public class DlgDpjp extends javax.swing.JDialog {
         jLabel4.setBounds(247, 102, 80, 23);
 
         statusdpjp.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        statusdpjp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alih Rawat", "Utama", "Rubber", "Alih Rawat", "Konsulan" }));
+        statusdpjp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Utama", "Rubber", "Alih Rawat", "Konsulan" }));
         statusdpjp.setName("statusdpjp"); // NOI18N
         FormInput.add(statusdpjp);
         statusdpjp.setBounds(330, 102, 110, 23);

@@ -192,7 +192,7 @@ on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no
 				<text><![CDATA[Tanggal Lahir]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="20" y="300" width="240" height="25" uuid="31e039c5-6de0-4a6b-b904-fb00a6146cff"/>
+				<reportElement x="19" y="310" width="240" height="20" uuid="31e039c5-6de0-4a6b-b904-fb00a6146cff"/>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="6"/>
 					<paragraph lineSpacing="Single"/>
@@ -216,28 +216,20 @@ on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no
 				<textFieldExpression><![CDATA[": "+$F{no_tlp}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="5" y="123" width="267" height="8" uuid="c52083cb-0c36-4a2e-92d0-23848104f1a7"/>
+				<reportElement x="5" y="123" width="267" height="12" uuid="c52083cb-0c36-4a2e-92d0-23848104f1a7"/>
 				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="6"/>
+					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="5" y="131" width="267" height="8" uuid="526899b6-3f44-46ee-a53c-146dc34761e4"/>
+				<reportElement x="5" y="135" width="267" height="17" uuid="526899b6-3f44-46ee-a53c-146dc34761e4"/>
 				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="6"/>
+					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kotars}+", "+$P{propinsirs}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="5" y="139" width="267" height="8" uuid="4e5dd112-6fff-47b2-a643-32bd5a75c336"/>
-				<textElement textAlignment="Center">
-					<font fontName="Tahoma" size="6"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{kontakrs}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="6" y="154" width="267" height="1" forecolor="#006666" uuid="1bd814e9-f69a-4242-8e0d-ecf2063f3feb"/>
@@ -251,7 +243,7 @@ on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no
 					<font fontName="Tahoma" size="6"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[": "+$F{nm_pasien}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[": "+$F{tgl_lahir}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="72" y="201" width="188" height="9" uuid="2b84f769-617b-424e-b6a9-30210e1a0dd5"/>
@@ -347,7 +339,7 @@ on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no
 					<font fontName="Tahoma" size="6"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Penerima]]></text>
+				<text><![CDATA[No RM]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="72" y="183" width="188" height="9" uuid="ed6dbad3-cb2b-44ff-a522-3f3a8e60be14"/>
@@ -355,7 +347,7 @@ on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no
 					<font fontName="Tahoma" size="6"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[": "+$F{nm_pasien}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[": "+$F{no_rkm_medis}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="20" y="79" width="50" height="9" uuid="219d389e-acd4-41f3-b871-abc68ca2dd08"/>
@@ -373,6 +365,30 @@ on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no
 				</textElement>
 				<textFieldExpression><![CDATA[": "+$F{tgl_registrasi}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="20" y="174" width="52" height="9" uuid="4380ea46-d90f-4993-9168-da5db6b330a0"/>
+				<textElement textAlignment="Left">
+					<font fontName="Tahoma" size="6"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Penerima]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="72" y="174" width="188" height="9" uuid="b4fa75a0-6bb0-44de-82f3-cc612d1f55d2"/>
+				<textElement>
+					<font fontName="Tahoma" size="6"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[": "+$F{nm_pasien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="19" y="290" width="240" height="20" uuid="372c7952-115c-4497-b583-aaa30e372a71"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="6"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Jika ada keluhan pelayanan pengiriman obat hubungi 0821 2330 1690 atau 0821 8888 4520]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<summary>

@@ -281,7 +281,7 @@
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
-                        <StringItem index="0" value="21-11-2025"/>
+                        <StringItem index="0" value="12-12-2025"/>
                       </StringArray>
                     </Property>
                     <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -308,7 +308,7 @@
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
-                        <StringItem index="0" value="21-11-2025"/>
+                        <StringItem index="0" value="12-12-2025"/>
                       </StringArray>
                     </Property>
                     <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -641,12 +641,11 @@
                       <Font name="Tahoma" size="13" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Alih Rawat"/>
-                        <StringItem index="1" value="Utama"/>
-                        <StringItem index="2" value="Rubber"/>
-                        <StringItem index="3" value="Alih Rawat"/>
-                        <StringItem index="4" value="Konsulan"/>
+                      <StringArray count="4">
+                        <StringItem index="0" value="Utama"/>
+                        <StringItem index="1" value="Rubber"/>
+                        <StringItem index="2" value="Alih Rawat"/>
+                        <StringItem index="3" value="Konsulan"/>
                       </StringArray>
                     </Property>
                     <Property name="name" type="java.lang.String" value="statusdpjp" noResource="true"/>
