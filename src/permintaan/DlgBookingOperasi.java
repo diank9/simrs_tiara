@@ -15,8 +15,6 @@ import java.awt.event.WindowListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Timestamp;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -40,6 +38,7 @@ import rekammedis.RMPenilaianPreAnastesi;
 import rekammedis.RMPenilaianPreInduksi;
 import rekammedis.RMPenilaianPreOperasi;
 import rekammedis.RMLaporanOperasi;
+import rekammedis.RMLaporanOperasi1;
 import simrskhanza.DlgKamarInap;
 import rekammedis.RMRiwayatPerawatan;
 import rekammedis.RMSignInSebelumAnastesi;
@@ -706,7 +705,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-12-2025" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2025" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -729,7 +728,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(30, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-12-2025" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2025" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -757,7 +756,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(75, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-12-2025" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2025" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
@@ -780,7 +779,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(30, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-12-2025" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2025" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
@@ -863,7 +862,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         TPasien.setBounds(195, 10, 208, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15-12-2025" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2025" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -1322,7 +1321,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         FormMenu.add(BtnTagihanOperasi);
 
         BtnTagihanOperasi1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
-        BtnTagihanOperasi1.setText("Billing Operasi");
+        BtnTagihanOperasi1.setText("Tagihan Operasi/VK 1");
         BtnTagihanOperasi1.setFocusPainted(false);
         BtnTagihanOperasi1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         BtnTagihanOperasi1.setGlassColor(new java.awt.Color(255, 255, 255));
@@ -1339,7 +1338,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         FormMenu.add(BtnTagihanOperasi1);
 
         BtnLaporanOperasi1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
-        BtnLaporanOperasi1.setText("Laporan Operasi");
+        BtnLaporanOperasi1.setText("Laporan Operasi 1");
         BtnLaporanOperasi1.setFocusPainted(false);
         BtnLaporanOperasi1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         BtnLaporanOperasi1.setGlassColor(new java.awt.Color(255, 255, 255));
@@ -1356,7 +1355,7 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
         FormMenu.add(BtnLaporanOperasi1);
 
         BtnLaporanOperasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
-        BtnLaporanOperasi.setText("Laporan Operasi 7");
+        BtnLaporanOperasi.setText("Laporan Operasi");
         BtnLaporanOperasi.setFocusPainted(false);
         BtnLaporanOperasi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         BtnLaporanOperasi.setGlassColor(new java.awt.Color(255, 255, 255));
@@ -1493,47 +1492,6 @@ public class DlgBookingOperasi extends javax.swing.JDialog {
     private void DTPTglKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DTPTglKeyPressed
         Valid.pindah(evt, TCari, JamMulai);
 }//GEN-LAST:event_DTPTglKeyPressed
-
-    private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        if (TNoRw.getText().trim().equals("") || TPasien.getText().trim().equals("")) {
-            Valid.textKosong(TNoRw, "pasien");
-        } else if (NmDokter.getText().trim().equals("")) {
-            Valid.textKosong(KdDokter, "Operator");
-        } else if (NmOperasi.getText().trim().equals("")) {
-            Valid.textKosong(KdOperasi, "Operasi");
-        } else if (NmRuangOperasi.getText().trim().equals("")) {
-            Valid.textKosong(BtnRuangOperasi, "Ruang Operasi");
-        } else if ((!(JamMulai.getSelectedItem().toString() + MenitMulai.getSelectedItem().toString() + DetikMulai.getSelectedItem().toString()).equals("000000"))
-                && (Sequel.cariInteger("select count(booking_operasi.no_rawat) from booking_operasi where booking_operasi.tanggal='" + Valid.SetTgl(DTPTgl.getSelectedItem() + "") + "' "
-                        + "and booking_operasi.kd_ruang_ok='" + KdRuangOperasi.getText() + "' and booking_operasi.no_rawat<>'" + TNoRw.getText() + "' and "
-                        + "booking_operasi.jam_mulai between '" + JamMulai.getSelectedItem() + ":" + MenitMulai.getSelectedItem() + ":" + DetikMulai.getSelectedItem() + "' and '" + JamSelesai.getSelectedItem() + ":" + MenitSelesai.getSelectedItem() + ":" + DetikSelesai.getSelectedItem() + "'") > 0)) {
-            JOptionPane.showMessageDialog(rootPane, "Jadwal bentrok dengan jam mulai operasi yang lain..!!");
-            JamMulai.requestFocus();
-        } else {
-            if (Sequel.cariRegistrasi(TNoRw.getText()) > 0) {
-                JOptionPane.showMessageDialog(rootPane, "Data billing sudah terverifikasi.\nSilahkan hubungi bagian kasir/keuangan ..!!");
-                TCari.requestFocus();
-            } else {
-                if (Sequel.menyimpantf("booking_operasi", "?,?,?,?,?,?,?,?", "data", 8, new String[]{
-                    TNoRw.getText(), KdOperasi.getText(), Valid.SetTgl(DTPTgl.getSelectedItem() + ""),
-                    JamMulai.getSelectedItem() + ":" + MenitMulai.getSelectedItem() + ":" + DetikMulai.getSelectedItem(),
-                    JamSelesai.getSelectedItem() + ":" + MenitSelesai.getSelectedItem() + ":" + DetikSelesai.getSelectedItem(),
-                    Status.getSelectedItem().toString(), KdDokter.getText(), KdRuangOperasi.getText()
-                }) == true) {
-                    tampil();
-                    emptTeks();
-                }
-            }
-        }
-}//GEN-LAST:event_BtnSimpanActionPerformed
-
-    private void BtnSimpanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpanKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
-            BtnSimpanActionPerformed(null);
-        } else {
-            Valid.pindah(evt, BtnOperasi, BtnBatal);
-        }
-}//GEN-LAST:event_BtnSimpanKeyPressed
 
     private void BtnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBatalActionPerformed
         emptTeks();
@@ -2435,76 +2393,36 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }//GEN-LAST:event_BtnTagihanOperasi1ActionPerformed
 
     private void BtnLaporanOperasi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLaporanOperasi1ActionPerformed
-        if (tbObat.getSelectedRow() > -1) {
-            if (!tbObat.getValueAt(tbObat.getSelectedRow(), 1).toString().equals("")) {
-                try {
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-                    String tglDTP = sdf.format(DTPTgl.getDate());
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMLaporanOperasi1 form = new RMLaporanOperasi1(null, false);
 
-                    String sql
-                            = "SELECT diagnosa_preop, diagnosa_postop, jaringan_dieksekusi, "
-                            + "selesaioperasi, permintaan_pa, laporan_operasi "
-                            + "FROM laporan_operasi "
-                            + "WHERE no_rawat = ? "
-                            + "AND tanggal >= STR_TO_DATE(?, '%d-%m-%Y') "
-                            + "AND tanggal < DATE_ADD(CURDATE(), INTERVAL 1 DAY) "
-                            + "ORDER BY tanggal DESC "
-                            + "LIMIT 1";
+        String noRawat = TNoRw.getText();
+        String namaPasien = TPasien.getText();
+        String noRM = "-";
 
-                    ps = koneksi.prepareStatement(sql);
-                    ps.setString(1, TNoRw.getText());
-                    ps.setString(2, tglDTP);
-
-                    rs2 = ps.executeQuery();
-
-                    if (rs2.next()) {
-
-                        PreOp.setText(rs2.getString("diagnosa_preop") != null ? rs2.getString("diagnosa_preop") : "");
-                        PostOp.setText(rs2.getString("diagnosa_postop") != null ? rs2.getString("diagnosa_postop") : "");
-                        Jaringan.setText(rs2.getString("jaringan_dieksekusi") != null ? rs2.getString("jaringan_dieksekusi") : "");
-                        DikirimPA.setSelectedItem(rs2.getString("permintaan_pa") != null ? rs2.getString("permintaan_pa") : "");
-                        Laporan.setText(rs2.getString("laporan_operasi") != null ? rs2.getString("laporan_operasi") : "");
-                        Timestamp ts = rs2.getTimestamp("selesaioperasi");
-                        if (ts != null) {
-                            tgl2.setDate(new Date(ts.getTime()));
-                        } else {
-                            tgl2.setDate(new Date());
-                        }
-
-                    } else {
-                        PreOp.setText("");
-                        PostOp.setText("");
-                        Jaringan.setText("");
-                        DikirimPA.setSelectedItem("");
-                        Laporan.setText("");
-                        tgl2.setDate(new Date());
-                    }
-
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(rootPane, "Error : " + e.getMessage());
-                } finally {
-                    try {
-                        if (rs2 != null) {
-                            rs2.close();
-                        }
-                        if (ps != null) {
-                            ps.close();
-                        }
-                    } catch (Exception e) {
-                    }
-                }
-
-                WindowLaporan.setSize(
-                        internalFrame1.getWidth() - 20,
-                        internalFrame1.getHeight() - 20
-                );
-                WindowLaporan.setLocationRelativeTo(internalFrame1);
-                WindowLaporan.setVisible(true);
-
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Silahkan pilih data, klik pada No.Rawat ..!!");
+        // contoh query ambil No. RM dari reg_periksa
+        try {
+            PreparedStatement ps = koneksi.prepareStatement(
+                    "select no_rkm_medis from reg_periksa where no_rawat=?"
+            );
+            ps.setString(1, noRawat);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                noRM = rs.getString("no_rkm_medis");
             }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println("Notif NoRM : " + e);
         }
+
+        // kirim no_rawat, nama, dan norm ke dialog
+        form.setDataPasien(noRawat, namaPasien, noRM);
+
+        form.setSize(internalFrame1.getWidth() - 20, internalFrame1.getHeight() - 20);
+        form.setLocationRelativeTo(internalFrame1);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_BtnLaporanOperasi1ActionPerformed
 
     private void btnAmbilTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAmbilTemplateActionPerformed
@@ -2659,18 +2577,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         } else {
             if (tbObat.getSelectedRow() != -1) {
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-
-                // Ambil nilai dari combobox waktu
-                String jam = JamMulai.getSelectedItem().toString();
-                String menit = MenitMulai.getSelectedItem().toString();
-                String detik = DetikMulai.getSelectedItem().toString();
-
                 RMLaporanOperasi form = new RMLaporanOperasi(null, false);
                 form.isCek();
                 form.emptTeks();
-                form.setNoRm(TNoRw.getText(), DTPCari1.getDate(), DTPCari2.getDate(),
-                        KdDokter.getText(), NmDokter.getText(),
-                        DTPTgl.getDate(), jam, menit, detik);
+                form.setNoRm(TNoRw.getText(), DTPCari1.getDate(), DTPCari2.getDate(),KdDokter.getText(), NmDokter.getText());
                 form.setSize(internalFrame1.getWidth() - 20, internalFrame1.getHeight() - 20);
                 form.setLocationRelativeTo(internalFrame1);
                 form.setVisible(true);
@@ -2680,6 +2590,47 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             }
         }
     }//GEN-LAST:event_BtnLaporanOperasiActionPerformed
+
+    private void BtnSimpanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpanKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
+            BtnSimpanActionPerformed(null);
+        } else {
+            Valid.pindah(evt, BtnOperasi, BtnBatal);
+        }
+    }//GEN-LAST:event_BtnSimpanKeyPressed
+
+    private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
+        if (TNoRw.getText().trim().equals("") || TPasien.getText().trim().equals("")) {
+            Valid.textKosong(TNoRw, "pasien");
+        } else if (NmDokter.getText().trim().equals("")) {
+            Valid.textKosong(KdDokter, "Operator");
+        } else if (NmOperasi.getText().trim().equals("")) {
+            Valid.textKosong(KdOperasi, "Operasi");
+        } else if (NmRuangOperasi.getText().trim().equals("")) {
+            Valid.textKosong(BtnRuangOperasi, "Ruang Operasi");
+        } else if ((!(JamMulai.getSelectedItem().toString() + MenitMulai.getSelectedItem().toString() + DetikMulai.getSelectedItem().toString()).equals("000000"))
+            && (Sequel.cariInteger("select count(booking_operasi.no_rawat) from booking_operasi where booking_operasi.tanggal='" + Valid.SetTgl(DTPTgl.getSelectedItem() + "") + "' "
+                + "and booking_operasi.kd_ruang_ok='" + KdRuangOperasi.getText() + "' and booking_operasi.no_rawat<>'" + TNoRw.getText() + "' and "
+                + "booking_operasi.jam_mulai between '" + JamMulai.getSelectedItem() + ":" + MenitMulai.getSelectedItem() + ":" + DetikMulai.getSelectedItem() + "' and '" + JamSelesai.getSelectedItem() + ":" + MenitSelesai.getSelectedItem() + ":" + DetikSelesai.getSelectedItem() + "'") > 0)) {
+        JOptionPane.showMessageDialog(rootPane, "Jadwal bentrok dengan jam mulai operasi yang lain..!!");
+        JamMulai.requestFocus();
+        } else {
+            if (Sequel.cariRegistrasi(TNoRw.getText()) > 0) {
+                JOptionPane.showMessageDialog(rootPane, "Data billing sudah terverifikasi.\nSilahkan hubungi bagian kasir/keuangan ..!!");
+                TCari.requestFocus();
+            } else {
+                if (Sequel.menyimpantf("booking_operasi", "?,?,?,?,?,?,?,?", "data", 8, new String[]{
+                    TNoRw.getText(), KdOperasi.getText(), Valid.SetTgl(DTPTgl.getSelectedItem() + ""),
+                    JamMulai.getSelectedItem() + ":" + MenitMulai.getSelectedItem() + ":" + DetikMulai.getSelectedItem(),
+                    JamSelesai.getSelectedItem() + ":" + MenitSelesai.getSelectedItem() + ":" + DetikSelesai.getSelectedItem(),
+                    Status.getSelectedItem().toString(), KdDokter.getText(), KdRuangOperasi.getText()
+                }) == true) {
+                    tampil();
+                    emptTeks();
+                }
+            }
+        }
+    }//GEN-LAST:event_BtnSimpanActionPerformed
 
     /**
      * @param args the command line arguments
