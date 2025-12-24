@@ -289,16 +289,6 @@ where permintaan_ranap.no_rawat not in (select DISTINCT no_rawat from kamar_inap
 				<textFieldExpression><![CDATA[$F{nm_dokter}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="161" y="193" width="379" height="14" uuid="1ac5781e-b238-4da6-8448-cc8df2b8d073">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement>
-					<font fontName="Tahoma" size="11"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{kd_kamar}+" "+$F{nm_bangsal}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
 				<reportElement positionType="Float" x="161" y="176" width="379" height="14" uuid="604cbae5-ca37-45f0-a4a8-4b4033837233">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -308,16 +298,6 @@ where permintaan_ranap.no_rawat not in (select DISTINCT no_rawat from kamar_inap
 				</textElement>
 				<textFieldExpression><![CDATA[$F{diagnosa}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement mode="Transparent" x="21" y="193" width="130" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="185eca89-0ea5-40f5-9005-1ed9080281e1">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Tahoma" size="11" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Kamar Diminta]]></text>
-			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="21" y="176" width="130" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="4f8b7510-8c99-457e-a111-d01f6ccedc90">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -531,16 +511,6 @@ where permintaan_ranap.no_rawat not in (select DISTINCT no_rawat from kamar_inap
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
-			<staticText>
-				<reportElement mode="Transparent" x="151" y="193" width="10" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="d02e1d49-fefb-46c0-9198-539976fe0291">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Tahoma" size="11" isBold="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[:]]></text>
-			</staticText>
 			<textField>
 				<reportElement mode="Transparent" x="1" y="305" width="550" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="eeb50472-7513-4f36-a608-ff12cea860fc">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -592,7 +562,7 @@ where permintaan_ranap.no_rawat not in (select DISTINCT no_rawat from kamar_inap
 				</jr:QRCode>
 			</componentElement>
 			<staticText>
-				<reportElement mode="Transparent" x="21" y="221" width="130" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="f5196d9a-9e3b-4055-89b9-29e5be0ea9d1">
+				<reportElement mode="Transparent" x="21" y="203" width="130" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="f5196d9a-9e3b-4055-89b9-29e5be0ea9d1">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -602,7 +572,7 @@ where permintaan_ranap.no_rawat not in (select DISTINCT no_rawat from kamar_inap
 				<text><![CDATA[DPJP Rawat Inap]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="151" y="221" width="10" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="3b10238c-aa62-4f91-9002-e567a2b3afea">
+				<reportElement mode="Transparent" x="151" y="203" width="10" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="3b10238c-aa62-4f91-9002-e567a2b3afea">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -612,7 +582,7 @@ where permintaan_ranap.no_rawat not in (select DISTINCT no_rawat from kamar_inap
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="161" y="221" width="379" height="14" uuid="9cda31f6-b57f-4114-9578-ae0ec54ec1a0">
+				<reportElement positionType="Float" x="161" y="203" width="379" height="14" uuid="9cda31f6-b57f-4114-9578-ae0ec54ec1a0">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
@@ -622,7 +592,7 @@ where permintaan_ranap.no_rawat not in (select DISTINCT no_rawat from kamar_inap
 				<textFieldExpression><![CDATA[$F{nm_dpjp}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement mode="Transparent" x="21" y="239" width="130" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="af32420c-3095-4091-aeb6-a547c85744b9">
+				<reportElement mode="Transparent" x="21" y="221" width="130" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="af32420c-3095-4091-aeb6-a547c85744b9">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -632,7 +602,7 @@ where permintaan_ranap.no_rawat not in (select DISTINCT no_rawat from kamar_inap
 				<text><![CDATA[Catatan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="151" y="239" width="10" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="2f888f8e-d047-463d-9fec-dc0706bb9885">
+				<reportElement mode="Transparent" x="151" y="221" width="10" height="14" forecolor="#000000" backcolor="#F0F0DC" uuid="2f888f8e-d047-463d-9fec-dc0706bb9885">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -642,7 +612,7 @@ where permintaan_ranap.no_rawat not in (select DISTINCT no_rawat from kamar_inap
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="41" y="257" width="498" height="42" uuid="49e88298-2843-4e6e-a5b1-0780d937ab29">
+				<reportElement positionType="Float" x="41" y="239" width="498" height="42" uuid="49e88298-2843-4e6e-a5b1-0780d937ab29">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>

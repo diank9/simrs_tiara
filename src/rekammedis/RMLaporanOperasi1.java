@@ -1035,7 +1035,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             + tabMode.getValueAt(i, 38).toString() + "','"
                             + tabMode.getValueAt(i, 39).toString() + "','"
                             + tabMode.getValueAt(i, 40).toString() + "','"
-                            + " ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' " 
+                            + " ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' "
                             + akses.getalamatip() + "'", "Transaksi operasi");
                 }
 
@@ -1228,7 +1228,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
 
     private void BtnCloseIn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCloseIn5ActionPerformed
         WindowLaporan.dispose();
-//        emptTeks();
+        emptTeks();
     }//GEN-LAST:event_BtnCloseIn5ActionPerformed
 
     private void PreOpKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PreOpKeyPressed

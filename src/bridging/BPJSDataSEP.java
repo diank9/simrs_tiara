@@ -3782,7 +3782,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
     }//GEN-LAST:event_CatatanKeyPressed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        if (akses.getform().equals("DlgReg") || akses.getform().equals("DlgIGD") || akses.getform().equals("DlgKasirRalan") || akses.getform().equals("DlgKamarInap")) {
+        if (akses.getform().equals("DlgReg") || akses.getform().equals("DlgIGD") || akses.getform().equals("DlgKasirRalan") || akses.getform().equals("DlgKamarInap") || akses.getform().equals("DlgPermintaanRanap")) {
             prb = "";
             no_peserta = Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_rkm_medis=?", TNoRM.getText());
             System.out.println("No.Peserta : " + no_peserta);

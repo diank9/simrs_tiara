@@ -438,7 +438,6 @@ public final class RMLaporanOperasi extends javax.swing.JDialog {
         BtnPrint.setMnemonic('T');
         BtnPrint.setText("Cetak");
         BtnPrint.setToolTipText("Alt+T");
-        BtnPrint.setEnabled(false);
         BtnPrint.setName("BtnPrint"); // NOI18N
         BtnPrint.setPreferredSize(new java.awt.Dimension(100, 30));
         BtnPrint.addActionListener(new java.awt.event.ActionListener() {
@@ -494,7 +493,7 @@ public final class RMLaporanOperasi extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2025" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-12-2025" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -508,7 +507,7 @@ public final class RMLaporanOperasi extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2025" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-12-2025" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -646,7 +645,7 @@ public final class RMLaporanOperasi extends javax.swing.JDialog {
         TglLahir.setBounds(689, 10, 87, 23);
 
         Tgl2.setForeground(new java.awt.Color(50, 70, 50));
-        Tgl2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2025 09:49:45" }));
+        Tgl2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-12-2025 09:20:05" }));
         Tgl2.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         Tgl2.setName("Tgl2"); // NOI18N
         Tgl2.setOpaque(false);
@@ -715,7 +714,7 @@ public final class RMLaporanOperasi extends javax.swing.JDialog {
         jLabel17.setBounds(300, 40, 60, 23);
 
         Tgl.setForeground(new java.awt.Color(50, 70, 50));
-        Tgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-12-2025 09:49:45" }));
+        Tgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23-12-2025 09:20:05" }));
         Tgl.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         Tgl.setName("Tgl"); // NOI18N
         Tgl.setOpaque(false);
@@ -945,7 +944,7 @@ public final class RMLaporanOperasi extends javax.swing.JDialog {
                         hapus();
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Harus sesuai user dokter login..!!");
+                    JOptionPane.showMessageDialog(null, "Hanya bisa dihapus oleh dokter yang bersangkutan..!!");
                 }
             }
         } else {
@@ -966,12 +965,18 @@ public final class RMLaporanOperasi extends javax.swing.JDialog {
             Valid.textKosong(TNoRw, "pasien");
         } else if (Tindakan.getText().trim().equals("")) {
             Valid.textKosong(Tindakan, "Tindakan");
+        } else if (PreOp.getText().trim().equals("")) {
+            Valid.textKosong(PreOp, "Pre Operasi");
+        } else if (PostOp.getText().trim().equals("")) {
+            Valid.textKosong(PostOp, "Post Operasi");
+        } else if (Laporan.getText().trim().equals("")) {
+            Valid.textKosong(Laporan, "Laporan Operasi");
         } else {
             if (tbObat.getSelectedRow() > -1) {
                 if (akses.getkode().equals("Admin Utama")) {
                     ganti();
                 } else {
-                    if (akses.getkode().equals(tbObat.getValueAt(tbObat.getSelectedRow(), 31).toString()) || akses.getkode().equals(tbObat.getValueAt(tbObat.getSelectedRow(), 33).toString())) {
+                    if (akses.getkode().equals(tbObat.getValueAt(tbObat.getSelectedRow(), 14).toString())) {
                         if (Sequel.cekTanggal48jam(tbObat.getValueAt(tbObat.getSelectedRow(), 5).toString(), Sequel.ambiltanggalsekarang()) == true) {
                             if (TanggalRegistrasi.getText().equals("")) {
                                 TanggalRegistrasi.setText(Sequel.cariIsi("select concat(reg_periksa.tgl_registrasi,' ',reg_periksa.jam_reg) from reg_periksa where reg_periksa.no_rawat=?", TNoRw.getText()));
@@ -981,7 +986,7 @@ public final class RMLaporanOperasi extends javax.swing.JDialog {
                             }
                         }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Harus salah satu petugas sesuai user login..!!");
+                        JOptionPane.showMessageDialog(null, "Hanya bisa diganti oleh dokter yang bersangkutan..!!");
                     }
                 }
             } else {
@@ -1504,7 +1509,7 @@ public final class RMLaporanOperasi extends javax.swing.JDialog {
                 ps = koneksi.prepareStatement(
                         "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.tgl_lahir,pasien.jk,laporan_operasi.tanggal,"
                         + "laporan_operasi.diagnosa_preop,laporan_operasi.diagnosa_postop,laporan_operasi.jaringan_dieksekusi,laporan_operasi.selesaioperasi,"
-                        + "laporan_operasi.permintaan_pa,laporan_operasi.laporan_operasi,kode_paket,paket_operasi.nm_perawatan,booking_operasi.kd_dokter,dokter.nm_dokter "
+                        + "laporan_operasi.permintaan_pa,laporan_operasi.laporan_operasi,laporan_operasi.kode_paket,paket_operasi.nm_perawatan,booking_operasi.kd_dokter,dokter.nm_dokter "
                         + "from laporan_operasi inner join reg_periksa on laporan_operasi.no_rawat=reg_periksa.no_rawat "
                         + "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "
                         + "inner join paket_operasi on laporan_operasi.kode_paket=paket_operasi.kode_paket "
@@ -1670,7 +1675,7 @@ public final class RMLaporanOperasi extends javax.swing.JDialog {
         if (ChkInput.isSelected() == true) {
             if (internalFrame1.getHeight() > 558) {
                 ChkInput.setVisible(false);
-                PanelInput.setPreferredSize(new Dimension(WIDTH, 385));
+                PanelInput.setPreferredSize(new Dimension(WIDTH, 387));
                 FormInput.setVisible(true);
                 ChkInput.setVisible(true);
             } else {
@@ -1701,7 +1706,7 @@ public final class RMLaporanOperasi extends javax.swing.JDialog {
     }
 
     private void ganti() {
-        if (Sequel.mengedittf("laporan_operasi","no_rawat=? and kode_paket=? and tanggal=?",
+        if (Sequel.mengedittf("laporan_operasi", "no_rawat=? and kode_paket=? and tanggal=?",
                 "no_rawat=?,tanggal=?,diagnosa_preop=?,diagnosa_postop=?,jaringan_dieksekusi=?,"
                 + "selesaioperasi=?,permintaan_pa=?,laporan_operasi=?,kode_paket=?",
                 12,
