@@ -975,20 +975,18 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
 }//GEN-LAST:event_NoRwKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        // Validasi data pasien tidak boleh kosong
         if (NoRw.getText().trim().equals("") || NoRM.getText().trim().equals("") || NmPasien.getText().trim().equals("")) {
             Valid.textKosong(TCari, "Pasien");
-        } // Validasi kamar/bangsal tidak boleh kosong
+        }
         else if (KdBangsal.getText().trim().equals("") || KdKamar.getText().trim().equals("") || NmBangsal.getText().trim().equals("")) {
             Valid.textKosong(btnKamar, "Kamar/Bangsal");
-        } // Validasi diagnosa tidak boleh kosong
+        }
         else if (Diagnosa.getText().trim().equals("")) {
             Valid.textKosong(Diagnosa, "Diagnosa");
-        } // Validasi DPJP harus dipilih
+        }
         else if (kdDokter2.getText().trim().equals("")) {
             Valid.textKosong(kdDokter2, "DPJP");
         } else {
-            // Insert data ke tabel permintaan_ranap
             if (Sequel.menyimpantf("permintaan_ranap", "?,?,?,?,?", "Pasien", 5, new String[]{
                 NoRw.getText(),
                 Valid.SetTgl(DTPTgl.getSelectedItem() + ""),
@@ -997,16 +995,15 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
                 Catatan.getText()
             }) == true) {
 
-                // Insert data DPJP ke tabel dpjp_ranap setelah permintaan ranap berhasil disimpan
                 Sequel.menyimpan("dpjp_ranap", "?,?,?", "Data DPJP", 3, new String[]{
-                    NoRw.getText(), // no_rawat dari field NoRw
-                    kdDokter2.getText(), // kd_dokter dari field kdDokter2
-                    "Utama" // statusdpjp dibuat statik "Utama"
+                    NoRw.getText(),
+                    kdDokter2.getText(),
+                    "Utama"
                 });
 
                 // Update status kamar menjadi DIBOOKING
                 //Sequel.mengedit("kamar", "kd_kamar=?", "status='DIBOOKING'", 1, new String[]{KdKamar.getText()});
-                // Refresh tampilan dan kosongkan form
+
                 tampil();
                 emptTeks();
             }
@@ -1036,24 +1033,17 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnBatalKeyPressed
 
     private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
-        // Validasi apakah ada baris yang dipilih
         if (tbObat.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Silahkan pilih data yang akan dihapus!");
             return;
         }
 
-        // Hapus data DPJP terlebih dahulu sebelum menghapus permintaan ranap
-        // Karena dpjp_ranap memiliki foreign key ke permintaan_ranap
         if (Sequel.queryu2tf("delete from dpjp_ranap where no_rawat=?", 1, new String[]{
             NoRw.getText()
         }) == true) {
-            // Setelah data DPJP berhasil dihapus, hapus data permintaan ranap
             if (Valid.hapusTabletf(tabMode, NoRw, "permintaan_ranap", "no_rawat") == true) {
-                // Hapus baris dari table di form
                 tabMode.removeRow(tbObat.getSelectedRow());
-                // Kosongkan semua field input
                 emptTeks();
-                // Update counter jumlah data
                 LCount.setText("" + tabMode.getRowCount());
             }
         }
@@ -1200,22 +1190,19 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 }//GEN-LAST:event_ChkInputActionPerformed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        // Validasi data pasien tidak boleh kosong
         if (NoRw.getText().trim().equals("") || NoRM.getText().trim().equals("") || NmPasien.getText().trim().equals("")) {
             Valid.textKosong(TCari, "Pasien");
-        } // Validasi kamar/bangsal tidak boleh kosong
+        }
         else if (KdBangsal.getText().trim().equals("") || KdKamar.getText().trim().equals("") || NmBangsal.getText().trim().equals("")) {
             Valid.textKosong(btnKamar, "Kamar/Bangsal");
-        } // Validasi diagnosa tidak boleh kosong
+        }
         else if (Diagnosa.getText().trim().equals("")) {
             Valid.textKosong(Diagnosa, "Diagnosa");
-        } // Validasi DPJP harus dipilih
+        }
         else if (kdDokter2.getText().trim().equals("")) {
             Valid.textKosong(kdDokter2, "DPJP");
         } else {
-            // Validasi ada baris yang dipilih di table
             if (tbObat.getSelectedRow() > -1) {
-                // Update data permintaan_ranap
                 if (Sequel.mengedittf("permintaan_ranap", "no_rawat=?", "no_rawat=?,tanggal=?,kd_kamar=?,diagnosa=?,catatan=?", 6, new String[]{
                     NoRw.getText(),
                     Valid.SetTgl(DTPTgl.getSelectedItem() + ""),
@@ -1224,30 +1211,24 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     Catatan.getText(),
                     tbObat.getValueAt(tbObat.getSelectedRow(), 0).toString()
                 }) == true) {
-
-                    // Update data DPJP Utama di tabel dpjp_ranap
-                    // Cek apakah sudah ada data DPJP Utama untuk no_rawat ini
                     if (Sequel.cariInteger("select count(*) from dpjp_ranap where no_rawat=? and statusdpjp='Utama'",
                             NoRw.getText()) > 0) {
-                        // Jika sudah ada, update kd_dokter DPJP Utama
                         Sequel.mengedit("dpjp_ranap", "no_rawat=? and statusdpjp=?", "kd_dokter=?", 3, new String[]{
-                            kdDokter2.getText(), // kd_dokter baru
-                            NoRw.getText(), // no_rawat
-                            "Utama" // statusdpjp
+                            kdDokter2.getText(),
+                            NoRw.getText(),
+                            "Utama"
                         });
                     } else {
-                        // Jika belum ada, insert data DPJP Utama baru
                         Sequel.menyimpan("dpjp_ranap", "?,?,?", "Data DPJP", 3, new String[]{
-                            NoRw.getText(), // no_rawat
-                            kdDokter2.getText(), // kd_dokter
-                            "Utama" // statusdpjp
+                            NoRw.getText(),
+                            kdDokter2.getText(),
+                            "Utama"
                         });
                     }
 
                     // Update status kamar menjadi DIBOOKING
-                    Sequel.mengedit("kamar", "kd_kamar=?", "status='DIBOOKING'", 1, new String[]{KdKamar.getText()});
+                    // Sequel.mengedit("kamar", "kd_kamar=?", "status='DIBOOKING'", 1, new String[]{KdKamar.getText()});
 
-                    // Refresh tampilan dan kosongkan form
                     tampil();
                     emptTeks();
                 }
@@ -1449,7 +1430,6 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             if (tbObat.getSelectedRow() != -1) {
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
-                // Persiapan parameter untuk report
                 Map<String, Object> param = new HashMap<>();
                 param.put("namars", akses.getnamars());
                 param.put("alamatrs", akses.getalamatrs());
@@ -1458,21 +1438,17 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 param.put("kontakrs", akses.getkontakrs());
                 param.put("emailrs", akses.getemailrs());
 
-                // Ambil fingerprint dokter untuk tanda tangan elektronik
                 finger = Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?", KdDokter.getText());
                 param.put("finger", "Dikeluarkan di " + akses.getnamars() + ", Kabupaten/Kota " + akses.getkabupatenrs() + "\nDitandatangani secara elektronik oleh " + Dokter.getText() + "\nID " + (finger.equals("") ? KdDokter.getText() : finger) + "\n" + DTPTgl.getSelectedItem());
                 param.put("logo", Sequel.cariGambar("select setting.logo from setting"));
 
-                // Query untuk print dengan tambahan data DPJP
                 Valid.MyReportqry("rptSuratPermintaanRawatInap.jasper", "report", "::[ Surat Permintaan Rawat Inap ]::",
                         "select permintaan_ranap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur,"
                         + "pasien.no_tlp,penjab.png_jawab,poliklinik.nm_poli,dokter.nm_dokter,"
-                        + // Format tanggal ke format Indonesia: 19 November 2025
-                        "DATE_FORMAT(permintaan_ranap.tanggal,'%e %M %Y') as tanggal,"
+                        + "DATE_FORMAT(permintaan_ranap.tanggal,'%e %M %Y') as tanggal,"
                         + "permintaan_ranap.kd_kamar,kamar.kd_bangsal,"
                         + "bangsal.nm_bangsal,kamar.trf_kamar,permintaan_ranap.diagnosa,permintaan_ranap.catatan,reg_periksa.kd_dokter,"
-                        + // Subquery untuk menggabungkan semua nama DPJP dengan statusnya
-                        "(SELECT GROUP_CONCAT(CONCAT(d.nm_dokter,' (',dr.statusdpjp,')') SEPARATOR ', ') "
+                        + "(SELECT GROUP_CONCAT(CONCAT(d.nm_dokter,' (',dr.statusdpjp,')') SEPARATOR ', ') "
                         + "FROM dpjp_ranap dr INNER JOIN dokter d ON dr.kd_dokter=d.kd_dokter "
                         + "WHERE dr.no_rawat=permintaan_ranap.no_rawat) as nm_dpjp "
                         + "from permintaan_ranap "
@@ -1590,7 +1566,6 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }//GEN-LAST:event_BtnSeek4KeyPressed
 
     private void BtnBridgingSEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBridgingSEPActionPerformed
-        // TODO add your handling code here:
         if (tabMode.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "Maaf, table masih kosong...!!!!");
             TCari.requestFocus();
@@ -1715,13 +1690,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         Valid.tabelKosong(tabMode);
         try {
             if (R1.isSelected() == true) {
-                // Prepare statement dengan subquery untuk menggabungkan multiple DPJP
                 ps = koneksi.prepareStatement(
                         "select permintaan_ranap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur,"
                         + "pasien.no_tlp,penjab.png_jawab,poliklinik.nm_poli,dokter.nm_dokter,permintaan_ranap.tanggal,permintaan_ranap.kd_kamar,kamar.kd_bangsal,"
                         + "bangsal.nm_bangsal,kamar.trf_kamar,permintaan_ranap.diagnosa,permintaan_ranap.catatan,reg_periksa.kd_dokter,"
-                        + // Subquery untuk menggabungkan semua nama DPJP dengan separator koma, menampilkan statusdpjp dalam kurung
-                        "(SELECT GROUP_CONCAT(CONCAT(d.nm_dokter,' (',dr.statusdpjp,')') SEPARATOR ', ') "
+                        + "(SELECT GROUP_CONCAT(CONCAT(d.nm_dokter,' (',dr.statusdpjp,')') SEPARATOR ', ') "
                         + "FROM dpjp_ranap dr INNER JOIN dokter d ON dr.kd_dokter=d.kd_dokter "
                         + "WHERE dr.no_rawat=permintaan_ranap.no_rawat) as nm_dpjp "
                         + "from permintaan_ranap "
@@ -1767,13 +1740,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     }
                 }
             } else if (R2.isSelected() == true) {
-                // Prepare statement dengan subquery untuk menampilkan multiple DPJP
                 ps = koneksi.prepareStatement(
                         "select permintaan_ranap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,reg_periksa.umurdaftar,reg_periksa.sttsumur,"
                         + "pasien.no_tlp,penjab.png_jawab,poliklinik.nm_poli,dokter.nm_dokter,permintaan_ranap.tanggal,permintaan_ranap.kd_kamar,kamar.kd_bangsal,"
                         + "bangsal.nm_bangsal,kamar.trf_kamar,permintaan_ranap.diagnosa,permintaan_ranap.catatan,reg_periksa.kd_dokter,"
-                        + // Subquery untuk menggabungkan semua nama DPJP beserta statusnya
-                        "(SELECT GROUP_CONCAT(CONCAT(d.nm_dokter,' (',dr.statusdpjp,')') SEPARATOR ', ') "
+                        + "(SELECT GROUP_CONCAT(CONCAT(d.nm_dokter,' (',dr.statusdpjp,')') SEPARATOR ', ') "
                         + "FROM dpjp_ranap dr INNER JOIN dokter d ON dr.kd_dokter=d.kd_dokter "
                         + "WHERE dr.no_rawat=permintaan_ranap.no_rawat) as nm_dpjp "
                         + "from permintaan_ranap "
@@ -1853,7 +1824,6 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
     private void getData() {
         if (tbObat.getSelectedRow() != -1) {
-            // Ambil data dari table
             NoRw.setText(tbObat.getValueAt(tbObat.getSelectedRow(), 0).toString());
             NoRM.setText(tbObat.getValueAt(tbObat.getSelectedRow(), 1).toString());
             NmPasien.setText(tbObat.getValueAt(tbObat.getSelectedRow(), 2).toString());
@@ -1870,22 +1840,19 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             KdDokter.setText(tbObat.getValueAt(tbObat.getSelectedRow(), 16).toString());
             Valid.SetTgl(DTPTgl, tbObat.getValueAt(tbObat.getSelectedRow(), 9).toString());
 
-            // Query untuk mengambil DPJP dengan status "Utama" saja
             try {
                 ps = koneksi.prepareStatement(
                         "select dpjp_ranap.kd_dokter, dokter.nm_dokter "
                         + "from dpjp_ranap inner join dokter on dpjp_ranap.kd_dokter=dokter.kd_dokter "
                         + "where dpjp_ranap.no_rawat=? and dpjp_ranap.statusdpjp='Utama'"
                 );
-                ps.setString(1, NoRw.getText()); // Parameter no_rawat dari field NoRw
+                ps.setString(1, NoRw.getText());
                 rs = ps.executeQuery();
 
-                // Jika data DPJP Utama ditemukan
                 if (rs.next()) {
-                    kdDokter2.setText(rs.getString("kd_dokter"));  // Set kode dokter DPJP
-                    nmDokter2.setText(rs.getString("nm_dokter"));  // Set nama dokter DPJP
+                    kdDokter2.setText(rs.getString("kd_dokter"));
+                    nmDokter2.setText(rs.getString("nm_dokter"));
                 } else {
-                    // Jika tidak ada DPJP Utama, kosongkan field
                     kdDokter2.setText("");
                     nmDokter2.setText("");
                 }
