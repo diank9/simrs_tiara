@@ -247,7 +247,6 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         FormInput = new widget.PanelBiasa();
         NoRw = new widget.TextBox();
         NmPasien = new widget.TextBox();
-        DTPTgl = new widget.Tanggal();
         jLabel10 = new widget.Label();
         NoRM = new widget.TextBox();
         jLabel5 = new widget.Label();
@@ -274,6 +273,7 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         kdDokter2 = new widget.TextBox();
         nmDokter2 = new widget.TextBox();
         BtnSeek4 = new widget.Button();
+        DTPTgl = new widget.Tanggal();
         PanelAccor = new widget.PanelBiasa();
         ChkAccor = new widget.CekBox();
         ScrollMenu = new widget.ScrollPane();
@@ -533,7 +533,7 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(165, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-12-2025" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-12-2025" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -556,7 +556,7 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(30, 23));
         panelCari.add(jLabel25);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-12-2025" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-12-2025" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -623,24 +623,10 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         FormInput.add(NmPasien);
         NmPasien.setBounds(288, 10, 330, 23);
 
-        DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-12-2025" }));
-        DTPTgl.setDate(new java.util.Date(1766551659000L));
-        DTPTgl.setDisplayFormat("dd-MM-yyyy");
-        DTPTgl.setName("DTPTgl"); // NOI18N
-        DTPTgl.setOpaque(false);
-        DTPTgl.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                DTPTglKeyPressed(evt);
-            }
-        });
-        FormInput.add(DTPTgl);
-        DTPTgl.setBounds(528, 70, 90, 23);
-
         jLabel10.setText("Tanggal :");
         jLabel10.setName("jLabel10"); // NOI18N
         FormInput.add(jLabel10);
-        jLabel10.setBounds(454, 70, 70, 23);
+        jLabel10.setBounds(400, 70, 80, 23);
 
         NoRM.setEditable(false);
         NoRM.setHighlighter(null);
@@ -820,6 +806,19 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         FormInput.add(BtnSeek4);
         BtnSeek4.setBounds(590, 160, 28, 23);
 
+        DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-12-2025 10:20:23" }));
+        DTPTgl.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
+        DTPTgl.setName("DTPTgl"); // NOI18N
+        DTPTgl.setOpaque(false);
+        DTPTgl.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                DTPTglKeyPressed(evt);
+            }
+        });
+        FormInput.add(DTPTgl);
+        DTPTgl.setBounds(488, 70, 130, 23);
+
         PanelInput.add(FormInput, java.awt.BorderLayout.CENTER);
 
         internalFrame1.add(PanelInput, java.awt.BorderLayout.PAGE_START);
@@ -974,10 +973,6 @@ public class DlgPermintaanRanap extends javax.swing.JDialog {
         //Valid.pindah(evt,Status,KdDokter);
 
 }//GEN-LAST:event_NoRwKeyPressed
-
-    private void DTPTglKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DTPTglKeyPressed
-        Valid.pindah(evt, TCari, Diagnosa);
-}//GEN-LAST:event_DTPTglKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
         // Validasi data pasien tidak boleh kosong
@@ -1624,6 +1619,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
     }//GEN-LAST:event_BtnBridgingSEPActionPerformed
 
+    private void DTPTglKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DTPTglKeyPressed
+        Valid.pindah2(evt,KdDokter,Diagnosa);
+    }//GEN-LAST:event_DTPTglKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -1907,6 +1906,8 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         Poli.setText(poli);
         NoTelp.setText(notelp);
         TCari.setText(norwt);
+        // fix tanggal saat form di klik, sesuaikan tipe data di db kalau mau sama jam
+        DTPTgl.setDate(new Date());
         ChkInput.setSelected(true);
         aktif = false;
         isForm();

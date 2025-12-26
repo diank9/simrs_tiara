@@ -15088,8 +15088,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         + "pasien.no_tlp,penjab.png_jawab,poliklinik.nm_poli,dokter.nm_dokter,permintaan_ranap.tanggal,"
                         + "permintaan_ranap.kd_kamar,kamar.kd_bangsal,"
                         + "bangsal.nm_bangsal,kamar.trf_kamar,permintaan_ranap.diagnosa,permintaan_ranap.catatan,reg_periksa.kd_dokter, "
-                        + // Subquery untuk menggabungkan semua nama DPJP dengan statusnya
-                        "(SELECT d.nm_dokter "
+                        + "(SELECT d.nm_dokter "
                         + "FROM dpjp_ranap dr INNER JOIN dokter d ON dr.kd_dokter=d.kd_dokter "
                         + "WHERE dr.no_rawat=permintaan_ranap.no_rawat AND dr.statusdpjp='Utama') as nm_dpjp "
                         + "from permintaan_ranap "

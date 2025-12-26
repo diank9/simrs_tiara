@@ -11356,7 +11356,14 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                     form.isCek();
                     form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
                     form.setLocationRelativeTo(internalFrame1);               
-                    form.setNoRm(TNoRw.getText(),TNoRMCari.getText(),TPasienCari.getText(),tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),1).toString(),tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),9).toString(),tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),4).toString(),tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),19).toString()); 
+                    form.setNoRm(
+                            TNoRw.getText(),
+                            TNoRMCari.getText(),
+                            TPasienCari.getText(),
+                            tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),1).toString(),
+                            tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),9).toString(),
+                            tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),4).toString(),
+                            tbKasirRalan.getValueAt(tbKasirRalan.getSelectedRow(),19).toString()); 
                     form.setVisible(true);
                 } 
             }               
@@ -12939,7 +12946,14 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
                     form.isCek();
                     form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
                     form.setLocationRelativeTo(internalFrame1);               
-                    form.setNoRm(TNoRwCari.getText(),TNoRMCari.getText(),TPasienCari.getText(),tbKasirRalan2.getValueAt(tbKasirRalan2.getSelectedRow(),1).toString(),tbKasirRalan2.getValueAt(tbKasirRalan2.getSelectedRow(),8).toString(),tbKasirRalan2.getValueAt(tbKasirRalan2.getSelectedRow(),4).toString(),tbKasirRalan2.getValueAt(tbKasirRalan2.getSelectedRow(),15).toString()); 
+                    form.setNoRm(
+                            TNoRwCari.getText(),
+                            TNoRMCari.getText(),
+                            TPasienCari.getText(),
+                            tbKasirRalan2.getValueAt(tbKasirRalan2.getSelectedRow(),1).toString(),
+                            tbKasirRalan2.getValueAt(tbKasirRalan2.getSelectedRow(),8).toString(),
+                            tbKasirRalan2.getValueAt(tbKasirRalan2.getSelectedRow(),4).toString(),
+                            tbKasirRalan2.getValueAt(tbKasirRalan2.getSelectedRow(),15).toString()); 
                     form.setVisible(true);
                 } 
             }               

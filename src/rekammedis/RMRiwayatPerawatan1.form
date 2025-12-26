@@ -265,7 +265,7 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="1">
-            <StringItem index="0" value="10-12-2025 15:25:44"/>
+            <StringItem index="0" value="26-12-2025 13:57:19"/>
           </StringArray>
         </Property>
         <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy HH:mm:ss"/>
@@ -1585,6 +1585,21 @@
                                   <Dimension value="[245, 22]"/>
                                 </Property>
                               </Properties>
+                            </Component>
+                            <Component class="widget.CekBox" name="chkPermintaanRanap">
+                              <Properties>
+                                <Property name="selected" type="boolean" value="true"/>
+                                <Property name="text" type="java.lang.String" value="Permintaan Rawat Inap"/>
+                                <Property name="horizontalAlignment" type="int" value="2"/>
+                                <Property name="name" type="java.lang.String" value="chkPermintaanRanap" noResource="true"/>
+                                <Property name="opaque" type="boolean" value="false"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[245, 22]"/>
+                                </Property>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkPermintaanRanapActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="widget.CekBox" name="chkCatatanDokter">
                               <Properties>
